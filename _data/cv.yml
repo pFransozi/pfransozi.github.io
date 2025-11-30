@@ -1,97 +1,149 @@
-- title: General Information
+- title: Informações Gerais
   type: map
   contents:
-    - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
-    - name: Languages
-      value: English, German
+    - name: Nome completo
+      value: Philipe Hugo Fransozi
+    - name: País
+      value: Brasil
+    - name: Áreas de atuação
+      value: Cibersegurança, Análise de Malware Android, Aprendizado de Máquina aplicado à Segurança, Filosofia
+    - name: Currículo Lattes
+      value: >
+        <a href="http://lattes.cnpq.br/1109829821736159" target="_blank">
+        http://lattes.cnpq.br/1109829821736159</a>
 
-- title: Education
+- title: Formação Acadêmica
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: Mestrado em Informática (em andamento)
+      institution: Pontifícia Universidade Católica do Paraná (PUCPR), Brasil
+      year: 2025 – atual
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+        - Área de concentração: Cibersegurança.
+        - Projeto voltado à detecção de malware Android com IA/ML e deep learning em grafos.
 
-- title: Experience
+    - title: Bacharelado em Cibersegurança (em andamento)
+      institution: Pontifícia Universidade Católica do Paraná (PUCPR), Brasil
+      year: 2022 – atual
+
+    - title: Mestrado em Filosofia
+      institution: Universidade Federal do Paraná (UFPR), Brasil
+      year: 2019 – 2020
+      description:
+        - Dissertação sobre o diálogo "Íon" de Platão (Filosofia Antiga, Estética, História da Filosofia).
+
+    - title: Graduação em Filosofia
+      institution: Universidade Federal do Paraná (UFPR), Brasil
+      year: 2013 – 2018
+      description:
+        - Bacharelado / Licenciatura em Filosofia.
+
+- title: Formação Complementar em TI e Segurança
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Cisco CyberOps Associate
+      institution: Cisco Networking Academy / NETACAD
+      year: 2022 – 2022
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
-      description:
-        - Description 1.
-        - Description 2.
+        - Curso preparatório para certificação CyberOps Associate.
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
+    - title: Security Engineer
+      institution: Cisco Networking Academy / NETACAD
+      year: 2021 – 2022
 
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
+    - title: CCNA 1 – Introduction to Networks
+      institution: Cisco Networking Academy / NETACAD
+      year: 2021 – 2021
 
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Experiência Profissional
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+    - title: Professor de Pensamento Computacional, Programação Web e Computação Gráfica
+      institution: Tom Educação, Brasil
+      year: 2023 – atual
+      description:
+        - Ensino de lógica de programação, programação Web (HTML/CSS/JS) e computação gráfica para ensino fundamental, médio e técnico.
 
-- title: Honors and Awards
+    - title: Bolsista de Iniciação Científica (Cibersegurança / Malware Android)
+      institution: Pontifícia Universidade Católica do Paraná (PUCPR)
+      year: 2023 – 2025
+      description:
+        - Projeto PIBIC em detecção de malware Android usando IA/ML e seleção de características multi-view.
+
+    - title: Bolsista de Pós-Graduação (Mestrado em Filosofia)
+      institution: Universidade Federal do Paraná (UFPR)
+      year: 2019 – 2021
+
+    - title: Bolsista PET-Filosofia
+      institution: Universidade Federal do Paraná (UFPR)
+      year: 2014 – 2018
+
+    - title: System Administrator
+      institution: Thomson Reuters (Thomson Reuters Serviços Econômicos), Brasil
+      year: 2012 – 2013
+      description:
+        - Administração de sistemas, infraestrutura de TI e suporte interno.
+
+    - title: Software Engineer
+      institution: ConceitoW / CW, Brasil
+      year: 2008 – 2011
+      description:
+        - Análise e desenvolvimento de software (C#, ASP.NET, SQL Server) em sistemas fiscais.
+
+    - title: Junior Software Engineer
+      institution: Staff Informática Ltda, Brasil
+      year: 2005 – 2007
+      description:
+        - Desenvolvimento e suporte a sistemas corporativos.
+
+- title: Projetos de Pesquisa
   type: time_table
   contents:
-    - year: 1921
-      items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
-      items:
-        - Max Planck Medal
+    - title: Detecção de Malware para Android utilizando arquiteturas de aprendizagem profunda baseadas em grafos
+      institution: PUCPR – Programa de Pós-Graduação em Informática
+      year: 2023 – 2025
+      description:
+        - Modelagem de sistemas de detecção de malware Android usando aprendizado profundo baseado em grafos.
+        - Investigação de seleção de características multi-view e otimização multiobjetivo (NSGA-II).
 
-- title: Academic Interests
-  type: nested_list
+- title: Prêmios e Títulos
+  type: time_table
   contents:
-    - title: Topic 1.
+    - year: 2025
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+        - Prêmio de Pesquisa Chamex – PIBIC, 1º lugar em Ciências Exatas e da Terra (PUCPR).
 
-- title: Other Interests
-  type: list
+    - year: 2024
+      items:
+        - Artefato Destaque – Seleção de Características Multiobjetivo para Detecção de Malwares Android (SBSEG).
+        - Menção Honrosa – Seleção de Características Multiobjetivo para Detecção de Malwares Android (SBSEG).
+
+- title: Idiomas
+  type: map
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - name: Português
+      value: Nativo
+    - name: Inglês
+      value: Compreende bem, fala pouco, lê bem, escreve pouco
+
+
+- title: Publicações Selecionadas
+  type: time_table
+  contents:
+    - title: A Lightweight Multi-View Android Malware Detection Model with Multi-Objective Feature Selection
+      institution: Journal of the Brazilian Computer Society (JBCS)
+      year: 2025
+      description:
+        - Coautor. Modelo leve de detecção de malware Android combinando múltiplas visões e seleção multiobjetivo de características.
+
+    - title: Seleção de Características Multiobjetivo para Detecção de Malwares Android
+      institution: WTICG @ SBSEG
+      year: 2024
+      description:
+        - Coautor. Uso de NSGA-II para seleção multiobjetivo de features em malware Android.
+
+    - title: An Android Malware Detection Model with Multi-Objective Feature Selection and Deep Learning on Missing Modalities
+      institution: IEEE ICMLA
+      year: 2024
+      description:
+        - Coautor. Modelo multimodal com tratamento de modalidades ausentes para detecção de malware Android.
