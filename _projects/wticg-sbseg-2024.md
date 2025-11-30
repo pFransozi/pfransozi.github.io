@@ -4,7 +4,7 @@ title: "Seleção de Características Multiobjetivo para Detecção de Malwares 
 description: "NSGA-II aplicado a múltiplas visões estáticas de APKs"
 # img: assets/img/12.jpg
 importance: 1
-category: work
+category: "Malware, Cibersegurança & IA"
 date: 2024-09-01
 related_publications: true
 tags:
