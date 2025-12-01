@@ -82,6 +82,11 @@ ninja.data = [{
           description: "NSGA-II aplicado a múltiplas visões estáticas de APKs",
           section: "Projects",handler: () => {
               window.location.href = "/projects/wticg-sbseg-2024/";
+            },},{id: "projects-lightweight-multi-view-android-malware-detection",
+          title: 'Lightweight Multi-View Android Malware Detection',
+          description: "Modelo leve de detecção de malwares Android com seleção de características multiobjetivo.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/lightweight-android-malware-detection/";
             },},{
         id: 'social-cv',
         title: 'CV',
