@@ -1,5 +1,5 @@
 ---
-layout: project
+layout: page
 title: "Seleção de Características Multiobjetivo para Detecção de Malwares Android"
 description: "NSGA-II aplicado a múltiplas visões estáticas de APKs"
 importance: 2
