@@ -48,7 +48,7 @@ ninja.data = [{
         
           title: "PATH hijacking no Linux: sudo, PATH e root",
         
-        description: "Um resumo de como um simples PATH hijacking no Linux pode render acesso root e como evitar esse tipo de falha em ambientes de produção.",
+        description: "",
         section: "Posts",
         handler: () => {
           
