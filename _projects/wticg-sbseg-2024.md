@@ -17,22 +17,6 @@ paper: "https://sol.sbc.org.br/index.php/sbseg_estendido/article/view/30146"
 doi: "10.5753/sbseg_estendido.2024.241836"
 selected: true   # aparece em destaque (home / grid principal)
 ---
----
-layout: project
-title: "Seleção de Características Multiobjetivo para Detecção de Malwares Android"
-subtitle: "NSGA-II aplicado a múltiplas visões estáticas de APKs"
-date: 2024-09-01   # uma data aproximada do trabalho
-tags:
-  - Android Malware
-  - Machine Learning
-  - NSGA-II
-  - Feature Selection
-  - Cybersecurity
-github: "https://github.com/pFransozi/wticg_sbseg_24"
-paper: "https://sol.sbc.org.br/index.php/sbseg_estendido/article/view/30146"
-doi: "10.5753/sbseg_estendido.2024.241836"
-selected: true   # aparece em destaque (home / grid principal)
----
 
 Este projeto implementa o pipeline experimental do artigo:
 
