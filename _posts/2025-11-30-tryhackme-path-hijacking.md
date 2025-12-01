@@ -216,6 +216,9 @@ Em scripts que rodam como `root` (`cron`, `systemd`, scripts de provisionamento 
 # Em vez de:
 sudo cat /etc/shadow
 service ssh status
+```
+
+``` bash
 # Use:
 /usr/bin/sudo /bin/cat /etc/shadow
 /usr/sbin/service ssh status
@@ -275,8 +278,11 @@ Em busca de:
 
 Alguns comandos simples, já ajudam a pegar coisas óbvias:
 
-``` bash
+```bash
 find /tmp  -maxdepth 2 -type f -perm -111
+```
+
+```bash
 find /home -maxdepth 3 -type f -perm -111 -name 'sudo'
 ```
 
@@ -303,36 +309,46 @@ Se você tem cron, systemd, scripts de manutenção, pipelines de CI/CD ou qualq
     * Regra de bolso: “`sudo` é interface pra humano, não pra script”. Se o script precisa de `root`, pense em rodá-lo no contexto certo desde o início.
 2. Se precisar usar sudo, use caminho absoluto:
     * Dentro de scripts:
+
         ``` bash
         # Evite:
         sudo comando
         sudo cat /etc/shadow
+        ```
 
+        ``` bash
         # Prefira:
         /usr/bin/sudo /bin/comando
         /usr/bin/sudo /bin/cat /etc/shadow
         ```
-    Mesma lógica para os binários chamados pelo sudo (`/bin/cat`, `/usr/sbin/service`).
+
+        Mesma lógica para os binários chamados pelo sudo (`/bin/cat`, `/usr/sbin/service`).
 3. Trate o `PATH` como superfície de ataque:
     * Em scripts privilegiados, defina um PATH mínimo, controlado:
+
         ``` bash
         PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
         export PATH
         ```
+
     * Não herde PATH do ambiente do usuário sem pensar.
     * Nunca inclua diretórios escrevíveis por usuários (`/tmp`, `/var/tmp`, diretórios de home) no `PATH` de automações privilegiadas.
 4. Revise o sudoers pensando em automações:
      * Use visudo e confira:
         * Regras com NOPASSWD: são realmente necessárias? Podem ser mais específicas?
         * Comandos permitidos: evite ALL, prefira linhas do tipo:
+
             ``` bash
             meu-user ALL=(root) NOPASSWD: /usr/bin/systemctl restart meu-servico
             ```
+
     * Avalie se o serviço não deveria rodar como root direto, em vez de usar sudo por baixo do pano.
     * Ative e use `secure_path` no sudoers:
+
         ``` bash
         Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
         ```
+
     Assim, mesmo quando scripts chamam sudo, o comando rodará com um PATH limpo.
 
 ## Conclusão
