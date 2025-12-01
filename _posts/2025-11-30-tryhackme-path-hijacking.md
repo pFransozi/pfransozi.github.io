@@ -202,7 +202,9 @@ Por exemplo:
 ## Como impedir isso em ambientes de produção
 
 ### Nunca coloque diretórios escrevíveis no `PATH` (tipo `/tmp`)
-Isso vale tanto para usuários comuns quanto, principalmente, para `root`. 
+
+Isso vale tanto para usuários comuns quanto, principalmente, para `root`.
+
 * Nunca deixe `/tmp`, `/var/tmp` ou qualquer diretório globalmente escrevível (`drwxrwxrwt`) no `PATH`. 
 * Evite também colocar diretórios do usuário (`~/bin`, `~/.local/bin`) no `PATH` do `root`.
 
