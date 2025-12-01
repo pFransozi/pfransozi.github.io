@@ -10,13 +10,14 @@ toc: true
 
 ## Introdução
 
-Recentemente eu fiz o lab **“Eavesdropper – Find the Flag”**, no TryHackMe. À primeira vista, parecia “só mais um” desafio de escalonamento de privilégios em Linux. Na prática, ele acabou virando uma aula muito concreta sobre:
+Recentemente eu fiz o lab **Eavesdropper – Find the Flag**, no TryHackMe. À primeira vista, parecia “só mais um” desafio de escalonamento de privilégios em Linux. Na prática, ele acabou virando uma aula muito concreta sobre:
 
-- Como o `PATH` pode ser abusado para rodar binários falsos;
-- Como isso se conecta ao `sudo`;
-- E, mais importante: como evitar esse tipo de ataque em ambientes de produção;
+- Como o `PATH` pode ser abusado para rodar binários falsos.
+- Como isso se conecta ao `sudo`.
+- E, mais importante: como evitar esse tipo de ataque em ambientes de produção.
 
 Neste post vou contar rapidamente como funciona o ataque (sem código malicioso passo a passo) e, principalmente, quais são as boas práticas para se proteger desse tipo de vetor.
+
 ---
 
 ## Cenário do lab (versão resumida)
