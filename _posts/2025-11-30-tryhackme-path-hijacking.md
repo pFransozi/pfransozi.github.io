@@ -63,7 +63,6 @@ E assim por diante. Se eu conseguir colocar um diretório escrevível por mim (c
 ``` bash
 # (conceito) Colocar /tmp no começo do PATH
 export PATH=/tmp:$PATH
-
 # Agora, se existir /tmp/sudo e ele for executável:
 which sudo
 # /tmp/sudo
@@ -81,8 +80,8 @@ Se eu consigo:
 
 Então eu posso:
 
-1. Executar qualquer coisa no lugar do `sudo` real
-2. E potencialmente roubar credenciais (por exemplo, pedindo a senha e guardando em algum lugar antes de repassar para o `/usr/bin/sudo` verdadeiro)
+1. Executar qualquer coisa no lugar do `sudo` real.
+2. E potencialmente roubar credenciais (por exemplo, pedindo a senha e guardando em algum lugar antes de repassar para o `/usr/bin/sudo` verdadeiro).
 
 Essa é a parte que, em ambiente real, vira uma técnica de **Credential Access** / **Privilege Escalation**. No lab, o objetivo era justamente explorar esse comportamento para capturar a senha e escalar para `root`. Em ambiente de produção, esse mesmo padrão é um incidente de segurança grave.
 
@@ -104,14 +103,14 @@ O impacto é o mesmo (ou até pior): **execução de código no contexto do serv
 
 ## Conectando com o MITRE ATT&CK
 
-Se olharmos esse lab com a lente do MITRE ATT&CK, dá pra mapear bem o que está acontecendo – e, principalmente, o papel das automações que abusam de sudo, não só do usuário na frente do terminal.
+Se olharmos esse lab com a lente do MITRE ATT&CK, dá pra mapear bem o que está acontecendo e, principalmente, o papel das automações que abusam de sudo, não só do usuário na frente do terminal.
 
 Táticas envolvidas:
 
 * **Privilege Escalation** (TA0004) – sair de usuário comum (`frank`) para `root`.
 * **Credential Access** (TA0006) – porque o alvo intermediário é ler `/etc/shadow` e potencialmente quebrar senhas depois.
 
-### `PATH` hijacking → T1574.007 – `Path` Interception by `PATH` Environment Variable
+### `PATH` hijacking (T1574.007):  `Path` Interception by `PATH` Environment Variable
 
 A técnica de colocar `/tmp` na frente do `PATH` e criar um `sudo` falso se encaixa em: 
 
@@ -217,10 +216,9 @@ Em scripts que rodam como `root` (`cron`, `systemd`, scripts de provisionamento 
 # Em vez de:
 sudo cat /etc/shadow
 service ssh status
-
 # Use:
- /usr/bin/sudo /bin/cat /etc/shadow
- /usr/sbin/service ssh status
+/usr/bin/sudo /bin/cat /etc/shadow
+/usr/sbin/service ssh status
 ```
 
 Isso elimina a possibilidade de PATH hijack nesses pontos: mesmo que alguém consiga mexer no `PATH`, o comando chamado será o específico `/usr/bin/sudo`, e não “qualquer coisa chamada sudo”.
