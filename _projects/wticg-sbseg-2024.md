@@ -1,10 +1,9 @@
 ---
-layout: page
+layout: project
 title: "Seleção de Características Multiobjetivo para Detecção de Malwares Android"
 description: "NSGA-II aplicado a múltiplas visões estáticas de APKs"
-# img: assets/img/12.jpg
-importance: 1
-category: "Malware, Cibersegurança & IA"
+importance: 2
+category: "Android Malware & AI"
 date: 2024-09-01
 related_publications: true
 tags:
