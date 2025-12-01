@@ -12,9 +12,9 @@ toc: true
 
 Recentemente eu fiz o lab **Eavesdropper – Find the Flag**, no TryHackMe. À primeira vista, parecia “só mais um” desafio de escalonamento de privilégios em Linux. Na prática, ele acabou virando uma aula muito concreta sobre:
 
-- Como o `PATH` pode ser abusado para rodar binários falsos.
-- Como isso se conecta ao `sudo`.
-- E, mais importante: como evitar esse tipo de ataque em ambientes de produção.
+* Como o `PATH` pode ser abusado para rodar binários falsos.
+* Como isso se conecta ao `sudo`.
+* E, mais importante: como evitar esse tipo de ataque em ambientes de produção.
 
 Neste post vou contar rapidamente como funciona o ataque (sem código malicioso passo a passo) e, principalmente, quais são as boas práticas para se proteger desse tipo de vetor.
 
@@ -24,11 +24,13 @@ Neste post vou contar rapidamente como funciona o ataque (sem código malicioso 
 
 No lab, eu tinha acesso SSH como um usuário comum, `frank`. O objetivo era, claro, virar `root`. Passos principais que fiz:
 
-1. Usei uma ferramenta de monitoramento de processos (`pspy`) para observar o que o sistema estava executando em background;
+1. Usei uma ferramenta de monitoramento de processos (`pspy`) para observar o que o sistema estava executando em background.
 2. Em determinado momento aparecia algo como:
+
 ```bash
 UID=0 | sudo cat /etc/shadow
 ```
+
 Ou seja: algum processo estava chamando `sudo` para ler `/etc/shadow`.
 
 A partir daí, a ideia do lab era: se alguém está chamando `sudo` em um contexto onde o ambiente do usuário conta, dá pra enganar o sistema fazendo `sudo` apontar para outra coisa. Isso nos leva ao coração do ataque: PATH hijacking.
@@ -51,14 +53,14 @@ O shell não “nasce sabendo” onde está `sudo`. Ele procura o binário perco
 
 A lógica é:
 
-1. Procura sudo em `/usr/local/sbin`
-2. Se não achar, tenta `/usr/local/bin`
-3. Depois `/usr/sbin`
-4. Depois `/usr/bin`
+1. Procura sudo em `/usr/local/sbin`.
+2. Se não achar, tenta `/usr/local/bin`.
+3. Depois `/usr/sbin`.
+4. Depois `/usr/bin`.
 
-e assim por diante. Se eu conseguir colocar um diretório escrevível por mim (como `/tmp` ou `~/bin`) no início do PATH, e criar um arquivo executável chamado sudo ali dentro, o shell passa a encontrar o meu sudo falso antes do `/usr/bin/sudo` legítimo. Exemplo conceitual:
+E assim por diante. Se eu conseguir colocar um diretório escrevível por mim (como `/tmp` ou `~/bin`) no início do PATH, e criar um arquivo executável chamado sudo ali dentro, o shell passa a encontrar o meu sudo falso antes do `/usr/bin/sudo` legítimo. Exemplo conceitual:
 
-```bash
+``` bash
 # (conceito) Colocar /tmp no começo do PATH
 export PATH=/tmp:$PATH
 
