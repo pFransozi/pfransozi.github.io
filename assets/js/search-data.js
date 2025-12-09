@@ -65,6 +65,11 @@ ninja.data = [{
           description: "Modelo leve de detecção de malwares Android com seleção de características multiobjetivo.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/lightweight-android-malware-detection/";
+            },},{id: "teaching-acessibilidade-na-web-construindo-experiências-inclusivas",
+          title: 'Acessibilidade na Web: construindo experiências inclusivas',
+          description: "Projeto didático sobre acessibilidade digital, design inclusivo e cidadania digital na Web.",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/teaching-acessibilidade/";
             },},{id: "teaching-página-web-ferramenta-interativa-de-estudo",
           title: 'Página web: ferramenta interativa de estudo',
           description: "Projeto de HTML, CSS e JavaScript em que os estudantes constroem uma página interativa para revisar conteúdos de Matemática.",
