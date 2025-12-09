@@ -65,6 +65,11 @@ ninja.data = [{
           description: "Modelo leve de detecção de malwares Android com seleção de características multiobjetivo.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/lightweight-android-malware-detection/";
+            },},{id: "teaching-página-web-ferramenta-interativa-de-estudo",
+          title: 'Página web: ferramenta interativa de estudo',
+          description: "Projeto de HTML, CSS e JavaScript em que os estudantes constroem uma página interativa para revisar conteúdos de Matemática.",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/teaching-ferramenta-interativa-estudo/";
             },},{id: "teaching-snake-com-p5-js-construindo-o-clássico-jogo-da-cobrinha",
           title: 'Snake com P5.js: construindo o clássico jogo da cobrinha',
           description: "Projeto guiado de Pensamento Computacional para 1º ano, programando o jogo Snake em JavaScript com a biblioteca P5.js.",
