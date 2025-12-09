@@ -70,6 +70,11 @@ ninja.data = [{
           description: "Projeto de HTML, CSS e JavaScript em que os estudantes constroem uma página interativa para revisar conteúdos de Matemática.",
           section: "Teaching",handler: () => {
               window.location.href = "/teaching/teaching-ferramenta-interativa-estudo/";
+            },},{id: "teaching-gerador-de-senhas-em-javascript",
+          title: 'Gerador de Senhas em JavaScript',
+          description: "Projeto introdutório para trabalhar lógica de programação e segurança de senhas com turmas do Ensino Fundamental II / Ensino Médio.",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/teaching-gerador-senhas/";
             },},{id: "teaching-snake-com-p5-js-construindo-o-clássico-jogo-da-cobrinha",
           title: 'Snake com P5.js: construindo o clássico jogo da cobrinha',
           description: "Projeto guiado de Pensamento Computacional para 1º ano, programando o jogo Snake em JavaScript com a biblioteca P5.js.",
