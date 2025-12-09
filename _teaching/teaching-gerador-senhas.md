@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Gerador de Senhas em JavaScript"
-description: "Projeto introdutório para trabalhar lógica de programação e segurança de senhas com turmas do Ensino Fundamental II / Ensino Médio."
+description: "Projeto introdutório para trabalhar lógica de programação e segurança de senhas."
 importance: 2
 category: "Teaching"
 date: 2025-03-01
