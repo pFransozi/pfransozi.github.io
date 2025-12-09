@@ -77,7 +77,7 @@ ninja.data = [{
               window.location.href = "/teaching/teaching-ferramenta-interativa-estudo/";
             },},{id: "teaching-gerador-de-senhas-em-javascript",
           title: 'Gerador de Senhas em JavaScript',
-          description: "Projeto introdutório para trabalhar lógica de programação e segurança de senhas com turmas do Ensino Fundamental II / Ensino Médio.",
+          description: "Projeto introdutório para trabalhar lógica de programação e segurança de senhas.",
           section: "Teaching",handler: () => {
               window.location.href = "/teaching/teaching-gerador-senhas/";
             },},{id: "teaching-funções-em-javascript-desenvolvendo-um-recomendador-de-filmes",
