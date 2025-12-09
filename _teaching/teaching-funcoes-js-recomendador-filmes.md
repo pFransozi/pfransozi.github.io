@@ -2,8 +2,8 @@
 layout: page
 title: "Funções em JavaScript: desenvolvendo um recomendador de filmes"
 description: "Projeto guiado de Pensamento Computacional para 1º ano, usando funções, condicionais e lógica de recomendação em JavaScript."
-category: teaching
-permalink: /teaching/
+category: "Teaching"
+permalink: /teaching/teaching-funcoes-js-recomendador-filmes/
 date: 2025-04-01
 importance: 1
 tags:
