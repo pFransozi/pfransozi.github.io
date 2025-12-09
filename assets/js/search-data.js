@@ -65,6 +65,11 @@ ninja.data = [{
           description: "Modelo leve de detecção de malwares Android com seleção de características multiobjetivo.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/lightweight-android-malware-detection/";
+            },},{id: "teaching-funções-em-javascript-desenvolvendo-um-recomendador-de-filmes",
+          title: 'Funções em JavaScript: desenvolvendo um recomendador de filmes',
+          description: "Projeto guiado de Pensamento Computacional para 1º ano, usando funções, condicionais e lógica de recomendação em JavaScript.",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/";
             },},{
         id: 'social-cv',
         title: 'CV',
