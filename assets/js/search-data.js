@@ -80,6 +80,11 @@ ninja.data = [{
           description: "Projeto introdutório para trabalhar lógica de programação e segurança de senhas.",
           section: "Teaching",handler: () => {
               window.location.href = "/teaching/teaching-gerador-senhas/";
+            },},{id: "teaching-pong-em-javascript-com-p5-js",
+          title: 'Pong em JavaScript com p5.js',
+          description: "Ensino de lógica de jogos 2D, animação quadro a quadro e colisão usando JavaScript e p5.js",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/teaching-pong-js/";
             },},{id: "teaching-funções-em-javascript-desenvolvendo-um-recomendador-de-filmes",
           title: 'Funções em JavaScript: desenvolvendo um recomendador de filmes',
           description: "Projeto guiado de Pensamento Computacional para 1º ano, usando funções, condicionais e lógica de recomendação em JavaScript.",
