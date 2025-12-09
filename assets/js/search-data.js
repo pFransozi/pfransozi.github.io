@@ -75,16 +75,21 @@ ninja.data = [{
           description: "Projeto introdutório para trabalhar lógica de programação e segurança de senhas com turmas do Ensino Fundamental II / Ensino Médio.",
           section: "Teaching",handler: () => {
               window.location.href = "/teaching/teaching-gerador-senhas/";
-            },},{id: "teaching-snake-com-p5-js-construindo-o-clássico-jogo-da-cobrinha",
-          title: 'Snake com P5.js: construindo o clássico jogo da cobrinha',
-          description: "Projeto guiado de Pensamento Computacional para 1º ano, programando o jogo Snake em JavaScript com a biblioteca P5.js.",
-          section: "Teaching",handler: () => {
-              window.location.href = "/teaching/teaching-snake-p5js/";
             },},{id: "teaching-funções-em-javascript-desenvolvendo-um-recomendador-de-filmes",
           title: 'Funções em JavaScript: desenvolvendo um recomendador de filmes',
           description: "Projeto guiado de Pensamento Computacional para 1º ano, usando funções, condicionais e lógica de recomendação em JavaScript.",
           section: "Teaching",handler: () => {
               window.location.href = "/teaching/teaching-funcoes-js-recomendador-filmes/";
+            },},{id: "teaching-portfolio-web-projetando-uma-página-pessoal-do-zero",
+          title: 'Portfolio Web – Projetando uma Página Pessoal do Zero',
+          description: "Projeto de desenvolvimento de um portfólio web para trabalhar HTML, CSS, JavaScript e identidade digital com estudantes.",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/teaching-portfolio/";
+            },},{id: "teaching-snake-com-p5-js-construindo-o-clássico-jogo-da-cobrinha",
+          title: 'Snake com P5.js: construindo o clássico jogo da cobrinha',
+          description: "Projeto guiado de Pensamento Computacional para 1º ano, programando o jogo Snake em JavaScript com a biblioteca P5.js.",
+          section: "Teaching",handler: () => {
+              window.location.href = "/teaching/teaching-snake-p5js/";
             },},{
         id: 'social-cv',
         title: 'CV',
