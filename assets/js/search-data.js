@@ -23,22 +23,22 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-projects",
-          title: "projects",
+        },{id: "nav-projetos",
+          title: "projetos",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-repositories",
-          title: "repositories",
+        },{id: "nav-repositórios",
+          title: "repositórios",
           description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/repositories/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
+        },{id: "nav-aulas",
+          title: "aulas",
           description: "Disciplinas, materiais de aula e projetos didáticos.",
           section: "Navigation",
           handler: () => {
