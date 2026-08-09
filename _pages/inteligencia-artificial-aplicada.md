@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /aulas/inteligencia-artificial-aplicada/
+permalink: /aulas/graduacao/2026-2/inteligencia-artificial-aplicada/
 title: Inteligência Artificial Aplicada — 2026/2
 description: Engenharia de Software · 2026/2 · UniSENAI
 nav: false
@@ -28,7 +28,7 @@ _styles: >-
 {% assign course = site.data.courses['ia-aplicada'] %}
 
 <div class="course-breadcrumb">
-  <a href="{{ '/aulas/' | relative_url }}">Aulas</a> / <a href="{{ '/aulas/graduacao/' | relative_url }}">Graduação</a> / Inteligência Artificial Aplicada · 2026/2
+  <a href="{{ '/aulas/' | relative_url }}">Aulas</a> / <a href="{{ '/aulas/graduacao/' | relative_url }}">Graduação</a> / <a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">2026/2</a> / Inteligência Artificial Aplicada
 </div>
 
 <div class="course-hero">
@@ -78,4 +78,4 @@ _styles: >-
   <p>Os HTMLs completos, calendários, atividades, códigos e recursos da disciplina são versionados no <a href="https://github.com/pFransozi/ia-aplicada-2026-02">repositório da disciplina</a>.</p>
 </div>
 
-<p class="mt-4"><a href="{{ '/aulas/graduacao/' | relative_url }}">← Voltar para Graduação</a></p>
+<p class="mt-4"><a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">← Voltar para 2026/2</a></p>
