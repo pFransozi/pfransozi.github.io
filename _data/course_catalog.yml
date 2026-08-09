@@ -1,0 +1,14 @@
+courses:
+  - key: ia-aplicada
+    title: Inteligência Artificial Aplicada
+    short_title: IA Aplicada
+    program: Engenharia de Software
+    institution: UniSENAI
+    semester: 2026/2
+    status: active
+    order: 1
+    description: >-
+      Fundamentos e evolução da IA, agentes e sistemas inteligentes,
+      tipos de problemas, aplicações contemporâneas, limites técnicos,
+      riscos e uso crítico de IA generativa.
+    url: /aulas/inteligencia-artificial-aplicada/
