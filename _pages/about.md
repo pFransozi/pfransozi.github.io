@@ -26,18 +26,36 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Sou formado em Cibersegurança pela PUCPR e trabalho com análise de malware Android usando IA/Machine Learning. Meu foco é projetar e implementar **pipelines multi-view/multimodais** para detecção de malware a partir de diferentes atributos estáticos de APKs (permissões, chamadas de API, opcodes, entre outros), com ênfase em escalabilidade, reprodutibilidade e custo de inferência.
+**Professor e pesquisador em Cibersegurança e Inteligência Artificial**
 
-No mestrado, minha linha de pesquisa explora **modelos multimodais/multi-view com Knowledge Distillation**, usando arquiteturas teacher–student para reduzir custo computacional preservando capacidade de detecção. Isso inclui o desenho das views, definição de tarefas de distilação entre modelos especializados e avaliação do trade-off entre performance, complexidade do modelo e viabilidade de implantação.
+Sou professor e pesquisador nas áreas de **Cibersegurança e Inteligência Artificial**, com foco na aplicação de técnicas de Aprendizado de Máquina à análise e detecção de malware.
 
-Durante a graduação, trabalhei uma linha de pesquisa em **seleção de características multiobjetivo** para detecção de malware Android, aplicando algoritmos evolutivos como **NSGA-II** sobre múltiplas visões estáticas. Nesse contexto, desenvolvi:
+Minha pesquisa concentra-se principalmente em **detecção de malware Android**, explorando diferentes fontes de informação sobre aplicativos — incluindo características estáticas e comportamentais — e métodos capazes de combinar essas perspectivas de forma eficiente, reprodutível e aplicável a cenários reais.
 
-- **Datasets multi-view** balanceados de malware/goodware, com curadoria e documentação para replicação;
-- Pipelines de **pré-processamento, vetorização e normalização** de grandes volumes de dados (NumPy, pandas, scikit-learn);
-- Experimentos com **modelos clássicos e ensembles** (Random Forest, KNN, Decision Tree, AdaBoost, Bagging) para classificação de malware;
-- Rotinas de **otimização multiobjetivo** para selecionar subconjuntos de features e reduzir o custo de inferência;
-- Avaliação sistemática com métricas como **F1-score, AUC, acurácia e balanced accuracy**, além de análise de ROC e matrizes de confusão.
+## Pesquisa
 
-Essa pesquisa rendeu o prêmio de **Melhor Trabalho na área de Exatas (PIBIC/PUCPR)** e distinções no **SBSEG** (Menção Honrosa em Trabalho Completo e **Artefato Destaque – 3 selos**), além de publicações em conferências e em periódico na área de análise de malware com IA/ML.
+Atualmente, investigo arquiteturas **multi-view e multimodais para detecção de malware Android**, incluindo estratégias de fusão de informações, seleção de características e *Knowledge Distillation*. O objetivo é desenvolver modelos que conciliem **capacidade de detecção, eficiência computacional, interpretabilidade e viabilidade de implantação**.
 
-Além da pesquisa, tenho experiência prévia em **desenvolvimento e análise de software e suporte a equipes técnicas**, o que me dá visão prática de sistemas em produção e de seus requisitos de segurança. Também atuo com **ensino de programação Web e Python** para estudantes do Ensino Fundamental II e Médio, orientando projetos práticos e introduzindo fundamentos de pensamento computacional, segurança e uso responsável da tecnologia.
+Minha trajetória de pesquisa também inclui trabalhos com **otimização multiobjetivo e seleção de características**, utilizando algoritmos evolutivos para reduzir a complexidade de modelos de detecção sem comprometer significativamente seu desempenho.
+
+Esses trabalhos envolvem o desenvolvimento de pipelines para extração, processamento e integração de diferentes tipos de atributos de aplicações Android, bem como a avaliação sistemática de modelos de classificação em diferentes cenários experimentais.
+
+Os resultados dessa linha de pesquisa têm sido apresentados em conferências e periódicos das áreas de **Segurança da Informação, Aprendizado de Máquina e Inteligência Artificial**.
+
+## Docência
+
+Na docência, atuo na formação em **Computação e Engenharia de Software**, trabalhando conteúdos relacionados a Inteligência Artificial, Banco de Dados, Programação de Sistemas, desenvolvimento de software, segurança e fundamentos de computação.
+
+Procuro organizar as disciplinas de forma a aproximar **fundamentação conceitual, experimentação e desenvolvimento prático**, incentivando os estudantes a compreender não apenas como utilizar ferramentas e tecnologias, mas também os princípios, limitações e decisões de projeto envolvidas em sua aplicação.
+
+Também desenvolvo materiais e projetos de programação para a **Educação Básica**, com atividades voltadas a pensamento computacional, desenvolvimento Web, programação, segurança digital e investigação científica.
+
+Os materiais utilizados nas disciplinas, atividades e projetos estão organizados na seção **[Aulas]({{ '/aulas/' | relative_url }})**.
+
+## Trajetória
+
+Minha formação e atuação combinam **Computação, Cibersegurança, Inteligência Artificial e ensino**.
+
+Além da pesquisa acadêmica, tenho experiência com desenvolvimento e análise de software e com suporte a equipes técnicas, o que contribui para uma abordagem voltada tanto aos fundamentos quanto aos desafios de implementação e operação de sistemas reais.
+
+Ao longo dessa trajetória, participei do desenvolvimento de pesquisas relacionadas à detecção de malware Android, seleção de características, otimização multiobjetivo e modelos de Aprendizado de Máquina.
