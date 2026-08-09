@@ -37,12 +37,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/repositories/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "",
+        },{id: "nav-aulas",
+          title: "aulas",
+          description: "Disciplinas, materiais de aula e projetos didáticos.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/teaching/";
+            window.location.href = "/aulas/";
           },
         },{id: "post-path-hijacking-no-linux-sudo-path-e-root",
         
