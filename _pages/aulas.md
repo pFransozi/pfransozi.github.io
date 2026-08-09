@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /aulas/
-title: aulas
+title: teaching
 description: Disciplinas, materiais de aula e projetos didáticos.
 nav: true
 nav_order: 6
