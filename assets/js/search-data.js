@@ -39,7 +39,7 @@ ninja.data = [{
           },
         },{id: "nav-aulas",
           title: "aulas",
-          description: "Disciplinas, materiais de aula e projetos didáticos.",
+          description: "Disciplinas e materiais organizados por nível de ensino.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/aulas/";
