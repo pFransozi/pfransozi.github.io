@@ -18,7 +18,8 @@ _styles: >-
   .lesson-copy h3 { font-size: 1.15rem; margin: 0 0 .25rem; }
   .lesson-copy p { margin: 0; color: var(--global-text-color-light); }
   .lesson-copy p + p { margin-top: .45rem; }
-  .lesson-action { white-space: nowrap; font-size: .9rem; padding-top: .15rem; }
+  .lesson-action { display: flex; flex-direction: column; align-items: flex-start; gap: .45rem; white-space: nowrap; font-size: .9rem; padding-top: .15rem; }
+  .lesson-resource { font-size: .86rem; }
   .lesson-planned { color: var(--global-text-color-light); }
   .course-note { margin-top: 2rem; padding: 1rem 1.2rem; border-left: 3px solid var(--global-theme-color); background: var(--global-code-bg-color); border-radius: 0 8px 8px 0; }
   .course-note p { margin: .4rem 0 0; }
@@ -67,6 +68,16 @@ _styles: >-
           <span class="lesson-planned">material em preparação</span>
         {% else %}
           <span class="lesson-planned">em breve</span>
+        {% endif %}
+
+        {% if lesson.resources %}
+          {% for resource in lesson.resources %}
+            {% if resource.url contains '://' %}
+              <a class="lesson-resource" href="{{ resource.url }}">{{ resource.label }} →</a>
+            {% else %}
+              <a class="lesson-resource" href="{{ resource.url | relative_url }}">{{ resource.label }} →</a>
+            {% endif %}
+          {% endfor %}
         {% endif %}
       </div>
     </article>
