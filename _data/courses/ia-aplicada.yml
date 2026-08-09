@@ -12,17 +12,25 @@ lessons:
   - number: 1
     title: Apresentação da disciplina
     description: >-
-      Visão geral do semestre, metodologia, ferramentas, projeto e critérios
-      de acompanhamento da aprendizagem.
+      Visão geral do semestre, metodologia, avaliações, trabalho geral,
+      calendários das turmas e protocolo IA-First.
     status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/curso.html
+    action_label: Acessar apresentação
 
   - number: 2
     title: Fundamentos e evolução da Inteligência Artificial
     description: >-
+      Distinguir inteligência artificial, automação convencional e sistemas
+      baseados em regras; reconhecer aplicações, limites e critérios iniciais
+      para identificar problemas adequados ao uso de IA.
+    content: >-
       Fundamentos e evolução da IA; agentes e sistemas inteligentes; tipos de
       problemas; aplicações contemporâneas; limites técnicos, riscos e
       introdução ao uso crítico de IA generativa.
     status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-02.html
+    action_label: Acessar aula
 
   - number: 3
     title: Agentes e sistemas inteligentes
