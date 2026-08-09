@@ -37,8 +37,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/repositories/";
           },
-        },{id: "nav-aulas",
-          title: "aulas",
+        },{id: "nav-teaching",
+          title: "teaching",
           description: "Disciplinas, materiais de aula e projetos didáticos.",
           section: "Navigation",
           handler: () => {
