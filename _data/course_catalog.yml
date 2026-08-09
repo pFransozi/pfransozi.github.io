@@ -15,9 +15,18 @@ levels:
     url: /aulas/ensino-fundamental/
     order: 3
 
+terms:
+  - key: 2026-2
+    level: graduacao
+    title: 2026/2
+    program: Engenharia de Software
+    url: /aulas/graduacao/2026-2/
+    order: 1
+
 courses:
   - key: ia-aplicada
     level: graduacao
+    term: 2026-2
     title: Inteligência Artificial Aplicada
     short_title: IA Aplicada
     program: Engenharia de Software
@@ -29,10 +38,11 @@ courses:
       Fundamentos e evolução da IA, agentes e sistemas inteligentes,
       tipos de problemas, aplicações contemporâneas, limites técnicos,
       riscos e uso crítico de IA generativa.
-    url: /aulas/inteligencia-artificial-aplicada/
+    url: /aulas/graduacao/2026-2/inteligencia-artificial-aplicada/
 
   - key: banco-de-dados
     level: graduacao
+    term: 2026-2
     title: Banco de Dados
     program: Engenharia de Software
     institution: UniSENAI
@@ -45,6 +55,7 @@ courses:
 
   - key: programacao-de-sistemas
     level: graduacao
+    term: 2026-2
     title: Programação de Sistemas
     program: Engenharia de Software
     institution: UniSENAI
