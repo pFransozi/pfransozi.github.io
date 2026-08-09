@@ -1,0 +1,39 @@
+title: Inteligência Artificial Aplicada
+short_title: IA Aplicada
+program: Engenharia de Software
+institution: UniSENAI
+semester: 2026/2
+description: >-
+  Disciplina voltada aos fundamentos e aplicações de Inteligência Artificial,
+  articulando conceitos clássicos, resolução de problemas, aprendizado de
+  máquina e análise crítica de sistemas contemporâneos de IA.
+
+lessons:
+  - number: 1
+    title: Apresentação da disciplina
+    description: >-
+      Visão geral do semestre, metodologia, ferramentas, projeto e critérios
+      de acompanhamento da aprendizagem.
+    status: published
+
+  - number: 2
+    title: Fundamentos e evolução da Inteligência Artificial
+    description: >-
+      Fundamentos e evolução da IA; agentes e sistemas inteligentes; tipos de
+      problemas; aplicações contemporâneas; limites técnicos, riscos e
+      introdução ao uso crítico de IA generativa.
+    status: published
+
+  - number: 3
+    title: Agentes e sistemas inteligentes
+    description: >-
+      Agentes, ambientes, percepção, ações, objetivos e racionalidade como
+      elementos para compreender diferentes sistemas inteligentes.
+    status: planned
+
+  - number: 4
+    title: Problemas e espaços de busca
+    description: >-
+      Representação de estados, ações, objetivos e estratégias para estruturar
+      problemas que podem ser resolvidos por busca.
+    status: planned
