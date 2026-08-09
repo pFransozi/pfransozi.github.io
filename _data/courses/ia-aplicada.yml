@@ -31,6 +31,9 @@ lessons:
     status: published
     url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-02.html
     action_label: Acessar aula
+    resources:
+      - label: Material de aprofundamento
+        url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-02-aprofundamento.html
 
   - number: 3
     title: Agentes e sistemas inteligentes
