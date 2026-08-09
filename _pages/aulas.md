@@ -30,7 +30,3 @@ nav_order: 6
     </div>
   {% endfor %}
 </div>
-
-<div class="education-note">
-  Os materiais didáticos publicados anteriormente continuam disponíveis no <a href="{{ '/teaching/' | relative_url }}">acervo de projetos e atividades</a> enquanto são reorganizados dentro desta nova estrutura.
-</div>
