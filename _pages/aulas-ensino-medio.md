@@ -35,11 +35,27 @@ nav: false
 <section class="education-section">
   <div class="education-section-header">
     <h2>Projetos e atividades</h2>
-    <p class="text-muted mb-0">O acervo anterior está sendo classificado dentro da nova estrutura.</p>
+    <p class="text-muted mb-0">Projetos didáticos de programação, Web, pensamento computacional e cidadania digital.</p>
   </div>
-  <p>
-    Enquanto essa organização é concluída, os projetos de programação, Web e pensamento computacional permanecem disponíveis no <a href="{{ '/teaching/' | relative_url }}">acervo de materiais didáticos</a>.
-  </p>
+
+  {% assign materials = site.teaching | sort: "title" %}
+  <div class="row">
+    {% for material in materials %}
+      <div class="col-12 col-md-6 mb-4">
+        <a class="course-card-link" href="{{ material.url | relative_url }}">
+          <article class="course-card h-100">
+            <div class="course-card-meta">
+              <span>projeto didático</span>
+            </div>
+            <h2>{{ material.title }}</h2>
+            {% if material.description %}<p>{{ material.description }}</p>{% endif %}
+            {% if material.tags %}<p class="course-program">{{ material.tags | join: " · " }}</p>{% endif %}
+            <span class="course-card-action">Acessar projeto →</span>
+          </article>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
 </section>
 
 <p class="mt-4"><a href="{{ '/aulas/' | relative_url }}">← Voltar para níveis de ensino</a></p>
