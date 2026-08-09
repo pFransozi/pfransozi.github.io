@@ -3,12 +3,12 @@ layout: page
 permalink: /teaching/
 title: teaching
 description:
-nav: true
+nav: false
 nav_order: 6
 ---
 ## Teaching
 
-Aqui você encontra materiais de aulas, projetos guiados e atividades que utilizo em disciplinas e oficinas.
+Esta página permanece disponível para compatibilidade com links antigos. Os materiais didáticos agora também são apresentados de forma organizada na nova área de [aulas]({{ '/aulas/' | relative_url }}).
 
 {% assign courses = site.teaching | sort: "date" | reverse %}
 
