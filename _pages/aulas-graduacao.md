@@ -14,22 +14,24 @@ nav: false
 
 <div class="education-intro">
   <p>
-    Disciplinas e materiais utilizados no ensino superior, organizados por semestre. As disciplinas com material já publicado levam para páginas próprias com o percurso de aulas e recursos complementares.
+    Disciplinas e materiais utilizados no ensino superior, organizados por ano e semestre. Selecione uma edição para acessar as disciplinas, o percurso das aulas e os recursos correspondentes.
   </p>
 </div>
 
-<section class="education-section">
-  <div class="education-section-header">
-    <h2>2026/2</h2>
-    <p class="text-muted mb-0">Engenharia de Software</p>
-  </div>
-
-  {% assign courses = site.data.course_catalog.courses | where: "level", "graduacao" | sort: "order" %}
-  <div class="row">
-    {% for course in courses %}
-      {% include course_card.liquid course=course %}
-    {% endfor %}
-  </div>
-</section>
+{% assign terms = site.data.course_catalog.terms | where: "level", "graduacao" | sort: "order" | reverse %}
+<div class="row education-grid">
+  {% for term in terms %}
+    <div class="col-12 col-md-6 mb-4">
+      <a class="education-card-link" href="{{ term.url | relative_url }}">
+        <article class="education-card">
+          <div class="education-card-kicker">semestre</div>
+          <h2>{{ term.title }}</h2>
+          {% if term.program %}<p>{{ term.program }}</p>{% endif %}
+          <span class="education-card-action">Ver disciplinas →</span>
+        </article>
+      </a>
+    </div>
+  {% endfor %}
+</div>
 
 <p class="mt-4"><a href="{{ '/aulas/' | relative_url }}">← Voltar para níveis de ensino</a></p>
