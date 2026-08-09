@@ -1,5 +1,23 @@
+levels:
+  - key: graduacao
+    title: Graduação
+    description: Disciplinas e materiais utilizados no ensino superior.
+    url: /aulas/graduacao/
+    order: 1
+  - key: ensino-medio
+    title: Ensino Médio
+    description: Disciplinas, projetos e materiais voltados ao Ensino Médio.
+    url: /aulas/ensino-medio/
+    order: 2
+  - key: ensino-fundamental
+    title: Ensino Fundamental
+    description: Programação, pensamento computacional e projetos para o Ensino Fundamental.
+    url: /aulas/ensino-fundamental/
+    order: 3
+
 courses:
   - key: ia-aplicada
+    level: graduacao
     title: Inteligência Artificial Aplicada
     short_title: IA Aplicada
     program: Engenharia de Software
@@ -12,3 +30,50 @@ courses:
       tipos de problemas, aplicações contemporâneas, limites técnicos,
       riscos e uso crítico de IA generativa.
     url: /aulas/inteligencia-artificial-aplicada/
+
+  - key: banco-de-dados
+    level: graduacao
+    title: Banco de Dados
+    program: Engenharia de Software
+    institution: UniSENAI
+    semester: 2026/2
+    status: preparing
+    order: 2
+    description: >-
+      Fundamentos de bancos de dados, SGBDs, modelagem, modelo relacional,
+      consultas SQL e projeto de bancos de dados.
+
+  - key: programacao-de-sistemas
+    level: graduacao
+    title: Programação de Sistemas
+    program: Engenharia de Software
+    institution: UniSENAI
+    semester: 2026/2
+    status: preparing
+    order: 3
+    description: >-
+      Arquitetura de computadores, sistemas operacionais, processos, threads,
+      concorrência e fundamentos de programação próxima ao sistema.
+
+  - key: informatica-empresarial
+    level: ensino-medio
+    title: Informática Empresarial
+    program: 2º ano do Ensino Médio
+    semester: 2026
+    status: preparing
+    order: 1
+    description: >-
+      Uso de tecnologias no contexto organizacional, segurança da informação,
+      LGPD, classificação da informação e práticas digitais responsáveis.
+
+initiatives:
+  - key: clube-ciencias
+    level: ensino-fundamental
+    title: Clube de Ciências e Tecnologia
+    program: Ensino Fundamental
+    semester: 2026
+    status: active
+    order: 1
+    description: >-
+      Projeto investigativo que combina dados meteorológicos, cálculos e
+      programação para explorar padrões relacionados à ocorrência de chuva.
