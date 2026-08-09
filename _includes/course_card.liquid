@@ -1,15 +1,29 @@
 {% assign course = include.course %}
 <div class="col-12 col-md-6 mb-4">
-  <a class="course-card-link" href="{{ course.url | relative_url }}">
-    <article class="course-card h-100">
-      <div class="course-card-meta">
-        <span>{{ course.semester }}</span>
-        {% if course.status == 'active' %}<span class="course-status">em andamento</span>{% endif %}
-      </div>
-      <h2>{{ course.title }}</h2>
-      <p class="course-program">{{ course.program }} · {{ course.institution }}</p>
-      <p>{{ course.description }}</p>
+  {% if course.url %}
+    <a class="course-card-link" href="{{ course.url | relative_url }}">
+  {% endif %}
+  <article class="course-card h-100 {% unless course.url %}course-card-muted{% endunless %}">
+    <div class="course-card-meta">
+      <span>{{ course.semester }}</span>
+      {% if course.status == 'active' %}
+        <span class="course-status">em andamento</span>
+      {% elsif course.status == 'preparing' %}
+        <span class="course-status course-status-muted">em preparação</span>
+      {% endif %}
+    </div>
+    <h2>{{ course.title }}</h2>
+    <p class="course-program">
+      {{ course.program }}{% if course.institution %} · {{ course.institution }}{% endif %}
+    </p>
+    <p>{{ course.description }}</p>
+    {% if course.url %}
       <span class="course-card-action">Acessar disciplina →</span>
-    </article>
-  </a>
+    {% else %}
+      <span class="course-card-action course-card-action-muted">Material em preparação</span>
+    {% endif %}
+  </article>
+  {% if course.url %}
+    </a>
+  {% endif %}
 </div>
