@@ -5,6 +5,8 @@ title: Inteligência Artificial Aplicada
 description: Engenharia de Software · 2026/2 · UniSENAI
 nav: false
 _styles: >-
+  .course-breadcrumb { margin-bottom: 1.4rem; font-size: .92rem; color: var(--global-text-color-light); }
+  .course-breadcrumb a { color: var(--global-theme-color); }
   .course-hero { margin-bottom: 2rem; }
   .course-kicker { font-size: .85rem; text-transform: uppercase; letter-spacing: .06em; color: var(--global-theme-color); font-weight: 600; margin-bottom: .5rem; }
   .course-summary { max-width: 780px; font-size: 1.05rem; }
@@ -22,6 +24,10 @@ _styles: >-
 ---
 
 {% assign course = site.data.courses['ia-aplicada'] %}
+
+<div class="course-breadcrumb">
+  <a href="{{ '/aulas/' | relative_url }}">Aulas</a> / <a href="{{ '/aulas/graduacao/' | relative_url }}">Graduação</a> / Inteligência Artificial Aplicada
+</div>
 
 <div class="course-hero">
   <div class="course-kicker">Disciplina · {{ course.semester }}</div>
@@ -62,4 +68,4 @@ _styles: >-
   <strong>Página piloto.</strong> A estrutura já está pronta para receber os HTMLs completos das aulas. Quando o material de uma aula for incorporado ao repositório, basta acrescentar sua URL no arquivo de dados da disciplina.
 </div>
 
-<p class="mt-4"><a href="{{ '/aulas/' | relative_url }}">← Voltar para todas as aulas</a></p>
+<p class="mt-4"><a href="{{ '/aulas/graduacao/' | relative_url }}">← Voltar para Graduação</a></p>
