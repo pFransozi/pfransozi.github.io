@@ -30,13 +30,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-repositórios",
-          title: "repositórios",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/repositories/";
-          },
         },{id: "nav-aulas",
           title: "aulas",
           description: "Disciplinas e materiais organizados por nível de ensino.",
