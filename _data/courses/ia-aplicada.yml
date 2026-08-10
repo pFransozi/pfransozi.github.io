@@ -38,11 +38,18 @@ lessons:
         url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-02-determinismo-sistemas-probabilisticos-ia-compacto.ogg
 
   - number: 3
-    title: Agentes e sistemas inteligentes
+    title: Formulação de problemas e espaço de estados
     description: >-
-      Agentes, ambientes, percepção, ações, objetivos e racionalidade como
-      elementos para compreender diferentes sistemas inteligentes.
-    status: planned
+      Formular problemas de IA transformando situações do mundo real em
+      representações computacionais com estados, ações, objetivos, entradas,
+      saídas, restrições e critérios de sucesso.
+    content: >-
+      Formulação de problemas; abstração; espaço de estados; definição de
+      objetivo; restrições; critérios de sucesso e avaliação; representação
+      computacional em Python.
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-03.html
+    action_label: Acessar aula
 
   - number: 4
     title: Problemas e espaços de busca
