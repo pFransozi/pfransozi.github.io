@@ -34,7 +34,7 @@ lessons:
     resources:
       - label: Material de aprofundamento
         url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-02-aprofundamento.html
-      - label: Áudio: do determinismo à probabilidade
+      - label: Áudio complementar
         url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-02-determinismo-sistemas-probabilisticos-ia-compacto.ogg
 
   - number: 3
