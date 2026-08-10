@@ -28,6 +28,7 @@ _styles: >-
 ---
 
 {% assign course = site.data.courses['ia-aplicada'] %}
+<!-- course-portal-version: aula-03-publicada-2026-08-10 -->
 
 <div class="course-breadcrumb">
   <a href="{{ '/aulas/' | relative_url }}">Aulas</a> / <a href="{{ '/aulas/graduacao/' | relative_url }}">Graduação</a> / <a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">2026/2</a> / Inteligência Artificial Aplicada
