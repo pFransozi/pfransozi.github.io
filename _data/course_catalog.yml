@@ -67,7 +67,7 @@ courses:
       Organização e arquitetura de computadores, CPU, memória e entrada/saída;
       sistemas operacionais, processos, threads, concorrência e relação entre
       software e hardware.
-    url: /arq-comp-so-2026-02/
+    url: /aulas/graduacao/2026-2/arquitetura-computadores-sistemas-operacionais/
 
   - key: informatica-empresarial
     level: ensino-medio

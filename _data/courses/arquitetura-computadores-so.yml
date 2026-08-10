@@ -1,0 +1,57 @@
+title: Arquitetura de Computadores e Sistemas Operacionais
+short_title: Arquitetura de Computadores e SO
+program: Engenharia de Software
+institution: UniSENAI
+semester: 2026/2
+description: >-
+  Disciplina voltada à relação entre hardware, sistema operacional e software,
+  acompanhando a execução de programas desde a organização do computador até
+  processos, threads, concorrência, memória, entrada/saída e análise de desempenho.
+
+lessons:
+  - number: 1
+    title: Visão geral da disciplina
+    description: >-
+      Apresentação do percurso do semestre, calendário, conteúdos, avaliação,
+      projeto PBL e protocolo de trabalho com IA generativa.
+    content: >-
+      Arquitetura de computadores; sistemas operacionais; projeto PBL evolutivo;
+      avaliação; experimentação, métricas e evidências; protocolo IA-First.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/curso.html
+    action_label: Acessar visão geral
+    resources:
+      - label: Baseline sequencial do PBL
+        url: https://pfransozi.github.io/arq-comp-so-2026-02/downloads/pbl-baseline-sequencial-v1.zip
+
+  - number: 2
+    title: Da aplicação ao hardware
+    description: >-
+      Investigar o que acontece entre executar um programa e produzir um
+      resultado, relacionando código, runtime, sistema operacional, hardware e
+      evidências observáveis.
+    content: >-
+      Camadas de um sistema computacional; percurso de execução de um programa;
+      hardware, sistema operacional, runtime e aplicação; arquitetura inicial do
+      PBL; baseline, logs, testes, métricas e Registro 0.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-02.html
+    action_label: Acessar aula
+    resources:
+      - label: Atividade complementar
+        url: https://github.com/pFransozi/arq-comp-so-2026-02/blob/main/atividade-mapa-camadas-evidencias.md
+      - label: Baseline sequencial do PBL
+        url: https://pfransozi.github.io/arq-comp-so-2026-02/downloads/pbl-baseline-sequencial-v1.zip
+
+  - number: 3
+    title: Dentro do computador
+    description: >-
+      Abrir a camada de hardware para compreender como instruções e dados
+      percorrem CPU, memória e entrada/saída durante a execução de uma tarefa.
+    content: >-
+      CPU, memória, entrada/saída e periféricos; sistemas de interconexão e
+      barramentos; programa armazenado; arquiteturas von Neumann e Harvard;
+      ciclo de instrução; instruções, dados e baseline sequencial.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-03.html
+    action_label: Acessar aula
