@@ -60,7 +60,7 @@ _styles: >-
       <div class="lesson-action">
         {% if lesson.url %}
           {% if lesson.url contains '://' %}
-            <a href="{{ lesson.url }}">{{ lesson.action_label | default: 'Acessar aula' }} →</a>
+            <a href="{{ lesson.url }}" target="_blank" rel="noopener noreferrer">{{ lesson.action_label | default: 'Acessar aula' }} →</a>
           {% else %}
             <a href="{{ lesson.url | relative_url }}">{{ lesson.action_label | default: 'Acessar aula' }} →</a>
           {% endif %}
@@ -73,7 +73,7 @@ _styles: >-
         {% if lesson.resources %}
           {% for resource in lesson.resources %}
             {% if resource.url contains '://' %}
-              <a class="lesson-resource" href="{{ resource.url }}">{{ resource.label }} →</a>
+              <a class="lesson-resource" href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">{{ resource.label }} →</a>
             {% else %}
               <a class="lesson-resource" href="{{ resource.url | relative_url }}">{{ resource.label }} →</a>
             {% endif %}
@@ -86,7 +86,7 @@ _styles: >-
 
 <div class="course-note">
   <strong>Materiais da edição 2026/2.</strong>
-  <p>Os HTMLs completos, calendários, atividades, códigos e recursos da disciplina são versionados no <a href="https://github.com/pFransozi/ia-aplicada-2026-02">repositório da disciplina</a>.</p>
+  <p>Os HTMLs completos, calendários, atividades, códigos e recursos da disciplina são versionados no <a href="https://github.com/pFransozi/ia-aplicada-2026-02" target="_blank" rel="noopener noreferrer">repositório da disciplina</a>.</p>
 </div>
 
 <p class="mt-4"><a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">← Voltar para 2026/2</a></p>
