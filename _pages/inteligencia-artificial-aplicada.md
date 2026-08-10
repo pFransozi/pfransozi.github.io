@@ -13,7 +13,7 @@ _styles: >-
   .course-meta { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0 0; }
   .course-meta span { border: 1px solid var(--global-divider-color); border-radius: 999px; padding: .3rem .7rem; font-size: .85rem; color: var(--global-text-color-light); }
   .lesson-list { margin-top: 1.5rem; }
-  .lesson-item { display: grid; grid-template-columns: 56px 1fr auto; gap: 1rem; align-items: start; padding: 1.3rem 0; border-top: 1px solid var(--global-divider-color); }
+  .lesson-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) 250px; gap: 1rem; align-items: start; padding: 1.3rem 0; border-top: 1px solid var(--global-divider-color); }
   .lesson-number { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: var(--global-code-bg-color); font-weight: 700; color: var(--global-theme-color); }
   .lesson-copy h3 { font-size: 1.15rem; margin: 0 0 .25rem; }
   .lesson-copy p { margin: 0; color: var(--global-text-color-light); }
