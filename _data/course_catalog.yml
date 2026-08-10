@@ -53,18 +53,21 @@ courses:
       Fundamentos de bancos de dados, SGBDs, modelagem, modelo relacional,
       consultas SQL e projeto de bancos de dados.
 
-  - key: programacao-de-sistemas
+  - key: arquitetura-computadores-so
     level: graduacao
     term: 2026-2
-    title: Programação de Sistemas
+    title: Arquitetura de Computadores e Sistemas Operacionais
+    short_title: Arquitetura de Computadores e SO
     program: Engenharia de Software
     institution: UniSENAI
     semester: 2026/2
-    status: preparing
+    status: active
     order: 3
     description: >-
-      Arquitetura de computadores, sistemas operacionais, processos, threads,
-      concorrência e fundamentos de programação próxima ao sistema.
+      Organização e arquitetura de computadores, CPU, memória e entrada/saída;
+      sistemas operacionais, processos, threads, concorrência e relação entre
+      software e hardware.
+    url: /arq-comp-so-2026-02/
 
   - key: informatica-empresarial
     level: ensino-medio
