@@ -38,6 +38,8 @@ lessons:
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-02.html
     action_label: Acessar aula
     resources:
+      - label: Aprofundamento teórico
+        url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-02-aprofundamento.html
       - label: Atividade complementar
         url: https://github.com/pFransozi/arq-comp-so-2026-02/blob/main/atividade-mapa-camadas-evidencias.md
       - label: Baseline sequencial do PBL
