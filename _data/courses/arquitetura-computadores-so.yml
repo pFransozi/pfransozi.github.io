@@ -40,6 +40,8 @@ lessons:
     resources:
       - label: Aprofundamento teórico
         url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-02-aprofundamento.html
+      - label: Podcast da Aula 02
+        url: https://github.com/pFransozi/arq-comp-so-2026-02/blob/main/aula-02-podcast-compacta.m4a
       - label: Baseline sequencial do PBL
         url: https://pfransozi.github.io/arq-comp-so-2026-02/downloads/pbl-baseline-sequencial-v1.zip
 
