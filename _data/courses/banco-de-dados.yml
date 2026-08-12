@@ -41,3 +41,18 @@ lessons:
         url: https://pfransozi.github.io/bd-2026-02/aula-02-aprofundamento.html
       - label: Atividade complementar — arquivos e SGBD
         url: https://github.com/pFransozi/bd-2026-02/blob/main/atividade-arquivos-sgbd.md
+
+  - number: 3
+    title: Quando uma tabela está bem organizada?
+    description: >-
+      Do modelo relacional às regras que permitem identificar registros,
+      preservar a consistência dos dados e reconhecer problemas causados por
+      redundância e estruturas inadequadas.
+    content: >-
+      Modelo relacional; relações, atributos, tuplas e domínios; grau e
+      cardinalidade; chaves primárias, candidatas, compostas e estrangeiras;
+      integridade de entidade, domínio e referencial; redundância; anomalias de
+      inserção, atualização e exclusão; valores nulos; motivação para normalização.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/aula-03.html
+    action_label: Acessar aula
