@@ -1,0 +1,41 @@
+title: Banco de Dados
+short_title: Banco de Dados
+program: Engenharia de Software
+institution: UniSENAI
+semester: 2026/2
+description: >-
+  Disciplina voltada à modelagem, implementação e uso de bancos de dados,
+  conectando requisitos de software, organização dos dados, SQL, mecanismos
+  do SGBD e decisões técnicas que preservam consistência e confiabilidade.
+
+lessons:
+  - number: 1
+    title: Visão geral da disciplina
+    description: >-
+      Apresentação do percurso do semestre, ferramentas, calendário,
+      avaliações, projeto da disciplina e protocolo de trabalho com IA.
+    content: >-
+      Modelagem conceitual e relacional; SQL; integração com aplicações;
+      transações, concorrência, desempenho, segurança e recuperação; ferramentas;
+      avaliação; projeto e protocolo IA-First.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/curso.html
+    action_label: Acessar visão geral
+
+  - number: 2
+    title: Por que um software precisa de um banco de dados?
+    description: >-
+      Do registro isolado à infraestrutura que organiza, protege, consulta e
+      mantém dados compartilhados, comparando arquivos e SGBDs a partir dos
+      problemas que surgem quando várias pessoas e aplicações dependem dos mesmos dados.
+    content: >-
+      Dados, informação, banco de dados e SGBD; arquivos versus bancos de dados;
+      níveis externo, conceitual e interno; esquema, instância e metadados;
+      independência lógica e física; modelos relacional, documental, chave-valor
+      e de grafos.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/aula-02.html
+    action_label: Acessar aula
+    resources:
+      - label: Atividade complementar — arquivos e SGBD
+        url: https://github.com/pFransozi/bd-2026-02/blob/main/atividade-arquivos-sgbd.md
