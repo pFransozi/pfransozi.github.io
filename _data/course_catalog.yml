@@ -44,14 +44,16 @@ courses:
     level: graduacao
     term: 2026-2
     title: Banco de Dados
+    short_title: Banco de Dados
     program: Engenharia de Software
     institution: UniSENAI
     semester: 2026/2
-    status: preparing
+    status: active
     order: 2
     description: >-
       Fundamentos de bancos de dados, SGBDs, modelagem, modelo relacional,
       consultas SQL e projeto de bancos de dados.
+    url: /aulas/graduacao/2026-2/banco-de-dados/
 
   - key: arquitetura-computadores-so
     level: graduacao
