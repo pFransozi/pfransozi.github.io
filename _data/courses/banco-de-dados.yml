@@ -41,8 +41,6 @@ lessons:
         url: https://pfransozi.github.io/bd-2026-02/aula-02-aprofundamento.html
       - label: Áudio da aula (podcast)
         url: https://pfransozi.github.io/bd-2026-02/aula-02-podcast.m4a
-      - label: Atividade complementar — arquivos e SGBD
-        url: https://github.com/pFransozi/bd-2026-02/blob/main/atividade-arquivos-sgbd.md
 
   - number: 3
     title: Quando uma tabela está bem organizada?
