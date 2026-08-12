@@ -37,5 +37,7 @@ lessons:
     url: https://pfransozi.github.io/bd-2026-02/aula-02.html
     action_label: Acessar aula
     resources:
+      - label: Material de aprofundamento
+        url: https://pfransozi.github.io/bd-2026-02/aula-02-aprofundamento.html
       - label: Atividade complementar — arquivos e SGBD
         url: https://github.com/pFransozi/bd-2026-02/blob/main/atividade-arquivos-sgbd.md
