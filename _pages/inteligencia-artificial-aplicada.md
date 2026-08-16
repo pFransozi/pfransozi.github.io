@@ -86,9 +86,4 @@ _styles: >-
   {% endfor %}
 </div>
 
-<div class="course-note">
-  <strong>Materiais da edição 2026/2.</strong>
-  <p>Os HTMLs completos, calendários, atividades, códigos e recursos da disciplina são versionados no <a href="https://github.com/pFransozi/ia-aplicada-2026-02" target="_blank" rel="noopener noreferrer">repositório da disciplina</a>.</p>
-</div>
-
 <p class="mt-4"><a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">← Voltar para 2026/2</a></p>
