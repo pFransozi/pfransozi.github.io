@@ -64,3 +64,6 @@ lessons:
     status: published
     url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-04.html
     action_label: Acessar aula
+    resources:
+      - label: Material de aprofundamento
+        url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-04-aprofundamento.html
