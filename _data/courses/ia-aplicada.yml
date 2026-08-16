@@ -52,8 +52,15 @@ lessons:
     action_label: Acessar aula
 
   - number: 4
-    title: Problemas e espaços de busca
+    title: "Busca não informada: BFS e DFS"
     description: >-
-      Representação de estados, ações, objetivos e estratégias para estruturar
-      problemas que podem ser resolvidos por busca.
-    status: planned
+      Aplicar busca em largura e busca em profundidade em espaços de estados,
+      compreendendo fronteira, expansão, estados visitados e os efeitos da
+      estratégia de exploração.
+    content: >-
+      Problemas e espaços de busca; fronteira; expansão de estados; busca em
+      largura (BFS); busca em profundidade (DFS); filas e pilhas; controle de
+      estados visitados; comparação experimental e implementação em Python.
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-04.html
+    action_label: Acessar aula
