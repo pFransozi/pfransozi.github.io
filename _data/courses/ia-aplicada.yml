@@ -53,6 +53,8 @@ lessons:
     resources:
       - label: Material de aprofundamento
         url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-03-aprofundamento.html
+      - label: Áudio complementar
+        url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-03-formulacao-de-problemas-espaco-estados.m4a
 
   - number: 4
     title: "Busca não informada: BFS e DFS"
