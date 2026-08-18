@@ -57,3 +57,17 @@ lessons:
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-03.html
     action_label: Acessar aula
+
+  - number: 4
+    title: Do código-fonte à execução
+    description: >-
+      Conectar o código escrito em uma linguagem de programação ao trabalho
+      realizado pela máquina, acompanhando como valores passam pela memória,
+      pelos registradores e por instruções simples durante a execução.
+    content: >-
+      Código-fonte e execução; compilação e interpretação em nível introdutório;
+      variáveis, valores e endereços; registradores; instruções elementares;
+      relação com o ciclo buscar, decodificar e executar; rastreamento guiado.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-04.html
+    action_label: Acessar aula
