@@ -56,3 +56,19 @@ lessons:
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-03.html
     action_label: Acessar aula
+
+  - number: 4
+    title: Como transformar um domínio em um modelo de dados?
+    description: >-
+      Da descrição de uma realidade ao Diagrama Entidade-Relacionamento,
+      identificando os elementos que precisam ser representados e as regras que
+      determinam como eles se conectam.
+    content: >-
+      Etapas do projeto de banco de dados; modelagem conceitual; entidades;
+      atributos simples, compostos, monovalorados, multivalorados, armazenados
+      e derivados; identificadores; relacionamentos binários, ternários e
+      recursivos; cardinalidades 1:1, 1:N e N:N; participação total e parcial;
+      atributos de relacionamentos; entidades associativas; validação do DER.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/aula-04.html
+    action_label: Acessar aula
