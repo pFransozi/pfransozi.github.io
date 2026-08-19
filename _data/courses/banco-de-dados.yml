@@ -69,9 +69,9 @@ lessons:
     content: >-
       Etapas do projeto de banco de dados; modelagem conceitual; entidades;
       atributos simples, compostos, monovalorados, multivalorados, armazenados
-      e derivados; identificadores; relacionamentos binários, ternários e
-      recursivos; cardinalidades 1:1, 1:N e N:N; participação total e parcial;
-      atributos de relacionamentos; entidades associativas; validação do DER.
+      e derivados; identificadores; relacionamentos binários; cardinalidades
+      1:1, 1:N e N:N; participação total e parcial; atributos de relacionamentos;
+      entidades associativas; validação do DER.
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-04.html
     action_label: Acessar aula
