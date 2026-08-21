@@ -17,23 +17,36 @@ permalink: /aulas/ensino-medio/laboratorio-blocos/
     <div class="app-shell">
       <header class="topbar">
         <div class="brand">
-          <span class="brand-kicker">Protótipo interativo</span>
-          <h1>Laboratório de movimento com blocos</h1>
+          <span class="brand-kicker">Laboratório interativo</span>
+          <h1>Movimento, coordenadas e rotação</h1>
         </div>
         <a class="back-link" href="{{ '/aulas/ensino-medio/' | relative_url }}">← Ensino Médio</a>
       </header>
 
       <section class="challenge" aria-labelledby="challenge-title">
-        <div>
-          <h2 id="challenge-title">Desafio: desenhe o quadrado</h2>
-          <p>
-            O robô começa em <strong>(−2, −2)</strong>, apontando para <strong>0°</strong>. Desenhe um quadrado de lado 4 e volte ao ponto inicial.
-          </p>
+        <div class="challenge-copy">
+          <div class="exercise-meta">
+            <span class="exercise-counter" id="exerciseCounter">Exercício 1 de 10</span>
+            <span class="concept-badge" id="conceptLabel">Plano cartesiano</span>
+          </div>
+          <h2 id="challenge-title">Encontre o ponto</h2>
+          <p id="challengeDescription">Leve o robô até a coordenada indicada.</p>
+          <div class="legend" aria-label="Convenções do exercício">
+            <span class="pill"><span class="dot"></span><span id="targetLegend">marcação = objetivo</span></span>
+            <span class="pill">0° → direita</span>
+            <span class="pill">90° → cima</span>
+          </div>
         </div>
-        <div class="legend" aria-label="Convenções do plano">
-          <span class="pill"><span class="dot"></span> linha tracejada = objetivo</span>
-          <span class="pill">0° → direita</span>
-          <span class="pill">90° → cima</span>
+
+        <div class="challenge-side">
+          <div class="progress-wrap">
+            <span class="progress-label" id="progressLabel">0 de 10 concluídos</span>
+            <div class="progress-dots" id="progressDots" aria-label="Progresso dos exercícios"></div>
+          </div>
+          <div class="exercise-nav" aria-label="Navegação entre exercícios">
+            <button class="nav-button" id="previousExercise" type="button">← Anterior</button>
+            <button class="nav-button primary" id="nextExercise" type="button">Próximo →</button>
+          </div>
         </div>
       </section>
 
@@ -42,7 +55,7 @@ permalink: /aulas/ensino-medio/laboratorio-blocos/
           <div class="panel-head">
             <div>
               <h3 id="blocks-title">1. Monte o algoritmo</h3>
-              <p>Arraste os blocos da barra lateral e encaixe-os na ordem desejada.</p>
+              <p id="blocksHelp">Use apenas os blocos disponíveis neste exercício.</p>
             </div>
             <button class="ghost-button" id="clearBlocks" type="button">Limpar blocos</button>
           </div>
@@ -64,7 +77,7 @@ permalink: /aulas/ensino-medio/laboratorio-blocos/
                 <desc id="plane-desc">O robô se move conforme o algoritmo criado com blocos.</desc>
                 <g id="gridLayer"></g>
                 <g id="axisLayer"></g>
-                <polyline id="targetPath" fill="none" stroke="var(--target)" stroke-width="3" stroke-dasharray="8 8" opacity="0.8"></polyline>
+                <g id="targetLayer"></g>
                 <polyline id="robotPath" fill="none" stroke="var(--path)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></polyline>
                 <g id="startMarker"></g>
                 <g id="robot" aria-label="robô">
@@ -78,11 +91,11 @@ permalink: /aulas/ensino-medio/laboratorio-blocos/
             <div class="state-bar" aria-label="Estado atual do robô">
               <div class="state-item">
                 <span class="state-label">x</span>
-                <span class="state-value" id="stateX">−2</span>
+                <span class="state-value" id="stateX">0</span>
               </div>
               <div class="state-item">
                 <span class="state-label">y</span>
-                <span class="state-value" id="stateY">−2</span>
+                <span class="state-value" id="stateY">0</span>
               </div>
               <div class="state-item">
                 <span class="state-label">ângulo</span>
