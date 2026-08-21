@@ -97,29 +97,63 @@ a:focus-visible {
 .challenge {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 18px;
+  gap: 24px;
   align-items: center;
   padding: 14px clamp(16px, 3vw, 34px);
   background: var(--surface-2);
   border-bottom: 1px solid var(--border);
 }
 
+.challenge-copy {
+  min-width: 0;
+}
+
+.exercise-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.exercise-counter {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.concept-badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(49, 87, 213, 0.1);
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
 .challenge h2 {
   margin: 0 0 4px;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 
 .challenge p {
   margin: 0;
+  max-width: 850px;
   color: var(--muted);
   font-size: 0.93rem;
+  line-height: 1.48;
 }
 
 .legend {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: flex-end;
+  margin-top: 10px;
 }
 
 .pill {
@@ -131,7 +165,7 @@ a:focus-visible {
   border-radius: 999px;
   background: var(--surface);
   color: var(--muted);
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   font-weight: 700;
 }
 
@@ -140,6 +174,109 @@ a:focus-visible {
   height: 9px;
   border-radius: 50%;
   background: var(--target);
+}
+
+.challenge-side {
+  min-width: 245px;
+  display: grid;
+  gap: 10px;
+  justify-items: end;
+}
+
+.progress-wrap {
+  width: 100%;
+}
+
+.progress-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 750;
+  text-align: right;
+}
+
+.progress-dots {
+  display: flex;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.progress-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+  cursor: pointer;
+  transition:
+    transform 120ms ease,
+    border-color 120ms ease,
+    background 120ms ease;
+}
+
+.progress-dot:hover {
+  transform: scale(1.14);
+}
+
+.progress-dot.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(49, 87, 213, 0.12);
+}
+
+.progress-dot.completed {
+  border-color: var(--success);
+  background: var(--success);
+}
+
+.progress-dot.completed.active {
+  box-shadow: 0 0 0 3px rgba(22, 132, 75, 0.14);
+}
+
+.exercise-nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-button,
+.ghost-button {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 9px;
+  padding: 8px 11px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.nav-button.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: white;
+}
+
+.nav-button.primary:hover {
+  background: var(--accent-2);
+}
+
+.nav-button.ready {
+  border-color: var(--success);
+  background: var(--success);
+  color: white;
+}
+
+.nav-button:disabled,
+.ghost-button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.ghost-button {
+  background: transparent;
+  color: var(--muted);
+  padding: 7px 10px;
 }
 
 .workbench {
@@ -183,17 +320,6 @@ a:focus-visible {
   font-size: 0.78rem;
 }
 
-.ghost-button {
-  border: 1px solid var(--border);
-  background: transparent;
-  color: var(--muted);
-  border-radius: 9px;
-  padding: 7px 10px;
-  cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
 #blocklyDiv {
   flex: 1;
   min-height: 510px;
@@ -223,6 +349,16 @@ a:focus-visible {
   border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--border);
+}
+
+#targetLayer text {
+  fill: var(--target);
+  font-size: 13px;
+  font-weight: 850;
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 4px;
+  stroke-linejoin: round;
 }
 
 .state-bar {
@@ -304,17 +440,18 @@ a:focus-visible {
 }
 
 .status {
-  max-width: 340px;
+  max-width: 370px;
   color: var(--muted);
   font-size: 0.82rem;
   text-align: right;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .status.success {
   color: var(--success);
   font-weight: 800;
 }
+
 .status.warning {
   color: var(--warning);
   font-weight: 700;
@@ -333,6 +470,31 @@ a:focus-visible {
 }
 
 @media (max-width: 980px) {
+  .challenge {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .challenge-side {
+    min-width: 0;
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    justify-items: stretch;
+  }
+
+  .progress-label {
+    text-align: left;
+  }
+
+  .progress-dots {
+    justify-content: flex-start;
+  }
+
+  .exercise-nav {
+    justify-content: flex-end;
+  }
+
   .workbench {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -341,6 +503,7 @@ a:focus-visible {
   #blocklyDiv {
     min-height: 500px;
   }
+
   .stage-body {
     grid-template-rows: minmax(420px, 60vh) auto auto;
   }
@@ -351,38 +514,61 @@ a:focus-visible {
   .challenge {
     padding-inline: 14px;
   }
-  .challenge {
+
+  .topbar {
+    align-items: flex-start;
+  }
+
+  .back-link {
+    font-size: 0.82rem;
+  }
+
+  .challenge-side {
     grid-template-columns: 1fr;
   }
-  .legend {
-    justify-content: flex-start;
+
+  .exercise-nav {
+    justify-content: stretch;
   }
+
+  .nav-button {
+    flex: 1;
+  }
+
   .workbench {
     padding: 8px;
     gap: 8px;
   }
+
   .panel {
     border-radius: 12px;
   }
+
   .panel-head {
     align-items: flex-start;
   }
+
   #blocklyDiv {
     min-height: 440px;
   }
+
   .stage-body {
     grid-template-rows: minmax(330px, 52vh) auto auto;
   }
+
   .plane-wrap {
     padding: 8px;
   }
+
   .controls {
     grid-template-columns: 1fr;
   }
+
   .status {
     max-width: none;
     text-align: left;
   }
+
   .control-button {
     flex: 1 1 105px;
   }
@@ -415,5 +601,13 @@ a:focus-visible {
     --target: #c3a6ff;
     --path: #4dd4c2;
     --shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .concept-badge {
+    background: rgba(119, 146, 255, 0.14);
+  }
+
+  .progress-dot.active {
+    box-shadow: 0 0 0 3px rgba(119, 146, 255, 0.15);
   }
 }
