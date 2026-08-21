@@ -24,7 +24,8 @@ nav: false
     <p class="text-muted mb-0">Materiais organizados por componente e turma.</p>
   </div>
 
-  {% assign courses = site.data.course_catalog.courses | where: "level", "ensino-medio" | sort: "order" %}
+{% assign courses = site.data.course_catalog.courses | where: "level", "ensino-medio" | sort: "order" %}
+
   <div class="row">
     {% for course in courses %}
       {% include course_card.liquid course=course %}
@@ -38,7 +39,8 @@ nav: false
     <p class="text-muted mb-0">Projetos didáticos de programação, Web, pensamento computacional e cidadania digital.</p>
   </div>
 
-  {% assign materials = site.teaching | sort: "title" %}
+{% assign materials = site.teaching | sort: "title" %}
+
   <div class="row">
     <div class="col-12 mb-4">
       <a class="course-card-link" href="{{ '/aulas/ensino-medio/laboratorio-blocos/' | relative_url }}">
@@ -69,6 +71,7 @@ nav: false
         </a>
       </div>
     {% endfor %}
+
   </div>
 </section>
 
