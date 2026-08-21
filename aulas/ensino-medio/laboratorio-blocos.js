@@ -145,7 +145,8 @@
     {
       title: "Desenhe um triângulo equilátero",
       concept: "Ângulo externo",
-      description: "Desenhe um triângulo equilátero de lado 4. O ângulo interno é 60°, mas o robô precisa descobrir quanto deve girar em cada vértice.",
+      description:
+        "Desenhe um triângulo equilátero de lado 4. O ângulo interno é 60°, mas o robô precisa descobrir quanto deve girar em cada vértice.",
       start: triangleStart,
       blocks: ["mover_frente", "girar_esquerda", "girar_direita", "repetir"],
       starter: { type: "mover_frente", fields: { UNIDADES: 4 } },
