@@ -72,3 +72,15 @@ lessons:
     resources:
       - label: Material de aprofundamento
         url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-04-aprofundamento.html
+
+  - number: 5
+    title: "Busca informada: heurísticas, Greedy e A*"
+    description: >-
+      Construir e avaliar heurísticas e aplicar busca gulosa e A*, justificando
+      a adequação da estratégia a problemas de rotas ou planejamento.
+    content: >-
+      Busca informada; função heurística; custo acumulado; busca gulosa;
+      algoritmo A*; admissibilidade e comparação de estratégias.
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-05.html
+    action_label: Acessar aula
