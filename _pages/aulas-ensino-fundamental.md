@@ -24,7 +24,8 @@ nav: false
     <p class="text-muted mb-0">Atividades em desenvolvimento com organização própria de materiais.</p>
   </div>
 
-  {% assign initiatives = site.data.course_catalog.initiatives | where: "level", "ensino-fundamental" | sort: "order" %}
+{% assign initiatives = site.data.course_catalog.initiatives | where: "level", "ensino-fundamental" | sort: "order" %}
+
   <div class="row">
     {% for initiative in initiatives %}
       {% include course_card.liquid course=initiative %}
