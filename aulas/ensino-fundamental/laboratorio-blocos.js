@@ -1008,12 +1008,9 @@
     } else if (validation.type === "waypoints") {
       const waypoints = exercise.target.points.map(({ point }) => point);
       valid =
-        routePassesWaypoints(route, waypoints, validation.tolerance) &&
-        pointsNear(finalPoint, waypoints[waypoints.length - 1], validation.tolerance);
+        routePassesWaypoints(route, waypoints, validation.tolerance) && pointsNear(finalPoint, waypoints[waypoints.length - 1], validation.tolerance);
     } else if (validation.type === "obstacle-goal") {
-      valid =
-        pointsNear(finalPoint, validation.point, validation.tolerance) &&
-        routeAvoidsObstacles(route, exercise.target.obstacles || []);
+      valid = pointsNear(finalPoint, validation.point, validation.tolerance) && routeAvoidsObstacles(route, exercise.target.obstacles || []);
     } else if (validation.type === "waypoints-obstacles") {
       const waypoints = exercise.target.points.map(({ point }) => point);
       valid =
