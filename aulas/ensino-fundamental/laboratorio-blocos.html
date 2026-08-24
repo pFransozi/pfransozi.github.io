@@ -1,0 +1,121 @@
+---
+layout: none
+permalink: /aulas/ensino-fundamental/laboratorio-blocos/
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Laboratório de movimento com blocos</title>
+    <script src="https://unpkg.com/blockly@13.2.1/blockly.min.js"></script>
+    <link rel="stylesheet" href="{{ '/aulas/ensino-fundamental/laboratorio-blocos.css' | relative_url }}" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-kicker">Laboratório interativo</span>
+          <h1>Movimento, coordenadas e rotação</h1>
+        </div>
+        <a class="back-link" href="{{ '/aulas/ensino-fundamental/' | relative_url }}">← Ensino Fundamental</a>
+      </header>
+
+      <section class="challenge" aria-labelledby="challenge-title">
+        <div class="challenge-copy">
+          <div class="exercise-meta">
+            <span class="exercise-counter" id="exerciseCounter">Exercício 1 de 10</span>
+            <span class="concept-badge" id="conceptLabel">Plano cartesiano</span>
+          </div>
+          <h2 id="challenge-title">Encontre o ponto</h2>
+          <p id="challengeDescription">Leve o robô até a coordenada indicada.</p>
+          <div class="legend" aria-label="Convenções do exercício">
+            <span class="pill"><span class="dot"></span><span id="targetLegend">marcação = objetivo</span></span>
+            <span class="pill">0° → direita</span>
+            <span class="pill">90° → cima</span>
+          </div>
+        </div>
+
+        <div class="challenge-side">
+          <div class="progress-wrap">
+            <span class="progress-label" id="progressLabel">0 de 10 concluídos</span>
+            <div class="progress-dots" id="progressDots" aria-label="Progresso dos exercícios"></div>
+          </div>
+          <div class="exercise-nav" aria-label="Navegação entre exercícios">
+            <button class="nav-button" id="previousExercise" type="button">← Anterior</button>
+            <button class="nav-button primary" id="nextExercise" type="button">Próximo →</button>
+          </div>
+        </div>
+      </section>
+
+      <main class="workbench">
+        <section class="panel" aria-labelledby="blocks-title">
+          <div class="panel-head">
+            <div>
+              <h3 id="blocks-title">1. Monte o algoritmo</h3>
+              <p id="blocksHelp">Use apenas os blocos disponíveis neste exercício.</p>
+            </div>
+            <button class="ghost-button" id="clearBlocks" type="button">Limpar blocos</button>
+          </div>
+          <div id="blocklyDiv" aria-label="Editor de programação por blocos"></div>
+        </section>
+
+        <section class="panel" aria-labelledby="stage-title">
+          <div class="panel-head">
+            <div>
+              <h3 id="stage-title">2. Observe no plano cartesiano</h3>
+              <p>Use Passo para acompanhar uma instrução por vez.</p>
+            </div>
+          </div>
+
+          <div class="stage-body">
+            <div class="plane-wrap">
+              <svg id="plane" viewBox="0 0 640 480" role="img" aria-labelledby="plane-title plane-desc">
+                <title id="plane-title">Plano cartesiano interativo</title>
+                <desc id="plane-desc">O robô se move conforme o algoritmo criado com blocos.</desc>
+                <g id="gridLayer"></g>
+                <g id="axisLayer"></g>
+                <g id="targetLayer"></g>
+                <polyline id="robotPath" fill="none" stroke="var(--path)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"></polyline>
+                <g id="startMarker"></g>
+                <g id="robot" aria-label="robô">
+                  <circle cx="0" cy="0" r="18" fill="var(--accent)" opacity="0.16"></circle>
+                  <path d="M 19 0 L -10 -12 L -6 0 L -10 12 Z" fill="var(--accent)"></path>
+                  <circle cx="0" cy="0" r="4" fill="var(--surface)"></circle>
+                </g>
+              </svg>
+            </div>
+
+            <div class="state-bar" aria-label="Estado atual do robô">
+              <div class="state-item">
+                <span class="state-label">x</span>
+                <span class="state-value" id="stateX">0</span>
+              </div>
+              <div class="state-item">
+                <span class="state-label">y</span>
+                <span class="state-value" id="stateY">0</span>
+              </div>
+              <div class="state-item">
+                <span class="state-label">ângulo</span>
+                <span class="state-value" id="stateAngle">0°</span>
+              </div>
+            </div>
+
+            <div class="controls">
+              <div class="controls-main">
+                <button class="control-button primary" id="playButton" type="button" aria-label="Executar algoritmo">▶ Play</button>
+                <button class="control-button" id="stepButton" type="button" aria-label="Executar um passo">⏭ Passo</button>
+                <button class="control-button" id="resetButton" type="button" aria-label="Reiniciar robô">↺ Reiniciar</button>
+              </div>
+              <div class="status" id="statusText" role="status" aria-live="polite">Monte alguns blocos e execute o algoritmo.</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="{{ '/aulas/ensino-fundamental/laboratorio-blocos.js' | relative_url }}"></script>
+  </body>
+</html>
