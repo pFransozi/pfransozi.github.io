@@ -36,7 +36,7 @@ nav: false
 <section class="education-section">
   <div class="education-section-header">
     <h2>Atividades interativas</h2>
-    <p class="text-muted mb-0">Experimentos didáticos para trabalhar lógica, movimento e pensamento computacional.</p>
+    <p class="text-muted mb-0">Experimentos didáticos para trabalhar Matemática, lógica e pensamento computacional.</p>
   </div>
 
   <div class="row">
@@ -44,11 +44,14 @@ nav: false
       <a class="course-card-link" href="{{ '/aulas/ensino-fundamental/laboratorio-blocos/' | relative_url }}">
         <article class="course-card h-100">
           <div class="course-card-meta">
-            <span>laboratório interativo</span>
+            <span>trilha interativa · 8º ano</span>
           </div>
-          <h2>Laboratório de movimento com blocos</h2>
-          <p>Monte algoritmos com blocos, execute passo a passo e observe coordenadas e rotações no plano cartesiano em uma sequência de 10 desafios.</p>
-          <p class="course-program">Plano cartesiano · Rotação · Algoritmos · Programação em blocos</p>
+          <h2>Movimento, coordenadas e algoritmos</h2>
+          <p>
+            Laboratório de Matemática e Pensamento Computacional com 16 exercícios progressivos e 4 desafios bônus sobre plano cartesiano,
+            rotação, padrões, repetição, depuração e estratégia.
+          </p>
+          <p class="course-program">Plano cartesiano · Ângulos · Algoritmos · Programação em blocos · Estratégia</p>
           <span class="course-card-action">Abrir laboratório →</span>
         </article>
       </a>
