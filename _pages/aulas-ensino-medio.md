@@ -24,7 +24,7 @@ nav: false
     <p class="text-muted mb-0">Materiais organizados por componente e turma.</p>
   </div>
 
-  {% assign courses = site.data.course_catalog.courses | where: "level", "ensino-medio" | sort: "order" %}
+{% assign courses = site.data.course_catalog.courses | where: "level", "ensino-medio" | sort: "order" %}
 
   <div class="row">
     {% for course in courses %}
@@ -39,7 +39,7 @@ nav: false
     <p class="text-muted mb-0">Projetos didáticos de programação, Web, pensamento computacional e cidadania digital.</p>
   </div>
 
-  {% assign materials = site.teaching | sort: "title" %}
+{% assign materials = site.teaching | sort: "title" %}
 
   <div class="row">
     {% for material in materials %}
