@@ -24,7 +24,7 @@ nav: false
     <p class="text-muted mb-0">Materiais organizados por componente e turma.</p>
   </div>
 
-{% assign courses = site.data.course_catalog.courses | where: "level", "ensino-medio" | sort: "order" %}
+  {% assign courses = site.data.course_catalog.courses | where: "level", "ensino-medio" | sort: "order" %}
 
   <div class="row">
     {% for course in courses %}
@@ -39,23 +39,9 @@ nav: false
     <p class="text-muted mb-0">Projetos didáticos de programação, Web, pensamento computacional e cidadania digital.</p>
   </div>
 
-{% assign materials = site.teaching | sort: "title" %}
+  {% assign materials = site.teaching | sort: "title" %}
 
   <div class="row">
-    <div class="col-12 mb-4">
-      <a class="course-card-link" href="{{ '/aulas/ensino-medio/laboratorio-blocos/' | relative_url }}">
-        <article class="course-card h-100">
-          <div class="course-card-meta">
-            <span>protótipo interativo</span>
-          </div>
-          <h2>Laboratório de movimento com blocos</h2>
-          <p>Monte algoritmos com blocos, execute passo a passo e observe coordenadas e rotações no plano cartesiano.</p>
-          <p class="course-program">Plano cartesiano · Rotação · Algoritmos · Programação em blocos</p>
-          <span class="course-card-action">Abrir laboratório →</span>
-        </article>
-      </a>
-    </div>
-
     {% for material in materials %}
       <div class="col-12 col-md-6 mb-4">
         <a class="course-card-link" href="{{ material.url | relative_url }}">
@@ -71,7 +57,6 @@ nav: false
         </a>
       </div>
     {% endfor %}
-
   </div>
 </section>
 
