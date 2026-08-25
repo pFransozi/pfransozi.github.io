@@ -75,3 +75,18 @@ lessons:
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-04.html
     action_label: Acessar aula
+
+  - number: 5
+    title: Como transformar o modelo conceitual em um esquema relacional?
+    description: >-
+      Retomada do processo de construção do modelo conceitual, introdução às
+      extensões do Modelo ER e transformação progressiva do DER em relações,
+      chaves primárias e chaves estrangeiras.
+    content: >-
+      Supertipos e subtipos; especialização e generalização; herança; restrições
+      de especialização; entidades fracas; mapeamento ER para o modelo relacional;
+      entidades e atributos; relacionamentos 1:1, 1:N e N:N; atributos
+      multivalorados; entidades fracas; mapeamento de especializações.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/aula-05.html
+    action_label: Acessar aula
