@@ -58,6 +58,11 @@ ninja.data = [{
           description: "Modelo leve de detecção de malwares Android com seleção de características multiobjetivo.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/lightweight-android-malware-detection/";
+            },},{id: "projects-clube-de-ciências-tec",
+          title: 'Clube de Ciências Tec',
+          description: "Projeto de iniciação científica e tecnológica com estudantes, investigando dados meteorológicos da escola e construindo, passo a passo, pequenas regras e modelos de previsão de chuva.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/clube-ciencias-tec/";
             },},{id: "teaching-acessibilidade-na-web-construindo-experiências-inclusivas",
           title: 'Acessibilidade na Web: construindo experiências inclusivas',
           description: "Projeto didático sobre acessibilidade digital, design inclusivo e cidadania digital na Web.",
