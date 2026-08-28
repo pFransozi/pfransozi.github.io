@@ -20,45 +20,42 @@ permalink: /aulas/ensino-fundamental/laboratorio-blocos/
           <span class="brand-kicker">Matemática + Pensamento Computacional · 8º ano</span>
           <h1>Movimento, coordenadas e algoritmos</h1>
         </div>
+
+        <div class="top-progress" aria-label="Progresso geral">
+          <span id="overallProgressText">0 de 16 exercícios principais</span>
+          <div class="overall-progress-track" aria-hidden="true"><span id="overallProgressBar"></span></div>
+        </div>
+
         <a class="back-link" href="{{ '/aulas/ensino-fundamental/' | relative_url }}">← Ensino Fundamental</a>
       </header>
 
-      <section class="learning-map" aria-labelledby="learning-map-title">
-        <div class="learning-map-heading">
-          <div>
-            <span class="section-eyebrow">Percurso de aprendizagem</span>
-            <h2 id="learning-map-title">Quatro trilhas, do plano cartesiano à estratégia</h2>
-          </div>
-          <div class="overall-summary">
-            <span id="overallProgressText">0 de 16 exercícios principais</span>
-            <div class="overall-progress-track" aria-hidden="true"><span id="overallProgressBar"></span></div>
-          </div>
+      <nav class="lesson-nav" aria-label="Navegação do exercício">
+        <div class="lesson-context">
+          <span class="module-eyebrow" id="moduleEyebrow">Trilha 1 · Coordenadas</span>
+          <span class="lesson-divider" aria-hidden="true">·</span>
+          <span class="exercise-counter" id="exerciseCounter">Exercício 1 de 4</span>
+          <span class="bonus-badge" id="bonusBadge" hidden>Desafio bônus</span>
+          <span class="completed-badge" id="completedBadge" hidden>✓ concluído</span>
         </div>
+        <div class="exercise-nav">
+          <button class="nav-button" id="previousExercise" type="button">← Anterior</button>
+          <button class="nav-button primary" id="nextExercise" type="button">Próximo →</button>
+        </div>
+      </nav>
+
+      <details class="learning-map">
+        <summary class="learning-map-summary">
+          <span>Ver mapa das trilhas</span>
+          <span class="learning-map-summary-note">4 trilhas · 16 exercícios principais · 4 bônus</span>
+        </summary>
         <div class="module-nav" id="moduleNav" aria-label="Trilhas de aprendizagem"></div>
-      </section>
+      </details>
 
-      <section class="challenge" aria-labelledby="challenge-title">
-        <div class="challenge-copy">
-          <div class="exercise-meta">
-            <span class="module-eyebrow" id="moduleEyebrow">Trilha 1 · Coordenadas</span>
-            <span class="exercise-counter" id="exerciseCounter">Exercício 1 de 4</span>
-            <span class="concept-badge" id="conceptLabel">Plano cartesiano</span>
-            <span class="bonus-badge" id="bonusBadge" hidden>Desafio bônus</span>
-            <span class="completed-badge" id="completedBadge" hidden>✓ concluído</span>
-          </div>
-
+      <section class="mission-card" aria-labelledby="challenge-title">
+        <div class="mission-main">
+          <span class="section-eyebrow">Sua missão</span>
           <h2 id="challenge-title">Encontre o ponto</h2>
           <p class="challenge-description" id="challengeDescription">Leve o robô até a coordenada indicada.</p>
-
-          <div class="exercise-facts">
-            <span id="difficultyLabel" class="fact-chip">Dificuldade ●○○</span>
-            <span id="timeLabel" class="fact-chip">~3 min</span>
-          </div>
-
-          <div class="skills-block">
-            <span class="skills-label">Você vai praticar</span>
-            <div class="skills-list" id="skillsList"></div>
-          </div>
 
           <div class="challenge-tools">
             <button class="hint-button" id="hintButton" type="button">Ver uma pista</button>
@@ -71,14 +68,26 @@ permalink: /aulas/ensino-fundamental/laboratorio-blocos/
           </div>
         </div>
 
-        <aside class="challenge-side" aria-label="Navegação do exercício">
+        <aside class="mission-meta" aria-label="Informações da atividade">
+          <span class="concept-badge" id="conceptLabel">Plano cartesiano</span>
+
+          <details class="activity-info">
+            <summary>Sobre esta atividade</summary>
+            <div class="activity-info-body">
+              <div class="exercise-facts">
+                <span id="difficultyLabel" class="fact-chip">Dificuldade ●○○</span>
+                <span id="timeLabel" class="fact-chip">~3 min</span>
+              </div>
+              <div class="skills-block">
+                <span class="skills-label">Você vai praticar</span>
+                <div class="skills-list" id="skillsList"></div>
+              </div>
+            </div>
+          </details>
+
           <div class="module-activity-nav">
             <span class="module-progress-label" id="moduleProgressLabel">0 de 4 concluídos</span>
             <div class="activity-dots" id="activityDots" aria-label="Atividades desta trilha"></div>
-          </div>
-          <div class="exercise-nav">
-            <button class="nav-button" id="previousExercise" type="button">← Anterior</button>
-            <button class="nav-button primary" id="nextExercise" type="button">Próximo →</button>
           </div>
         </aside>
       </section>
@@ -97,22 +106,25 @@ permalink: /aulas/ensino-fundamental/laboratorio-blocos/
         </section>
 
         <section class="panel stage-panel" aria-labelledby="stage-title">
-          <div class="panel-head">
+          <div class="panel-head stage-panel-head">
             <div>
               <span class="panel-step">ETAPA 2</span>
               <h3 id="stage-title">Teste sua ideia no plano</h3>
-              <p>Use Passo para observar uma instrução por vez e comparar previsão com resultado.</p>
+              <p>Execute ou avance uma instrução por vez.</p>
             </div>
           </div>
 
-          <div class="prediction-card" id="predictionCard" hidden>
-            <div class="prediction-heading">
-              <span class="prediction-kicker">Antes de executar</span>
+          <details class="prediction-card" id="predictionCard" hidden>
+            <summary>
+              <span class="prediction-kicker">Prever antes de executar</span>
+              <span class="prediction-summary-text">Faça uma previsão antes de testar</span>
+            </summary>
+            <div class="prediction-content">
               <strong id="predictionQuestion">O que você espera que aconteça?</strong>
+              <div class="prediction-options" id="predictionOptions"></div>
+              <div class="prediction-feedback" id="predictionFeedback" hidden></div>
             </div>
-            <div class="prediction-options" id="predictionOptions"></div>
-            <div class="prediction-feedback" id="predictionFeedback" hidden></div>
-          </div>
+          </details>
 
           <div class="stage-body">
             <div class="plane-wrap">
@@ -132,33 +144,38 @@ permalink: /aulas/ensino-fundamental/laboratorio-blocos/
               </svg>
             </div>
 
-            <div class="state-bar" aria-label="Estado atual do robô">
-              <div class="state-item"><span class="state-label">x</span><span class="state-value" id="stateX">0</span></div>
-              <div class="state-item"><span class="state-label">y</span><span class="state-value" id="stateY">0</span></div>
-              <div class="state-item"><span class="state-label">orientação</span><span class="state-value" id="stateAngle">0°</span></div>
-            </div>
+            <div class="stage-toolbar">
+              <div class="state-bar" aria-label="Estado atual do robô">
+                <span class="state-inline"><strong>x</strong> <span id="stateX">0</span></span>
+                <span class="state-separator" aria-hidden="true">|</span>
+                <span class="state-inline"><strong>y</strong> <span id="stateY">0</span></span>
+                <span class="state-separator" aria-hidden="true">|</span>
+                <span class="state-inline"><strong>orientação</strong> <span id="stateAngle">0°</span></span>
+              </div>
 
-            <div class="controls">
               <div class="controls-main">
                 <button class="control-button primary" id="playButton" type="button" aria-label="Executar algoritmo">▶ Executar</button>
                 <button class="control-button" id="stepButton" type="button" aria-label="Executar um passo">⏭ Passo</button>
                 <button class="control-button" id="resetButton" type="button" aria-label="Reiniciar robô">↺ Reiniciar</button>
               </div>
-              <div class="status" id="statusText" role="status" aria-live="polite">Monte alguns blocos e execute o algoritmo.</div>
             </div>
 
+            <div class="status" id="statusText" role="status" aria-live="polite">Monte alguns blocos e execute o algoritmo.</div>
+
             <div class="completion-card" id="completionCard" hidden>
-              <div class="completion-icon">✓</div>
-              <div class="completion-copy">
-                <span class="completion-kicker">Exercício concluído</span>
-                <strong id="completionTitle">Boa solução.</strong>
-                <p id="completionTakeaway"></p>
-                <div class="reflection">
-                  <span>O que fica daqui</span>
-                  <p id="completionReflection"></p>
+              <div class="completion-dialog" role="dialog" aria-modal="true" aria-labelledby="completionTitle">
+                <div class="completion-icon">✓</div>
+                <div class="completion-copy">
+                  <span class="completion-kicker">Exercício concluído</span>
+                  <strong id="completionTitle">Boa solução.</strong>
+                  <p id="completionTakeaway"></p>
+                  <div class="reflection">
+                    <span>O que fica daqui</span>
+                    <p id="completionReflection"></p>
+                  </div>
                 </div>
+                <button class="completion-next" id="completionNext" type="button">Próximo exercício →</button>
               </div>
-              <button class="completion-next" id="completionNext" type="button">Próximo exercício →</button>
             </div>
           </div>
         </section>
