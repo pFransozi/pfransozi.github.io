@@ -62,15 +62,28 @@ lessons:
         url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-03-aprofundamento.html
 
   - number: 4
-    title: Do código-fonte à execução
+    title: Do código-fonte ao programa executável
     description: >-
-      Conectar o código escrito em uma linguagem de programação ao trabalho
-      realizado pela máquina, acompanhando como valores passam pela memória,
-      pelos registradores e por instruções simples durante a execução.
+      Acompanhar como código-fonte é traduzido para instruções de uma
+      arquitetura-alvo e relacionar essa transformação à construção e à
+      compatibilidade de software.
     content: >-
-      Código-fonte e execução; compilação e interpretação em nível introdutório;
-      variáveis, valores e endereços; registradores; instruções elementares;
-      relação com o ciclo buscar, decodificar e executar; rastreamento guiado.
+      Código-fonte e instruções; compilação; arquitetura-alvo e target; ISA como
+      contrato; x86-64 e ARM64; registradores e instruções; builds, distribuição
+      e compatibilidade de software.
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-04.html
+    action_label: Acessar aula
+
+  - number: 5
+    title: Do código ao desempenho
+    description: >-
+      Investigar como decisões de software alteram o trabalho exigido da CPU e
+      como esse custo aparece no tempo de execução de uma aplicação.
+    content: >-
+      Tempo de execução; instruções executadas; CPI e IPC; clock e frequência;
+      processador, núcleos e processadores lógicos; cargas CPU-bound; medição e
+      comparação experimental de implementações em Python.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-05.html
     action_label: Acessar aula
