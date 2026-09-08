@@ -87,3 +87,18 @@ lessons:
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-05.html
     action_label: Acessar aula
+
+  - number: 6
+    title: O custo de acessar e movimentar dados
+    description: >-
+      Investigar como a organização, o acesso e a persistência dos dados afetam
+      o tempo de execução, relacionando hierarquia de memória, localidade e
+      entrada/saída a decisões de software.
+    content: >-
+      Hierarquia de memória; registradores, cache e RAM; localidade temporal e
+      espacial; conjunto de trabalho; armazenamento persistente; latência e
+      vazão; acesso sequencial e aleatório; cargas memory-bound e I/O-bound;
+      experimento em Python.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/rascunhos/aula-06.html
+    action_label: Acessar aula
