@@ -103,5 +103,5 @@ lessons:
       a partir das relações normalizadas; introdução à SQL e DDL; CREATE TABLE;
       chaves primárias, chaves estrangeiras, tipos de dados e NOT NULL no PostgreSQL.
     status: published
-    url: https://pfransozi.github.io/bd-2026-02/rascunhos/aula-06.html
+    url: https://pfransozi.github.io/bd-2026-02/aula-06.html
     action_label: Acessar aula
