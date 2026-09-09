@@ -90,3 +90,18 @@ lessons:
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-05.html
     action_label: Acessar aula
+
+  - number: 6
+    title: Do modelo relacional a uma estrutura consistente
+    description: >-
+      Retomada do modelo relacional e análise progressiva da organização das
+      relações, utilizando normalização para compreender e corrigir redundâncias,
+      dependências e separações inadequadas antes da implementação.
+    content: >-
+      Normalização; Primeira, Segunda e Terceira Formas Normais; dependências
+      funcionais; dependências parciais e transitivas; reconstrução do modelo
+      a partir das relações normalizadas; introdução à SQL e DDL; CREATE TABLE;
+      chaves primárias, chaves estrangeiras, tipos de dados e NOT NULL no PostgreSQL.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/rascunhos/aula-06.html
+    action_label: Acessar aula
