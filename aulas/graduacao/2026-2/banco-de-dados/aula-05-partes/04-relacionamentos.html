@@ -1,0 +1,91 @@
+<section aria-labelledby='rel-map-title' class='section-pad' id='relacionamentos'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Mapeamento de relacionamentos</p>
+      <h2 id='rel-map-title'>A cardinalidade ajuda a decidir onde a referência deve aparecer</h2>
+      <p>No DER, o relacionamento aparece explicitamente como uma conexão gráfica. No esquema relacional, essa conexão será preservada principalmente por chaves estrangeiras ou por uma nova relação.</p>
+    </div>
+
+    <div class='mapping-rule-grid'>
+      <article class='mapping-rule-card relation-rule'><span>1:N</span><strong>A FK fica no lado N</strong><p>A chave da ocorrência do lado 1 é armazenada na relação correspondente ao lado N.</p><div class='mapping-example'>USUARIO 1 → N RESERVA<br/>RESERVA.id_usuario → FK</div></article>
+      <article class='mapping-rule-card relation-rule'><span>1:1</span><strong>Uma referência precisa manter a unicidade</strong><p>A FK pode ficar em um dos lados. A escolha considera participação e significado; a unicidade preserva o limite máximo 1.</p><div class='mapping-example'>PESSOA 1 ↔ 1 CRACHA<br/>CRACHA.id_pessoa → FK + UNIQUE</div></article>
+      <article class='mapping-rule-card relation-rule'><span>N:N</span><strong>Crie uma nova relação</strong><p>Uma única FK em um dos lados não consegue registrar várias ocorrências dos dois participantes.</p><div class='mapping-example'>ALUNO N ↔ N DISCIPLINA<br/>→ MATRICULA</div></article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby='um-muitos-title' class='section-pad section-soft'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Caso 1 · relacionamento 1:N</p>
+      <h2 id='um-muitos-title'>Pergunte: qual ocorrência precisa lembrar de qual?</h2>
+      <p>Uma reserva pertence a um usuário e a uma sala. Ao mesmo tempo, um usuário pode ter várias reservas e uma sala pode aparecer em várias reservas. Por isso, RESERVA fica no lado N dos dois relacionamentos.</p>
+    </div>
+
+    <div class='relation-mapping-board'>
+      <div class='relation-concept'>
+        <article><strong>USUÁRIO</strong><span>1</span></article><div class='relation-line'>realiza</div><article><strong>RESERVA</strong><span>N</span></article>
+      </div>
+      <div aria-hidden='true' class='mapping-stage-arrow compact-arrow'><strong>→</strong></div>
+      <div class='schema-grid relation-schema-grid'>
+        <article class='schema-card'><header><span>Relação</span><h3>USUARIO</h3></header><div class='schema-field'><span class='key-badge pk'>PK</span><code>id_usuario</code></div><div class='schema-field'><span class='key-placeholder'></span><code>nome</code></div></article>
+        <article class='schema-card'><header><span>Relação</span><h3>RESERVA</h3></header><div class='schema-field'><span class='key-badge pk'>PK</span><code>id_reserva</code></div><div class='schema-field'><span class='key-badge fk'>FK</span><code>id_usuario</code></div><div class='schema-field'><span class='key-placeholder'></span><code>data</code></div></article>
+      </div>
+    </div>
+
+    <div class='rule-panel'><h3>Regra de leitura</h3><p>O valor de <code>RESERVA.id_usuario</code> aponta para uma ocorrência de <code>USUARIO.id_usuario</code>. Muitas reservas podem repetir a mesma referência, mas cada reserva guarda apenas uma referência de usuário.</p></div>
+
+    <div class='relation-mapping-board second-board'>
+      <div class='relation-concept'><article><strong>SALA</strong><span>1</span></article><div class='relation-line'>aparece em</div><article><strong>RESERVA</strong><span>N</span></article></div>
+      <div aria-hidden='true' class='mapping-stage-arrow compact-arrow'><strong>→</strong></div>
+      <article class='schema-card focused-relation'><header><span>Relação resultante</span><h3>RESERVA</h3></header><div class='schema-field'><span class='key-badge pk'>PK</span><code>id_reserva</code></div><div class='schema-field'><span class='key-badge fk'>FK</span><code>id_usuario</code></div><div class='schema-field'><span class='key-badge fk'>FK</span><code>id_sala</code></div><div class='schema-field'><span class='key-placeholder'></span><code>data</code></div><div class='schema-field'><span class='key-placeholder'></span><code>hora_inicio</code></div><div class='schema-field'><span class='key-placeholder'></span><code>situacao</code></div></article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby='um-um-title' class='section-pad'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Caso 2 · relacionamento 1:1</p>
+      <h2 id='um-um-title'>No 1:1 existe uma escolha — e ela precisa ser justificada</h2>
+      <p>Como cada ocorrência de um lado se relaciona no máximo com uma ocorrência do outro, a chave estrangeira pode, em princípio, ser colocada em qualquer um dos lados. A participação e o significado ajudam a escolher.</p>
+    </div>
+
+    <div class='mapping-stage'>
+      <article class='conceptual-card'><span>Exemplo independente</span><h3>PESSOA 1 — 1 CRACHÁ</h3><p>Todo crachá pertence a exatamente uma pessoa. Uma pessoa pode ainda não ter crachá emitido.</p></article>
+      <div class='mapping-stage-arrow'><span>decisão</span><strong>→</strong></div>
+      <article class='schema-card featured-schema'><header><span>Uma possibilidade</span><h3>CRACHA</h3></header><div class='schema-field'><span class='key-badge pk'>PK</span><code>id_cracha</code></div><div class='schema-field'><span class='key-badge fk'>FK</span><code>id_pessoa</code><span class='mini-chip'>UNIQUE</span></div><div class='schema-field'><span class='key-placeholder'></span><code>data_emissao</code></div></article>
+    </div>
+
+    <div class='comparison-panel'><h3>Por que <code>UNIQUE</code> importa?</h3><p>Uma chave estrangeira, sozinha, permitiria que vários crachás repetissem o mesmo <code>id_pessoa</code>, produzindo na prática um relacionamento 1:N. A restrição de unicidade preserva a regra de no máximo um crachá por pessoa.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby='muitos-muitos-title' class='section-pad section-soft'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Caso 3 · relacionamento N:N</p>
+      <h2 id='muitos-muitos-title'>No modelo relacional, o N:N precisa de uma relação intermediária</h2>
+      <p>Se um aluno pode cursar várias disciplinas e uma disciplina pode possuir vários alunos, nenhuma das duas relações consegue armazenar todas as referências em um único atributo.</p>
+    </div>
+
+    <div class='n-to-n-demo'>
+      <div class='relation-concept horizontal-concept'><article><strong>ALUNO</strong><span>N</span></article><div class='relation-line'>cursa</div><article><strong>DISCIPLINA</strong><span>N</span></article></div>
+      <div class='mapping-stage-arrow vertical-arrow'><span>mapear</span><strong>↓</strong></div>
+      <div class='schema-grid three-schemas'>
+        <article class='schema-card'><header><span>Relação</span><h3>ALUNO</h3></header><div class='schema-field'><span class='key-badge pk'>PK</span><code>id_aluno</code></div></article>
+        <article class='schema-card associative-schema'><header><span>Nova relação</span><h3>MATRICULA</h3></header><div class='schema-field'><span class='key-badge pkfk'>PK/FK</span><code>id_aluno</code></div><div class='schema-field'><span class='key-badge pkfk'>PK/FK</span><code>id_disciplina</code></div><div class='schema-field'><span class='key-placeholder'></span><code>semestre</code></div></article>
+        <article class='schema-card'><header><span>Relação</span><h3>DISCIPLINA</h3></header><div class='schema-field'><span class='key-badge pk'>PK</span><code>id_disciplina</code></div></article>
+      </div>
+    </div>
+
+    <ol class='mapping-logic-list'>
+      <li><span>1</span><div><strong>Crie uma nova relação</strong><p>MATRICULA passa a representar cada associação entre ALUNO e DISCIPLINA.</p></div></li>
+      <li><span>2</span><div><strong>Leve as chaves das entidades participantes</strong><p><code>id_aluno</code> e <code>id_disciplina</code> são chaves estrangeiras.</p></div></li>
+      <li><span>3</span><div><strong>Forme a identificação da associação</strong><p>No caso canônico, a combinação dessas chaves forma a chave primária da nova relação.</p></div></li>
+      <li><span>4</span><div><strong>Leve os atributos do relacionamento</strong><p>Se semestre, nota ou outro valor descreve a associação, esse atributo pertence à relação intermediária.</p></div></li>
+    </ol>
+
+    <div class='axis-note'><b>i</b><div><strong>Conexão com RESERVA.</strong> Na Aula 04, RESERVA foi tratada como uma ocorrência reconhecível do fato entre USUÁRIO e SALA porque possui data, horário, situação e histórico próprios. Ao mapear esse modelo, RESERVA naturalmente vira uma relação com as FKs de USUÁRIO e SALA. O identificador <code>id_reserva</code> pode ser preservado como a PK porque já fazia parte da decisão conceitual.</div></div>
+  </div>
+</section>
