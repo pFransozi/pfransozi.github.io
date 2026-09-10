@@ -1,0 +1,120 @@
+<section aria-labelledby='pratica-title' class='section-pad section-soft' id='pratica'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Parte 2 · prática guiada</p>
+      <h2 id='pratica-title'>Mapear é seguir uma sequência de perguntas</h2>
+      <p>Em vez de tentar transformar o DER inteiro de uma vez, percorra seus elementos em uma ordem previsível. Cada etapa resolve um tipo de estrutura.</p>
+    </div>
+
+    <div class='mapping-checklist'>
+      <article><span>1</span><div><strong>Entidades fortes</strong><p>Crie uma relação para cada entidade e leve seus atributos simples. Defina a chave primária.</p></div></article>
+      <article><span>2</span><div><strong>Entidades fracas</strong><p>Leve também a chave da proprietária e complete a identificação da entidade dependente.</p></div></article>
+      <article><span>3</span><div><strong>Relacionamentos 1:1</strong><p>Escolha onde a FK ficará e preserve o máximo 1 com unicidade.</p></div></article>
+      <article><span>4</span><div><strong>Relacionamentos 1:N</strong><p>Leve a chave do lado 1 como FK para a relação do lado N.</p></div></article>
+      <article><span>5</span><div><strong>Relacionamentos N:N</strong><p>Crie uma nova relação com as chaves das entidades participantes e os atributos do relacionamento.</p></div></article>
+      <article><span>6</span><div><strong>Atributos multivalorados</strong><p>Crie uma relação própria contendo a chave da proprietária e o valor do atributo.</p></div></article>
+    </div>
+
+    <div class='rule-panel'><h3>Depois do mapeamento, faça uma leitura de volta</h3><p>Olhe para o esquema relacional e tente reconstruir as regras do DER. Se a estrutura permite situações que o domínio proibia — ou impede situações que o domínio permitia — alguma decisão do mapeamento precisa ser revista.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby='atividade-title' class='section-pad'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Atividade prática · retomando a Aula 04</p>
+      <h2 id='atividade-title'>Retome o DER da Biblioteca Universitária e transforme-o em um modelo relacional</h2>
+      <p>O ponto de partida é o DER construído pela equipe para a Biblioteca Universitária. Nesta atividade, vocês irão primeiro registrar por escrito as decisões do mapeamento e, em seguida, representar o modelo relacional no diagrams.net.</p>
+    </div>
+
+    <div class='learning-sequence'>
+      <article class='learning-block practice-block'>
+        <div class='learning-block-head'><span>1</span><div><small>Análise antes do desenho</small><h3>Explique por escrito como o DER será mapeado</h3></div></div>
+        <p>Use o DER da Aula 04 como fonte das decisões. Responda aos itens abaixo em um texto curto, mantendo a mesma ordem.</p>
+        <ol class='practice-steps'>
+          <li><strong>Recupere o DER da Biblioteca Universitária.</strong> Liste as entidades, seus atributos, identificadores e relacionamentos conforme aparecem no modelo produzido pela equipe.</li>
+          <li><strong>Mapeie as entidades.</strong> Para cada entidade, indique qual relação será criada e quais atributos seguirão diretamente para ela.</li>
+          <li><strong>Defina as chaves primárias.</strong> Explique como os identificadores do DER orientam a PK de cada relação.</li>
+          <li><strong>Analise LIVRO–EXEMPLAR.</strong> Explique onde a chave estrangeira deve aparecer e como essa escolha representa a cardinalidade definida no DER.</li>
+          <li><strong>Analise LIVRO–AUTOR.</strong> Explique como o relacionamento N:N será transformado e quais chaves precisarão aparecer na nova relação.</li>
+          <li><strong>Analise o histórico de empréstimos.</strong> Explique como o modelo relacional preservará a ligação entre USUÁRIO e EXEMPLAR e os dados de cada empréstimo: data do empréstimo, data prevista de devolução e, quando existir, data de devolução.</li>
+          <li><strong>Reveja a identificação de EMPRÉSTIMO.</strong> Registre qual solução a equipe adotará para identificar cada ocorrência e justifique a decisão. Se o DER deixou esse ponto em aberto, mantenha a dúvida explicitamente registrada.</li>
+          <li><strong>Faça uma leitura de volta.</strong> Explique como o esquema proposto continua preservando as regras de autoria, exemplares e histórico de empréstimos presentes no DER.</li>
+        </ol>
+      </article>
+
+      <article class='learning-block practice-block'>
+        <div class='learning-block-head'><span>2</span><div><small>Construção no diagrams.net</small><h3>Transforme as decisões em um modelo relacional</h3></div></div>
+        <p>Depois de registrar as decisões por escrito, represente o resultado no diagrams.net.</p>
+        <ol class='practice-steps'>
+          <li>Crie uma caixa para cada relação resultante do mapeamento.</li>
+          <li>Liste os atributos dentro de cada relação e destaque claramente as <strong>PKs</strong>.</li>
+          <li>Marque as <strong>FKs</strong> e indique qual relação cada uma referencia.</li>
+          <li>Represente corretamente o mapeamento de <strong>LIVRO–EXEMPLAR</strong>.</li>
+          <li>Crie a relação necessária para representar <strong>LIVRO–AUTOR</strong> e deixe visíveis as chaves que conectam as duas relações participantes.</li>
+          <li>Represente <strong>EMPRÉSTIMO</strong> de modo que seja possível reconhecer o usuário, o exemplar e as datas registradas no DER.</li>
+          <li>Compare o modelo relacional pronto com o DER original e corrija qualquer estrutura que altere uma regra do domínio.</li>
+        </ol>
+      </article>
+    </div>
+
+    <div class='delivery-panel' id='entrega-aula05'>
+      <div class='delivery-panel-head'><span>Formato da entrega</span><strong>Um único arquivo ZIP</strong></div>
+      <p>Ao final da atividade, compacte os três arquivos abaixo em um único <code>.zip</code>:</p>
+      <ul>
+        <li><code>equipe_nome-aula05-biblioteca-mapeamento.pdf</code> ou <code>.docx</code> — texto com as respostas da etapa <strong>Explique por escrito como o DER será mapeado</strong>;</li>
+        <li><code>equipe_nome-aula05-biblioteca-relacional.drawio</code> — modelo relacional editável no diagrams.net;</li>
+        <li><code>equipe_nome-aula05-biblioteca-relacional.png</code> — exportação final do modelo relacional para consulta rápida.</li>
+      </ul>
+      <p>No texto, responda aos oito itens na ordem apresentada. No diagrama, todas as relações devem mostrar seus atributos, PKs e FKs, e cada FK deve indicar claramente a relação referenciada.</p>
+      <p class='delivery-name'><strong>Nome do ZIP:</strong> <code>equipe_nome-aula05-biblioteca.zip</code></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby='sintese-title' class='section-pad'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Síntese</p>
+      <h2 id='sintese-title'>Do DER ao modelo relacional: o que muda e o que precisa permanecer?</h2>
+      <p>Ao mapear, não estamos criando outro domínio. Estamos representando as mesmas decisões do DER com os elementos do modelo relacional. Por isso, cada relação, chave e referência deve poder ser explicada a partir do modelo conceitual.</p>
+    </div>
+
+    <div class='synthesis-path aula05-synthesis'>
+      <div class='synthesis-step'>DER validado</div>
+      <div class='synthesis-step'>Entidades → relações</div>
+      <div class='synthesis-step'>Identificadores → PKs</div>
+      <div class='synthesis-step'>Relacionamentos → FKs ou novas relações</div>
+      <div class='synthesis-step'>Atributos especiais → estruturas próprias</div>
+      <div class='synthesis-step'>Leitura de volta</div>
+    </div>
+
+    <div class='lesson-takeaways'>
+      <article><strong>1</strong><p><strong>O DER é o ponto de partida.</strong> Antes de pensar em tabelas, observe quais entidades, atributos, identificadores e relacionamentos já foram definidos no modelo conceitual.</p></article>
+      <article><strong>2</strong><p><strong>Entidades e identificadores dão a estrutura inicial.</strong> As entidades dão origem às relações e seus identificadores orientam a definição das chaves primárias.</p></article>
+      <article><strong>3</strong><p><strong>As cardinalidades orientam as conexões.</strong> Em 1:N, a FK aparece no lado N; em N:N, o relacionamento precisa de uma nova relação para conectar as entidades participantes.</p></article>
+      <article><strong>4</strong><p><strong>Nem todo atributo é levado diretamente.</strong> Atributos compostos precisam ser decompostos em seus componentes e atributos multivalorados exigem uma estrutura própria.</p></article>
+      <article><strong>5</strong><p><strong>O mapeamento termina com uma validação.</strong> Leia o esquema relacional de volta e verifique se as regras que apareciam no DER continuam reconhecíveis na nova representação.</p></article>
+    </div>
+
+    <div class='decision-panel'>
+      <h3>Use a Biblioteca Universitária como teste</h3>
+      <p>No modelo produzido pela equipe, deve ser possível explicar de onde surgiram as relações de USUÁRIO, LIVRO, AUTOR e EXEMPLAR; por que EXEMPLAR referencia LIVRO; por que LIVRO–AUTOR exige uma relação própria; e como o histórico de EMPRÉSTIMOS preserva a ligação entre usuário, exemplar e as datas registradas no DER.</p>
+    </div>
+
+    <div class='decision-panel'><h3>Na próxima aula</h3><p>A APS 1 retoma o percurso completo. A equipe deverá interpretar um cenário, registrar requisitos e regras de negócio, construir e auditar um DER e produzir um esquema relacional preliminar com as decisões justificadas.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby='referencias-title' class='section-pad section-soft'>
+  <div class='container'>
+    <div class='section-heading'><p class='eyebrow'>Referências para esta aula</p><h2 id='referencias-title'>Onde aprofundar os conceitos</h2></div>
+    <div class='references-list'>
+      <article><strong>ELMASRI, R.; NAVATHE, S. B.</strong><p><em>Sistemas de Banco de Dados</em>. Mapeamento do modelo ER para o modelo relacional e tratamento de relacionamentos e entidades fracas.</p></article>
+      <article><strong>SILBERSCHATZ, A.; KORTH, H. F.; SUDARSHAN, S.</strong><p><em>Database System Concepts</em>. Capítulo 6: projeto usando o modelo E-R e redução de diagramas E-R a esquemas relacionais.</p></article>
+      <article><strong>MACHADO, F. N. R.</strong><p><em>Banco de Dados: Projeto e Implementação</em>. Mapeamento do Modelo Entidade-Relacionamento para estruturas relacionais.</p></article>
+      <article><strong>HAO, Q.; TSIKERDEKIS, M.</strong><p><em>Grokking Relational Database Design</em>. Capítulos 5 e 6: relacionamentos, entidades fracas, normalização e implementação do projeto.</p></article>
+    </div>
+    <nav aria-label='Navegação entre aulas' class='lesson-bottom-nav'><a href='aula-04.html'>← Aula 04</a><a href='index.html'>Página da disciplina</a></nav>
+  </div>
+</section>
