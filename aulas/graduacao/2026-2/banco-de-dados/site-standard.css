@@ -2,27 +2,27 @@
 :root {
   color-scheme: light;
   --standard-bg: #ffffff;
-  --standard-surface: #f8f9fc;
-  --standard-text: #20232b;
-  --standard-muted: #687083;
-  --standard-line: #e3e6ee;
-  --standard-accent: #4d5fd1;
-  --standard-accent-strong: #3547b8;
-  --standard-accent-soft: #eef0ff;
+  --standard-surface: #fafafa;
+  --standard-text: #202124;
+  --standard-muted: #6b7280;
+  --standard-line: #e5e7eb;
+  --standard-accent: #0f8f83;
+  --standard-accent-strong: #0b6f67;
+  --standard-accent-soft: #ecf8f6;
   --standard-shell: 1180px;
   --standard-toc-width: 205px;
 }
 
 :root[data-theme="dark"], :root.theme-dark {
   color-scheme: dark;
-  --standard-bg: #121419;
-  --standard-surface: #191c23;
-  --standard-text: #e9ebf2;
-  --standard-muted: #a8aeba;
-  --standard-line: #2d313b;
-  --standard-accent: #9aa6ff;
-  --standard-accent-strong: #b8c0ff;
-  --standard-accent-soft: #252a46;
+  --standard-bg: #121417;
+  --standard-surface: #171a1f;
+  --standard-text: #e7e9ec;
+  --standard-muted: #a5abb4;
+  --standard-line: #2d323a;
+  --standard-accent: #55c7bc;
+  --standard-accent-strong: #74d8cf;
+  --standard-accent-soft: #17302e;
 }
 
 body.layout-standard {
@@ -176,24 +176,102 @@ body.toc-collapsed .standard-toc-current { display: block; }
 body.layout-standard .site-footer { border-top: 1px solid var(--standard-line); background: transparent; color: var(--standard-muted); }
 body.layout-standard .site-footer .container { width: min(calc(100% - 36px), var(--standard-shell)); margin-inline: auto; }
 
-/* Portal: lista editorial compacta, sem blocos promocionais. */
-body.portal-page main { width: min(calc(100% - 36px), var(--standard-shell)); margin-inline: auto; }
-body.portal-page .portal-hero { padding: 62px 0 48px; border-bottom: 1px solid var(--standard-line); background: transparent; }
-body.portal-page .portal-hero .container, body.portal-page main > section > .container { width: 100%; }
-body.portal-page .portal-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(240px, 340px); gap: 70px; align-items: end; }
-body.portal-page .portal-symbol { display: none; }
-body.portal-page .portal-hero h1 { max-width: 16ch; margin: 0; font-size: clamp(2.4rem, 5vw, 3.7rem); line-height: 1.06; letter-spacing: -.05em; }
-body.portal-page .portal-lead { margin: 20px 0 0; color: var(--standard-muted); font-size: 1.15rem; }
-body.portal-page .portal-copy { margin-bottom: 0; padding-left: 18px; border-left: 3px solid var(--standard-accent); }
-body.portal-page main > section:not(.portal-hero) { padding: 48px 0 70px; background: transparent; }
-body.portal-page .portal-card-grid { display: block; margin-top: 18px; border-top: 1px solid var(--standard-line); }
-body.portal-page .portal-card { display: grid; grid-template-columns: 90px minmax(0, 1fr) auto; gap: 10px 20px; align-items: start; padding: 18px 0; border: 0; border-bottom: 1px solid var(--standard-line); border-radius: 0; }
-body.portal-page .portal-card-topline { grid-column: 1; grid-row: 1 / span 3; display: block; color: #9299a8; font-size: .8rem; }
-body.portal-page .portal-card-topline span { display: block; margin-bottom: 4px; }
-body.portal-page .portal-card h3 { grid-column: 2; margin: 0; font-size: 1.05rem; }
-body.portal-page .portal-card p { grid-column: 2; margin: 0; }
-body.portal-page .portal-card-list { display: none; }
-body.portal-page .portal-card .button { grid-column: 3; grid-row: 1 / span 2; white-space: nowrap; border: 0; background: transparent; color: var(--standard-accent); }
+/* Portal: mesma lista editorial compacta do projeto de referência. */
+body.portal-page main { width: 100%; }
+body.portal-page .portal-shell { width: min(calc(100% - 36px), 1060px); margin-inline: auto; }
+body.portal-page .portal-hero { padding: 64px 0 50px; background: transparent; }
+body.portal-page .portal-hero h1 { max-width: 20ch; margin: 0; font-size: clamp(2.35rem, 6vw, 4.15rem); line-height: 1.05; letter-spacing: -.05em; font-weight: 760; }
+body.portal-page .portal-lead { max-width: 760px; margin: 20px 0 0; color: var(--standard-muted); font-size: 1.12rem; }
+body.portal-page .portal-links { display: flex; flex-wrap: wrap; gap: 14px 22px; margin-top: 24px; }
+body.portal-page .portal-links a { color: var(--standard-accent); font-size: .92rem; font-weight: 750; text-decoration: none; }
+body.portal-page .portal-section { position: relative; padding: 46px 0 54px; background: transparent; }
+body.portal-page .portal-section::before { content: ""; display: block; width: 58px; height: 3px; margin: 0 0 28px; border-radius: 999px; background: var(--standard-accent); opacity: .82; }
+body.portal-page .portal-section .section-heading { max-width: 760px; margin-bottom: 24px; }
+body.portal-page .portal-section .section-heading h2 { margin-bottom: 10px; }
+body.portal-page .portal-section .section-heading p { margin: 0; }
+body.portal-page .course-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 28px; padding: 22px 0; border-top: 1px solid var(--standard-line); border-bottom: 1px solid var(--standard-line); }
+body.portal-page .course-row small { display: block; margin-bottom: 5px; color: var(--standard-accent); font-size: .76rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+body.portal-page .course-row h3 { margin: 0; font-size: 1.08rem; }
+body.portal-page .course-row p { margin: 6px 0 0; font-size: .92rem; }
+body.portal-page .course-row > a { flex: 0 0 auto; padding-top: 3px; color: var(--standard-accent); font-size: .9rem; font-weight: 750; text-decoration: none; white-space: nowrap; }
+body.portal-page .materials { border-top: 1px solid var(--standard-line); }
+body.portal-page .material { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 18px; align-items: start; padding: 18px 0; border-bottom: 1px solid var(--standard-line); }
+body.portal-page .material-number { padding-top: 3px; color: #9ca3af; font-size: .86rem; font-variant-numeric: tabular-nums; }
+body.portal-page .material-main { min-width: 0; }
+body.portal-page .material-meta { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-bottom: 5px; color: var(--standard-muted); font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+body.portal-page .material-meta .current { color: var(--standard-accent); }
+body.portal-page .material h3 { margin: 0; color: var(--standard-text); font-size: 1.04rem; letter-spacing: -.015em; }
+body.portal-page .material p { max-width: 760px; margin: 6px 0 0; color: var(--standard-muted); font-size: .92rem; }
+body.portal-page .material-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 7px 14px; padding-top: 2px; }
+body.portal-page .material-links a { color: var(--standard-accent); font-size: .86rem; font-weight: 750; text-decoration: none; white-space: nowrap; }
+
+/* Compatibilidade: neutraliza as antigas variações azul/roxo das aulas 04–06. */
+body.layout-standard :is(
+  .flow-step span, .bridge-step span, .card-kicker,
+  .reading-card > span, .concept-card > span, .attribute-card > span,
+  .identifier-card > span, .cardinality-card > span, .degree-card > span,
+  .validation-card > span, .practice-card > span, .quick-check-card > span,
+  .tool-card > span, .axis-note b, .verb-link, .directional-rule b,
+  .participation-connector, .role-chip, .diagram-legend b, .transition-arrow,
+  .quick-check-card summary, .tool-card a, .learning-block-head small,
+  .diagram-tool-panel span, .model-node small, .synthesis-phase-head span,
+  .lesson-route > article > span, .hierarchy-node small, .hierarchy-branch,
+  .mapping-rule-card > span, .constraint-matrix > article > span,
+  .weak-link, .mapping-flow article span, .mapping-flow-arrow,
+  .conceptual-card > span, .mapping-stage-arrow, .schema-card header span,
+  .relation-concept article span, .relation-line, .mapping-logic-list li > span,
+  .mapping-checklist article > span, .solution-details summary,
+  .lesson-takeaways article > strong, .conceptual-recap-card > span,
+  .path-strip b
+) { color: var(--standard-accent) !important; }
+
+body.layout-standard :is(
+  .lesson-route > article > span, .role-chip, .transition-arrow,
+  .mapping-logic-list li > span, .mapping-checklist article > span,
+  .lesson-takeaways article > strong, .conceptual-recap-card > span,
+  .key-badge, .stage-number, .question-list li::before, .discovery-step b
+) { background: var(--standard-accent-soft) !important; border-color: color-mix(in srgb, var(--standard-accent) 28%, var(--standard-line)) !important; }
+
+body.layout-standard :is(
+  .reading-card, .attribute-card, .identifier-card, .cardinality-card,
+  .degree-card, .validation-card, .practice-card, .hierarchy-node,
+  .constraint-matrix > article, .owner-node, .weak-node, .featured-schema,
+  .associative-schema, .synthesis-phase
+) { border-top-color: var(--standard-accent) !important; }
+
+body.layout-standard :is(
+  .scenario-panel, .diagram-tool-panel, .mapping-flow-focus,
+  .mapping-equation, .path-highlight
+) { border-color: color-mix(in srgb, var(--standard-accent) 28%, var(--standard-line)) !important; background: var(--standard-accent-soft) !important; box-shadow: none !important; }
+
+body.layout-standard :is(
+  .flow-step, .reading-card, .concept-card, .attribute-card, .identifier-card,
+  .cardinality-card, .degree-card, .validation-card, .practice-card,
+  .quick-check-card, .tool-card, .bridge-step, .learning-block,
+  .lesson-route > article, .hierarchy-node, .mapping-rule-card,
+  .constraint-matrix > article, .mapping-flow article, .conceptual-card,
+  .schema-card, .relation-concept article, .mapping-logic-list li,
+  .mapping-checklist article, .lesson-takeaways article,
+  .conceptual-recap-card, .stage, .question-list li, .discovery-step
+) { border-color: var(--standard-line) !important; background: transparent !important; box-shadow: none !important; }
+
+body.layout-standard .model-node header,
+body.layout-standard .learning-block-head > span,
+body.layout-standard .synthesis-step-number,
+body.layout-standard .requirement-list li::before,
+body.layout-standard .practice-steps li::before {
+  background: var(--standard-accent) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+
+body.layout-standard .flow-step::after,
+body.layout-standard .bridge-step::after,
+body.layout-standard .concept-card::after,
+body.layout-standard .conceptual-recap-card::after,
+body.layout-standard .learning-block::before {
+  background: var(--standard-accent) !important;
+}
 
 @media (max-width: 1050px) {
   .standard-page-grid { grid-template-columns: minmax(0, 1fr); gap: 0; width: min(calc(100% - 36px), 960px); }
@@ -206,11 +284,11 @@ body.portal-page .portal-card .button { grid-column: 3; grid-row: 1 / span 2; wh
   body.layout-standard .standard-page-grid main > section { padding: 46px 0 42px; }
   body.layout-standard .study-meta { flex-direction: column; gap: 3px; }
   body.layout-standard .study-meta span + span::before { display: none; }
-  body.portal-page .portal-hero-grid { grid-template-columns: 1fr; gap: 24px; }
-  body.portal-page .portal-card { grid-template-columns: 46px minmax(0, 1fr); }
-  body.portal-page .portal-card-topline { grid-column: 1; }
-  body.portal-page .portal-card h3, body.portal-page .portal-card p { grid-column: 2; }
-  body.portal-page .portal-card .button { grid-column: 2; grid-row: auto; justify-self: start; padding-left: 0; }
+  body.portal-page .portal-hero { padding: 48px 0 40px; }
+  body.portal-page .portal-section { padding: 40px 0 46px; }
+  body.portal-page .material { grid-template-columns: 38px minmax(0, 1fr); }
+  body.portal-page .material-links { grid-column: 2; justify-content: flex-start; padding-top: 2px; }
+  body.portal-page .course-row { flex-direction: column; gap: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
