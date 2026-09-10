@@ -1,0 +1,99 @@
+<section aria-labelledby="projeto-title" class="section-pad section-soft" id="projeto">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Projeto de banco de dados</p>
+      <h2 id="projeto-title">Modelar é transformar uma situação em uma representação que possa ser discutida</h2>
+      <p>O banco deve refletir a parte da realidade que interessa ao sistema. Essa parte observada é o domínio — ou minimundo — que será descrito, analisado, modelado e, somente depois, implementado.</p>
+    </div>
+
+    <div aria-label="Etapas do projeto de banco de dados" class="design-flow">
+      <article class="flow-step"><span>01</span><strong>Compreender o domínio</strong><p>Identificar objetivos, pessoas envolvidas, processos, informações importantes e limites do problema.</p></article>
+      <article class="flow-step"><span>02</span><strong>Levantar requisitos</strong><p>Registrar fatos, regras de negócio, necessidades de informação, restrições e situações ainda ambíguas.</p></article>
+      <article class="flow-step"><span>03</span><strong>Modelar conceitualmente</strong><p>Representar entidades, atributos, relacionamentos, cardinalidades e participação em um DER.</p></article>
+      <article class="flow-step"><span>04</span><strong>Estruturar logicamente</strong><p>Transformar o modelo conceitual segundo a abordagem escolhida, como o modelo relacional.</p></article>
+      <article class="flow-step"><span>05</span><strong>Implementar fisicamente</strong><p>Definir tipos, restrições e demais detalhes específicos do SGBD e do ambiente de execução.</p></article>
+    </div>
+
+    <div class="rule-panel">
+      <h3>O foco de hoje é o modelo conceitual</h3>
+      <p>Tabelas, atributos, relações e chaves já fazem parte do nosso repertório. Agora o percurso começa na situação real: precisamos compreender o que deve ser lembrado, quais regras conectam os elementos e como representar essas decisões de maneira compreensível.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="metodo-title" class="section-pad">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Organização da aula</p>
+      <h2 id="metodo-title">Um mesmo problema acompanhará a construção dos conceitos</h2>
+      <p>Vamos acompanhar o domínio de reserva de salas do início ao fim. O modelo será construído aos poucos, à medida que novas perguntas e decisões surgirem do próprio cenário.</p>
+    </div>
+
+    <div class="learning-sequence sequence-overview">
+      <article class="learning-block theory-block">
+        <div class="learning-block-head"><span>1</span><div><small>Começamos pelo problema</small><h3>Ler antes de desenhar</h3></div></div>
+        <p>Primeiro organizamos fatos, regras e limites do domínio. Ainda não há caixas nem linhas.</p>
+      </article>
+
+      <article class="learning-block guided-block">
+        <div class="learning-block-head"><span>2</span><div><small>Construção progressiva</small><h3>O modelo muda quando aprendemos algo novo</h3></div></div>
+        <p>Entidades, atributos, relacionamentos e cardinalidades serão incorporados ao mesmo exemplo. Pequenas perguntas serão feitas antes de cada decisão ser revelada.</p>
+      </article>
+
+      <article class="learning-block practice-block">
+        <div class="learning-block-head"><span>3</span><div><small>Transferência</small><h3>No final, a equipe modela outro domínio</h3></div></div>
+        <p>Depois de acompanhar o processo completo, os estudantes receberão um cenário de biblioteca com relações diferentes para construir, justificar e validar o próprio DER.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="cenario-title" class="section-pad section-soft" id="cenario">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Passo 1 · leitura e delimitação</p>
+      <h2 id="cenario-title">Antes de desenhar, organize o que o cenário realmente informa</h2>
+      <p>O texto oferece pistas, mas não produz o modelo automaticamente. Precisamos separar conceitos, características, conexões e regras e definir qual recorte da realidade será representado.</p>
+    </div>
+
+    <div class="learning-sequence">
+      <article class="learning-block theory-block">
+        <div class="learning-block-head"><span>T</span><div><small>Explicação teórica</small><h3>Como ler um requisito para modelagem</h3></div></div>
+        <p>Uma primeira leitura pode procurar quatro tipos de informação:</p>
+        <div class="reading-grid compact-reading-grid">
+          <article class="reading-card"><span>Conceitos</span><strong>O que precisa ser reconhecido?</strong><p>Pessoas, objetos, eventos ou ideias sobre os quais o sistema precisa manter informações.</p></article>
+          <article class="reading-card"><span>Características</span><strong>O que descreve cada conceito?</strong><p>Nomes, datas, estados, códigos, medidas e outras propriedades relevantes.</p></article>
+          <article class="reading-card"><span>Conexões</span><strong>Que fatos ligam os elementos?</strong><p>Verbos e expressões que indicam participação, responsabilidade, uso ou associação.</p></article>
+          <article class="reading-card"><span>Regras</span><strong>O que é permitido ou obrigatório?</strong><p>Expressões como “pode”, “exatamente um”, “um ou mais” e “no máximo”.</p></article>
+        </div>
+      </article>
+
+      <article class="learning-block guided-block">
+        <div class="learning-block-head"><span>G</span><div><small>Exemplo que acompanhará a aula</small><h3>Reserva de salas de estudo</h3></div></div>
+        <div class="scenario-panel embedded-scenario">
+          <p>Um espaço de estudos cadastra usuários e salas. Um usuário pode reservar uma sala para determinada data e horário inicial. Cada ocorrência envolve exatamente um usuário e exatamente uma sala e possui uma situação, como ativa ou cancelada. Usuários e salas podem ser cadastrados mesmo que ainda não tenham participado de reservas. Para cada usuário são registrados identificador, nome, data de nascimento e um ou mais telefones. Para cada sala são registrados identificador, nome e capacidade.</p>
+        </div>
+
+        <h4>Antes de classificar qualquer coisa</h4>
+        <ol class="practice-steps">
+          <li>Quais elementos possuem informações próprias e existem independentemente de uma reserva?</li>
+          <li>O verbo <strong>reservar</strong> representa um objeto ou, inicialmente, um fato que conecta outros elementos?</li>
+          <li>Data, horário e situação descrevem permanentemente um usuário? Descrevem permanentemente uma sala?</li>
+        </ol>
+
+        <h4>Primeira leitura organizada</h4>
+        <ol class="practice-steps">
+          <li><strong>Conceitos:</strong> usuário e sala são elementos sobre os quais o sistema precisa manter informações próprias.</li>
+          <li><strong>Características:</strong> usuário possui identificador, nome, data de nascimento e telefones; sala possui identificador, nome e capacidade; cada ocorrência do fato de reservar possui data, horário inicial e situação.</li>
+          <li><strong>Conexões:</strong> o fato <strong>“um usuário reserva uma sala”</strong> conecta USUÁRIO e SALA.</li>
+          <li><strong>Regras:</strong> cada ocorrência envolve exatamente um usuário e exatamente uma sala; usuários e salas podem existir mesmo sem participar de uma reserva.</li>
+        </ol>
+
+        <div class="comparison-panel">
+          <h3>Recorte do domínio</h3>
+          <p>Pagamento, limpeza, equipamentos e controle de acesso ficam fora do modelo porque não aparecem entre as necessidades informadas no cenário.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
