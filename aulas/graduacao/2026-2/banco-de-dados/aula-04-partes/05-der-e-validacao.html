@@ -1,0 +1,189 @@
+<section aria-labelledby="laboratorio-title" class="section-pad" id="laboratorio">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Laboratório de modelagem</p>
+      <h2 id="laboratorio-title">Transforme as decisões em um DER e depois aplique o processo a outro domínio</h2>
+      <p>A ferramenta entra somente neste momento porque o desenho precisa representar decisões já discutidas. Primeiro concluiremos o exemplo de reserva de salas. Em seguida, a equipe construirá um modelo novo, com relações diferentes.</p>
+    </div>
+
+    <div class="diagram-tool-panel">
+      <div>
+        <span>Ferramenta da atividade</span>
+        <h3>diagrams.net</h3>
+        <p>Use uma notação simples e consistente: entidades em caixas, atributos dentro delas, identificadores destacados, relacionamentos nomeados e cardinalidades mínimas e máximas próximas às extremidades.</p>
+      </div>
+      <a class="button button-primary" href="https://app.diagrams.net/" rel="noopener noreferrer" target="_blank">Abrir diagrams.net →</a>
+    </div>
+
+    <div class="learning-sequence">
+      <article class="learning-block theory-block">
+        <div class="diagram-panel" style="margin:0;">
+          <h3>Exemplo visual · Reserva de sala</h3>
+          <svg aria-label="Exemplo visual do DER de reserva de salas para reproduzir no diagrams.net" role="img" viewBox="0 0 1200 520">
+            <title>Exemplo visual de reserva de sala</title>
+            <desc>USUÁRIO realiza RESERVA e RESERVA utiliza SALA. Um usuário e uma sala podem participar de zero a muitas reservas, enquanto cada reserva exige exatamente um usuário e exatamente uma sala.</desc>
+
+            <rect x="55" y="95" width="285" height="320" rx="18" fill="currentColor" fill-opacity="0.025" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+            <rect x="55" y="95" width="285" height="72" rx="18" fill="#5f82ff" fill-opacity="0.14" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+            <line x1="55" y1="167" x2="340" y2="167" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+            <text x="197" y="140" text-anchor="middle" font-size="27" font-weight="800" fill="currentColor">USUÁRIO</text>
+            <text x="82" y="212" font-size="19" fill="currentColor">identificador</text>
+            <text x="82" y="250" font-size="19" fill="currentColor">nome</text>
+            <text x="82" y="288" font-size="19" fill="currentColor">data_nascimento</text>
+            <text x="82" y="326" font-size="19" fill="currentColor">telefone</text>
+            <line x1="82" y1="218" x2="190" y2="218" stroke="#5f82ff" stroke-width="2"/>
+
+            <rect x="458" y="65" width="285" height="380" rx="18" fill="currentColor" fill-opacity="0.025" stroke="currentColor" stroke-opacity="0.62" stroke-width="2"/>
+            <rect x="458" y="65" width="285" height="72" rx="18" fill="#62d9ef" fill-opacity="0.14" stroke="currentColor" stroke-opacity="0.62" stroke-width="2"/>
+            <line x1="458" y1="137" x2="743" y2="137" stroke="currentColor" stroke-opacity="0.62" stroke-width="2"/>
+            <text x="600" y="110" text-anchor="middle" font-size="27" font-weight="800" fill="currentColor">RESERVA</text>
+            <text x="485" y="190" font-size="19" fill="currentColor">data</text>
+            <text x="485" y="228" font-size="19" fill="currentColor">horário inicial</text>
+            <text x="485" y="266" font-size="19" fill="currentColor">situação</text>
+            <rect x="484" y="315" width="233" height="70" rx="13" fill="#5f82ff" fill-opacity="0.06" stroke="#5f82ff" stroke-width="2" stroke-dasharray="8 7"/>
+            <text x="600" y="357" text-anchor="middle" font-size="18" font-style="italic" fill="#5f82ff">identificador: a validar</text>
+
+            <rect x="860" y="95" width="285" height="320" rx="18" fill="currentColor" fill-opacity="0.025" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+            <rect x="860" y="95" width="285" height="72" rx="18" fill="#9d8dff" fill-opacity="0.14" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+            <line x1="860" y1="167" x2="1145" y2="167" stroke="currentColor" stroke-opacity="0.55" stroke-width="2"/>
+            <text x="1002" y="140" text-anchor="middle" font-size="27" font-weight="800" fill="currentColor">SALA</text>
+            <text x="887" y="212" font-size="19" fill="currentColor">identificador</text>
+            <text x="887" y="250" font-size="19" fill="currentColor">nome</text>
+            <text x="887" y="288" font-size="19" fill="currentColor">capacidade</text>
+            <line x1="887" y1="218" x2="995" y2="218" stroke="#5f82ff" stroke-width="2"/>
+
+            <line x1="340" y1="255" x2="458" y2="255" stroke="#5f82ff" stroke-width="3"/>
+            <text x="399" y="226" text-anchor="middle" font-size="19" font-weight="700" fill="currentColor">realiza</text>
+            <text x="354" y="285" font-size="17" font-weight="800" fill="#5f82ff">0..N</text>
+            <text x="414" y="285" font-size="17" font-weight="800" fill="#5f82ff">1..1</text>
+
+            <line x1="743" y1="255" x2="860" y2="255" stroke="#5f82ff" stroke-width="3"/>
+            <text x="801" y="226" text-anchor="middle" font-size="19" font-weight="700" fill="currentColor">utiliza</text>
+            <text x="757" y="285" font-size="17" font-weight="800" fill="#5f82ff">1..1</text>
+            <text x="818" y="285" font-size="17" font-weight="800" fill="#5f82ff">0..N</text>
+          </svg>
+        </div>
+      </article>
+
+      <article class="learning-block guided-block">
+        <div class="learning-block-head"><span>G</span><div><small>Conclusão do exemplo guiado</small><h3>Construa o DER de reserva de salas com o professor</h3></div></div>
+        <p>Agora o diagrama reúne decisões que foram aparecendo ao longo da aula:</p>
+        <ol class="practice-steps">
+          <li>Crie <strong>USUÁRIO</strong> e <strong>SALA</strong> com os identificadores fornecidos pelo cenário e seus atributos.</li>
+          <li>Crie <strong>RESERVA</strong> para representar cada ocorrência do fato de reservar.</li>
+          <li>Inclua em RESERVA <strong>data</strong>, <strong>horário inicial</strong> e <strong>situação</strong>.</li>
+          <li>Ligue USUÁRIO a RESERVA pelo relacionamento <strong>realiza</strong>: USUÁRIO participa de <code>0..N</code> reservas e cada RESERVA exige <code>1..1</code> usuário.</li>
+          <li>Ligue RESERVA a SALA pelo relacionamento <strong>utiliza</strong>: SALA participa de <code>0..N</code> reservas e cada RESERVA exige <code>1..1</code> sala.</li>
+          <li>Em RESERVA, registre a nota <strong>“identificador: a validar com o domínio”</strong>, pois o requisito não definiu a regra de unicidade.</li>
+          <li>Leia o diagrama inteiro em voz alta e confira se cada elemento pode ser explicado por uma informação do cenário.</li>
+        </ol>
+
+        <div class="activity-note guided-tool-note">
+          <strong>Observe o percurso completo.</strong>
+          <p>RESERVA não apareceu porque decidimos previamente que toda ação vira entidade. Ela surgiu porque o relacionamento N:N possuía ocorrências que precisavam ser distinguidas e informações próprias que precisavam ser preservadas.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="pratica-title" class="section-pad section-soft" id="pratica">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Agora é com a equipe</p>
+      <h2 id="pratica-title">Construa o DER de uma biblioteca universitária</h2>
+      <p>O novo domínio combina relações 1:N e N:N e também precisa preservar o histórico dos empréstimos ao longo do tempo. A tarefa é aplicar o <strong>processo de análise</strong> trabalhado na aula a esse cenário.</p>
+    </div>
+
+    <article class="scenario-panel embedded-scenario">
+      <h3>Biblioteca universitária</h3>
+      <p>Uma biblioteca precisa organizar usuários, livros, autores, exemplares físicos e os empréstimos realizados.</p>
+      <ol class="requirement-list">
+        <li>Para cada <strong>usuário</strong>, são registrados identificador, nome e e-mail. Um usuário pode ser cadastrado antes de realizar qualquer empréstimo.</li>
+        <li>Para cada <strong>livro</strong>, são registrados ISBN, título e ano de publicação. Um livro pode ser catalogado antes de a biblioteca possuir um exemplar físico.</li>
+        <li>Para cada <strong>autor</strong>, são registrados identificador e nome. Um livro possui um ou mais autores, e um autor pode participar de vários livros.</li>
+        <li>Cada <strong>exemplar físico</strong> possui um número de patrimônio, data de aquisição e situação. Cada exemplar corresponde a exatamente um livro, enquanto um livro pode possuir vários exemplares.</li>
+        <li>Quando um usuário toma um exemplar emprestado, devem ser registrados data do empréstimo, data prevista de devolução e, quando ocorrer, data de devolução.</li>
+        <li>Um usuário pode realizar vários empréstimos ao longo do tempo. Um exemplar também pode participar de vários empréstimos ao longo do seu histórico.</li>
+      </ol>
+    </article>
+
+    <div class="learning-sequence">
+      <article class="learning-block practice-block">
+        <div class="learning-block-head"><span>1</span><div><small>Análise antes do desenho</small><h3>Reconstrua o caminho feito no exemplo guiado</h3></div></div>
+        <ol class="practice-steps">
+          <li>Separe conceitos, características, conexões, regras e pelo menos duas dúvidas do domínio.</li>
+          <li>Identifique as entidades que possuem ocorrências próprias e justifique cada uma.</li>
+          <li>Distribua os atributos e destaque os identificadores que o cenário realmente fornece.</li>
+          <li>Escreva os relacionamentos em frases e leia cada um nos dois sentidos.</li>
+          <li>Defina cardinalidades mínimas e máximas.</li>
+          <li>Analise separadamente <strong>LIVRO–AUTOR</strong>, <strong>LIVRO–EXEMPLAR</strong> e o histórico entre <strong>USUÁRIO–EXEMPLAR</strong>.</li>
+          <li>Decida como <strong>EMPRÉSTIMO</strong> deve aparecer no modelo e justifique sua decisão.</li>
+        </ol>
+      </article>
+
+      <article class="learning-block practice-block">
+        <div class="learning-block-head"><span>2</span><div><small>Construção no diagrams.net</small><h3>Transforme as decisões em um DER</h3></div></div>
+        <ol class="practice-steps">
+          <li>Construa o DER usando a mesma notação adotada no exemplo guiado.</li>
+          <li>Represente claramente a diferença entre a obra catalogada (<strong>LIVRO</strong>) e cada cópia física (<strong>EXEMPLAR</strong>).</li>
+          <li>Represente a autoria e suas cardinalidades sem criar uma entidade apenas por hábito.</li>
+          <li>Represente o histórico de empréstimos preservando data do empréstimo, previsão e devolução.</li>
+          <li>Inclua no próprio arquivo uma área intitulada <strong>Dúvidas e suposições</strong>.</li>
+          <li>Marque qualquer decisão que não seja diretamente sustentada pelo cenário como algo que precisa ser validado.</li>
+        </ol>
+      </article>
+    </div>
+
+    <div class="delivery-panel" id="entrega">
+      <div class="delivery-panel-head"><span>Formato da entrega</span><strong>Um único arquivo ZIP</strong></div>
+      <p>Ao final da atividade, compacte os três arquivos abaixo em um único <code>.zip</code>:</p>
+      <ul>
+        <li><code>equipe_nome-aula04-biblioteca-analise.pdf</code> — texto com as respostas e decisões da etapa <strong>“Reconstrua o caminho feito no exemplo guiado”</strong>; o arquivo também pode ser entregue em formato <code>.docx</code>;</li>
+        <li><code>equipe_nome-aula04-biblioteca.drawio</code> — modelo editável do diagrams.net;</li>
+        <li><code>equipe_nome-aula04-biblioteca.png</code> — exportação final do DER para consulta rápida.</li>
+      </ul>
+      <p>No texto de análise, responda aos sete pontos apresentados em <strong>“Reconstrua o caminho feito no exemplo guiado”</strong>, registrando as decisões tomadas antes da construção do DER. No próprio diagrama, mantenha pelo menos <strong>três decisões justificadas</strong> e <strong>duas dúvidas ou suposições</strong>. Após a auditoria, registre também pelo menos <strong>uma correção realizada</strong>.</p>
+      <p class="delivery-name"><strong>Nome do ZIP:</strong> <code>equipe_nome-aula04-biblioteca.zip</code></p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="validacao-title" class="section-pad" id="validacao">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Validação do modelo</p>
+      <h2 id="validacao-title">Um DER não está correto apenas porque parece organizado</h2>
+      <p>Validar significa confrontar o desenho com os requisitos, as regras do domínio, os casos possíveis e as dúvidas registradas.</p>
+    </div>
+
+    <div class="validation-grid">
+      <article class="validation-card"><span>Completude</span><strong>Os fatos necessários aparecem?</strong><p>Verifique se o modelo representa as informações que o sistema precisa manter.</p></article>
+      <article class="validation-card"><span>Coerência</span><strong>As regras não se contradizem?</strong><p>Cardinalidades, participação e identificadores devem ser compatíveis entre si.</p></article>
+      <article class="validation-card"><span>Clareza</span><strong>Outra pessoa compreende o modelo?</strong><p>Nomes, papéis e relacionamentos precisam comunicar o domínio sem explicações escondidas.</p></article>
+      <article class="validation-card"><span>Justificativa</span><strong>As escolhas podem ser defendidas?</strong><p>Decisões, suposições, alternativas descartadas e dúvidas devem estar registradas.</p></article>
+    </div>
+
+    <div class="learning-sequence validation-sequence">
+      <article class="learning-block practice-block">
+        <div class="learning-block-head"><span>P</span><div><small>Revisão entre equipes</small><h3>Audite o DER da biblioteca</h3></div></div>
+        <p>Troque a exportação com outra equipe. A equipe revisora deve testar o modelo antes que qualquer alteração seja feita.</p>
+        <div class="validation-checklist">
+          <div class="validation-item">Um livro pode existir no catálogo sem exemplar físico.</div>
+          <div class="validation-item">Cada exemplar corresponde a exatamente um livro.</div>
+          <div class="validation-item">Um livro pode possuir vários autores e um autor pode participar de vários livros.</div>
+          <div class="validation-item">Um usuário pode existir sem empréstimos.</div>
+          <div class="validation-item">O mesmo exemplar pode aparecer em empréstimos diferentes ao longo do tempo.</div>
+          <div class="validation-item">As datas do empréstimo descrevem o evento correto, não USUÁRIO ou EXEMPLAR.</div>
+          <div class="validation-item">Cada entidade pode ser identificada sem acrescentar uma regra não informada.</div>
+          <div class="validation-item">Dúvidas e suposições aparecem no arquivo.</div>
+          <div class="validation-item">O modelo diferencia claramente LIVRO de EXEMPLAR.</div>
+        </div>
+        <div class="rule-panel">
+          <h3>Antes de entregar</h3>
+          <p>Incorpore as correções aceitas, registre ao menos uma alteração realizada após a auditoria, atualize o arquivo <code>.drawio</code>, exporte novamente o <code>.png</code>, revise o texto de análise e compacte os três arquivos no ZIP de entrega.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
