@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<script src="theme-init.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Aula 03 de Banco de Dados: modelo relacional, relações, atributos, tuplas, domínios, chaves, integridade, redundância, anomalias e motivação para normalização." name="description"/>
+<title>Banco de Dados — Aula 03</title>
+<link href="styles.css" rel="stylesheet"/>
+<style>
+  .relational-page .section-heading {
+    max-width: 940px;
+  }
+
+  .bridge-flow,
+  .concept-tiles,
+  .integrity-grid,
+  .anomaly-grid,
+  .key-grid,
+  .relation-map,
+  .mini-relation-grid {
+    display: grid;
+    gap: 18px;
+  }
+
+  .bridge-flow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2rem;
+  }
+
+  .bridge-step,
+  .concept-tile,
+  .integrity-card,
+  .anomaly-card,
+  .key-card,
+  .relation-card,
+  .mini-relation,
+  .visual-panel,
+  .principle-box {
+    border: 1px solid rgba(127, 127, 127, .24);
+    border-radius: 20px;
+    background: rgba(127, 127, 127, .055);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, .08);
+  }
+
+  .bridge-step {
+    position: relative;
+    padding: 24px;
+    overflow: hidden;
+  }
+
+  .bridge-step::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 4px;
+    background: linear-gradient(90deg, #5f82ff, #62d9ef);
+  }
+
+  .bridge-step span,
+  .concept-kicker,
+  .key-card > span,
+  .integrity-card > span,
+  .anomaly-card > span,
+  .relation-card > span {
+    display: inline-block;
+    margin-bottom: .55rem;
+    color: #8db0ff;
+    font-size: .8rem;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .bridge-step strong,
+  .concept-tile strong,
+  .key-card strong,
+  .integrity-card strong,
+  .anomaly-card strong,
+  .relation-card strong {
+    display: block;
+    margin-bottom: .55rem;
+    font-size: 1.08rem;
+  }
+
+  .bridge-step p,
+  .concept-tile p,
+  .key-card p,
+  .integrity-card p,
+  .anomaly-card p,
+  .relation-card p {
+    margin: 0;
+    line-height: 1.6;
+    opacity: .82;
+  }
+
+  .visual-panel {
+    margin: 2rem 0;
+    padding: clamp(20px, 3vw, 34px);
+    overflow-x: auto;
+  }
+
+  .visual-panel > h3 {
+    margin-top: 0;
+  }
+
+  .relation-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+
+  .relation-name strong {
+    font-size: 1.1rem;
+  }
+
+  .relation-name span {
+    padding: 6px 10px;
+    border: 1px solid rgba(95, 130, 255, .28);
+    border-radius: 999px;
+    color: #8db0ff;
+    background: rgba(95, 130, 255, .08);
+    font-size: .78rem;
+    font-weight: 800;
+  }
+
+  .relation-table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid rgba(127, 127, 127, .24);
+    border-radius: 16px;
+  }
+
+  .relation-table th,
+  .relation-table td {
+    padding: 13px 15px;
+    border-right: 1px solid rgba(127, 127, 127, .18);
+    border-bottom: 1px solid rgba(127, 127, 127, .18);
+    text-align: left;
+  }
+
+  .relation-table th:last-child,
+  .relation-table td:last-child {
+    border-right: 0;
+  }
+  .relation-table tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .relation-table thead th {
+    background: rgba(95, 130, 255, .12);
+    color: inherit;
+    font-size: .9rem;
+  }
+
+  .relation-table tbody tr.focus-row td {
+    background: rgba(98, 217, 239, .09);
+  }
+
+  .relation-table th.focus-col,
+  .relation-table td.focus-col {
+    box-shadow: inset 3px 0 0 rgba(98, 217, 239, .72);
+  }
+
+  .table-note {
+    margin-top: .85rem;
+    font-size: .92rem;
+    opacity: .7;
+  }
+
+  .visual-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .visual-legend span,
+  .metric-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 11px;
+    border-radius: 999px;
+    background: rgba(127, 127, 127, .08);
+    border: 1px solid rgba(127, 127, 127, .18);
+    font-size: .86rem;
+  }
+
+  .visual-legend b {
+    color: #62d9ef;
+  }
+
+  .metrics-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+  }
+
+  .metric-chip strong {
+    color: #8db0ff;
+  }
+
+  .concept-tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2rem;
+  }
+
+  .concept-tile {
+    padding: 22px;
+  }
+
+  .principle-box {
+    margin: 2rem 0;
+    padding: 24px 26px;
+    border-left: 5px solid #62d9ef;
+  }
+
+  .principle-box strong {
+    color: #62d9ef;
+  }
+
+  .principle-box p {
+    margin: .45rem 0 0;
+    line-height: 1.65;
+  }
+
+  .identity-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 54px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    margin: 2rem 0;
+  }
+
+  .identity-arrow {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    justify-self: center;
+    border-radius: 999px;
+    background: rgba(95, 130, 255, .12);
+    border: 1px solid rgba(95, 130, 255, .28);
+    color: #8db0ff;
+    font-size: 1.35rem;
+    font-weight: 900;
+  }
+
+  .identity-box {
+    padding: 22px;
+    border-radius: 18px;
+    border: 1px solid rgba(127, 127, 127, .22);
+    background: rgba(127, 127, 127, .05);
+  }
+
+  .identity-box h3 {
+    margin-top: 0;
+  }
+
+  .identity-box.bad {
+    border-top: 4px solid #d98282;
+  }
+
+  .identity-box.good {
+    border-top: 4px solid #62d9ef;
+  }
+
+  .key-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-top: 2rem;
+  }
+
+  .key-card,
+  .integrity-card,
+  .anomaly-card,
+  .relation-card {
+    padding: 22px;
+  }
+
+  .key-example,
+  .integrity-example,
+  .anomaly-example {
+    margin-top: 14px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: rgba(0, 0, 0, .13);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .88rem;
+    line-height: 1.55;
+  }
+
+  .integrity-grid,
+  .anomaly-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2rem;
+  }
+
+  .integrity-card.entity-card,
+  .anomaly-card.update-card { border-top: 4px solid #8db0ff; }
+  .integrity-card.domain-card,
+  .anomaly-card.insert-card { border-top: 4px solid #62d9ef; }
+  .integrity-card.reference-card,
+  .anomaly-card.delete-card { border-top: 4px solid #9d8dff; }
+
+  .question-strip {
+    margin: 1.6rem 0 0;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(95, 130, 255, .11), rgba(98, 217, 239, .045));
+    border: 1px solid rgba(95, 130, 255, .24);
+  }
+
+  .question-strip strong {
+    color: #8db0ff;
+  }
+
+  .inquiry {
+    margin: 2.4rem 0;
+    border: 1px solid rgba(95, 130, 255, .26);
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(95, 130, 255, .045);
+  }
+
+  .inquiry-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+    padding: 15px 20px;
+    background: rgba(95, 130, 255, .10);
+    border-bottom: 1px solid rgba(95, 130, 255, .18);
+  }
+
+  .inquiry-kicker {
+    font-weight: 900;
+  }
+
+  .inquiry-tag {
+    padding: 5px 9px;
+    border: 1px solid rgba(127, 127, 127, .24);
+    border-radius: 999px;
+    font-size: .78rem;
+    white-space: nowrap;
+  }
+
+  .inquiry-body {
+    padding: 22px;
+  }
+
+  .inquiry-body ol,
+  .inquiry-body ul {
+    margin-bottom: 0;
+  }
+
+  .mini-relation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1.5rem;
+  }
+
+  .mini-relation {
+    padding: 18px;
+  }
+
+  .mini-relation strong {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .mini-relation code {
+    display: block;
+    white-space: pre-wrap;
+    line-height: 1.65;
+    font-size: .88rem;
+  }
+
+  .relation-map {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 2rem 0;
+  }
+
+  .relation-card {
+    position: relative;
+    min-width: 0;
+  }
+
+  .relation-card ul {
+    margin: .8rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  .relation-card li {
+    margin: .35rem 0;
+  }
+
+  .relation-card code {
+    font-size: .86rem;
+  }
+
+  .relation-map-caption {
+    margin-top: -1rem;
+    text-align: center;
+    opacity: .72;
+  }
+
+  .normalization-gate {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .72fr);
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 2rem;
+  }
+
+  .normalization-gate > div,
+  .normalization-gate > aside {
+    padding: 26px;
+    border-radius: 20px;
+    border: 1px solid rgba(127, 127, 127, .22);
+    background: rgba(127, 127, 127, .05);
+  }
+
+  .normalization-gate aside {
+    border-top: 4px solid #62d9ef;
+  }
+
+  .normalization-gate h3 {
+    margin-top: 0;
+  }
+
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 1.5rem;
+  }
+
+  .check-item {
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid rgba(127, 127, 127, .18);
+    background: rgba(127, 127, 127, .05);
+  }
+  .check-item::before {
+    content: "✓";
+    margin-right: 10px;
+    color: #62d9ef;
+    font-weight: 900;
+  }
+
+  @media (max-width: 1050px) {
+    .key-grid,
+    .relation-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .concept-tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 780px) {
+    .bridge-flow,
+    .integrity-grid,
+    .anomaly-grid,
+    .normalization-gate,
+    .identity-pair,
+    .checklist-grid,
+    .mini-relation-grid { grid-template-columns: 1fr; }
+    .identity-arrow { transform: rotate(90deg); }
+    .concept-tiles,
+    .key-grid,
+    .relation-map { grid-template-columns: 1fr; }
+  }
+</style>
+<script defer="" src="script.js"></script>
+<link rel="stylesheet" href="site-standard.css">
+<script defer src="site-standard.js"></script>
+</head>
+<body class="lesson-page arch-page relational-page layout-standard">
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+<header class="site-header" id="inicio">
+  <div class="container nav-wrap">
+    <a aria-label="Banco de Dados — página principal" class="brand" href="index.html"><span aria-hidden="true" class="brand-mark">BD</span><span><strong>Banco de Dados</strong><small>Engenharia de Software</small></span></a>
+    <button aria-controls="menu-principal" aria-expanded="false" class="nav-toggle" type="button"><span class="sr-only">Abrir menu</span><span></span><span></span><span></span></button>
+    <nav aria-label="Navegação principal" class="main-nav" id="menu-principal">
+      <a href="index.html">Página principal</a>
+      <a href="curso.html">Apresentação do curso</a>
+      <a href="#modelo">Modelo relacional</a>
+      <a href="#chaves">Chaves</a>
+      <a href="#integridade">Integridade</a>
+      <a href="#anomalias">Anomalias</a>
+      <a href="#sintese-title">Síntese</a>
+      <button aria-label="Ativar modo noturno" aria-pressed="false" class="theme-toggle" type="button"><span aria-hidden="true" class="theme-icon">☾</span><span class="theme-text">Modo noturno</span></button>
+    </nav>
+  </div>
+</header>
+
+<div class="standard-shell standard-page-grid">
+<main id="conteudo">
+<section class="lesson-hero section-pad">
+  <div class="container lesson-hero-grid">
+    <div>
+      <p class="eyebrow">Aula 03 · 12/08/2026</p>
+      <h1>Quando uma tabela está bem organizada?</h1>
+      <p class="lesson-hero-lead">Do modelo relacional às regras que permitem identificar, relacionar e manter dados consistentes.</p>
+    </div>
+    <aside class="guiding-question">
+      <span>Pergunta-guia</span>
+      <blockquote>Uma tabela pode armazenar todos os dados e, ainda assim, estar mal projetada?</blockquote>
+    </aside>
+  </div>
+</section>
+
+<section aria-labelledby="visao-title" class="section-pad section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Visão da aula</p>
+      <h2 id="visao-title">O que vamos explorar</h2>
+    </div>
+    <div class="lesson-overview-grid">
+      <article class="overview-card">
+        <span class="overview-icon">OBJ</span>
+        <h3>Objetivos de aprendizagem</h3>
+        <ul class="check-list">
+          <li>Compreender os fundamentos do modelo relacional e identificar relações, atributos, tuplas e domínios.</li>
+          <li>Diferenciar grau e cardinalidade de uma relação.</li>
+          <li>Reconhecer chaves primárias, candidatas, compostas e estrangeiras.</li>
+          <li>Compreender as restrições de integridade de entidade, domínio e referencial.</li>
+          <li>Identificar redundâncias e anomalias e reconhecer por que elas motivam a normalização.</li>
+        </ul>
+      </article>
+      <article class="overview-card competency-card">
+        <span class="overview-icon">C/H</span>
+        <h3>Competências mobilizadas</h3>
+        <div class="skill-line"><strong>C2</strong><span>H6 e H8: compreender como a organização dos dados afeta a construção, manutenção e evolução dos sistemas.</span></div>
+        <div class="skill-line"><strong>C3</strong><span>H9: identificar necessidades de estruturação e integridade dos dados.</span></div>
+        <div class="skill-line"><strong>C10</strong><span>H34: explicar os elementos do modelo relacional com linguagem técnica adequada.</span></div>
+        <div class="skill-line"><strong>C11</strong><span>H36: aplicar princípios de organização e redução de redundância.</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="ponte-title" class="section-pad">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">De onde partimos</p>
+      <h2 id="ponte-title">Na aula anterior, vimos que tabelas podem se relacionar. Agora precisamos entender as regras dessa estrutura.</h2>
+      <p>O foco de hoje não é decorar nomes. Vamos observar tabelas, provocar problemas e, a partir deles, construir o vocabulário do modelo relacional.</p>
+    </div>
+
+    <div class="bridge-flow">
+      <article class="bridge-step">
+        <span>Aula 02</span>
+        <strong>Por que bancos de dados?</strong>
+        <p>Arquivos, SGBDs, abstração e primeiro contato com tabelas relacionadas.</p>
+      </article>
+      <article class="bridge-step">
+        <span>Aula 03</span>
+        <strong>Como uma relação se mantém coerente?</strong>
+        <p>Tuplas, atributos, domínios, chaves, integridade, redundância e anomalias.</p>
+      </article>
+      <article class="bridge-step">
+        <span>Próximo passo</span>
+        <strong>Como projetar a estrutura antes das tabelas?</strong>
+        <p>Modelagem conceitual e Diagrama Entidade-Relacionamento.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="problema-title" class="section-pad">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Situação-problema</p>
+      <h2 id="problema-title">Comecemos por uma tabela que parece funcionar</h2>
+      <p>Uma pequena loja decidiu registrar pedidos em uma única tabela. Os dados estão legíveis, os pedidos podem ser consultados e nada parece quebrado.</p>
+    </div>
+
+    <div class="visual-panel">
+      <div class="relation-name"><strong>PEDIDOS</strong><span>uma única estrutura</span></div>
+      <table class="relation-table">
+        <thead><tr><th>pedido</th><th>data</th><th>cliente</th><th>telefone</th><th>produto</th><th>preço</th><th>quantidade</th></tr></thead>
+        <tbody>
+          <tr><td>101</td><td>10/08</td><td>Ana</td><td>9991-1111</td><td>Teclado</td><td>120,00</td><td>1</td></tr>
+          <tr><td>102</td><td>10/08</td><td>Bruno</td><td>9882-2222</td><td>Mouse</td><td>80,00</td><td>2</td></tr>
+          <tr><td>103</td><td>11/08</td><td>Ana</td><td>9991-1111</td><td>Mouse</td><td>80,00</td><td>1</td></tr>
+          <tr><td>104</td><td>11/08</td><td>Ana</td><td>9991-1111</td><td>Monitor</td><td>900,00</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="inquiry light-inquiry">
+      <div class="inquiry-head"><span class="inquiry-kicker">Diagnóstico inicial — ainda sem vocabulário técnico</span><span class="inquiry-tag">8 minutos</span></div>
+      <div class="inquiry-body">
+        <p>Em duplas, observem a tabela e discutam:</p>
+        <ol>
+          <li>Que informações estão aparecendo várias vezes?</li>
+          <li>Se Ana trocar de telefone, quantas linhas precisam ser alteradas?</li>
+          <li>É possível cadastrar um produto antes de sua primeira venda?</li>
+          <li>Se apagarmos o único pedido de Bruno, o que mais desaparece junto?</li>
+        </ol>
+        <p><strong>Não tentem corrigir a tabela ainda.</strong> Primeiro descrevam o que pode dar errado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="modelo-title" class="section-pad section-soft" id="modelo">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Modelo relacional</p>
+      <h2 id="modelo-title">Agora damos nome às peças</h2>
+      <p>Uma tabela relacional não é apenas um quadro de linhas e colunas. Ela representa uma <strong>relação</strong> definida por atributos, domínios e um conjunto de tuplas.</p>
+    </div>
+
+    <div class="visual-panel">
+      <div class="relation-name"><strong>RELAÇÃO: CLIENTE</strong><span>exemplo visual</span></div>
+      <table class="relation-table">
+        <thead>
+          <tr><th class="focus-col">id_cliente</th><th>nome</th><th>cidade</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="focus-col">1</td><td>Ana</td><td>Curitiba</td></tr>
+          <tr class="focus-row"><td class="focus-col">2</td><td>Bruno</td><td>Colombo</td></tr>
+          <tr><td class="focus-col">3</td><td>Carla</td><td>Curitiba</td></tr>
+        </tbody>
+      </table>
+      <div class="visual-legend">
+        <span><b>Relação</b> = CLIENTE</span>
+        <span><b>Atributos</b> = id_cliente, nome, cidade</span>
+        <span><b>Tupla destacada</b> = (2, Bruno, Colombo)</span>
+        <span><b>Coluna destacada</b> = atributo id_cliente</span>
+      </div>
+      <div class="metrics-row">
+        <span class="metric-chip"><strong>Grau</strong> 3 atributos</span>
+        <span class="metric-chip"><strong>Cardinalidade</strong> 3 tuplas neste momento</span>
+      </div>
+    </div>
+
+    <div class="concept-tiles">
+      <article class="concept-tile"><span class="concept-kicker">Relação</span><strong>O conjunto estruturado</strong><p>Representa um tipo de fato ou objeto do domínio por meio de atributos e tuplas.</p></article>
+      <article class="concept-tile"><span class="concept-kicker">Atributo</span><strong>Uma característica</strong><p>Corresponde a uma propriedade que queremos registrar, como nome, cidade ou data.</p></article>
+      <article class="concept-tile"><span class="concept-kicker">Tupla</span><strong>Uma ocorrência</strong><p>É uma combinação de valores que representa um registro da relação.</p></article>
+      <article class="concept-tile"><span class="concept-kicker">Domínio</span><strong>Valores admitidos</strong><p>Define o conjunto de valores considerados válidos para um atributo.</p></article>
+      <article class="concept-tile"><span class="concept-kicker">Grau</span><strong>Quantidade de atributos</strong><p>Na relação CLIENTE acima, o grau é 3.</p></article>
+      <article class="concept-tile"><span class="concept-kicker">Cardinalidade</span><strong>Quantidade de tuplas</strong><p>Na instância mostrada acima, a cardinalidade é 3.</p></article>
+    </div>
+
+    <div class="principle-box">
+      <strong>Não confunda:</strong>
+      <p><b>Grau</b> descreve quantos atributos formam a relação. <b>Cardinalidade</b> descreve quantas tuplas existem naquele estado da relação.</p>
+    </div>
+
+    <div class="visual-panel">
+      <div class="relation-name"><strong>RELAÇÃO: PEDIDO</strong><span>segundo exemplo</span></div>
+      <table class="relation-table">
+        <thead><tr><th>id_pedido</th><th>data</th><th>total</th></tr></thead>
+        <tbody><tr><td>101</td><td>12/08/2026</td><td>120,00</td></tr><tr><td>102</td><td>12/08/2026</td><td>75,00</td></tr></tbody>
+      </table>
+    </div>
+
+    <div class="inquiry light-inquiry">
+      <div class="inquiry-head"><span class="inquiry-kicker">Exercício 1 — lendo uma relação</span><span class="inquiry-tag">10 minutos</span></div>
+      <div class="inquiry-body">
+        <p>Use a relação PEDIDO acima.</p>
+        <ol>
+          <li>Qual é o nome da relação?</li>
+          <li>Quais são os atributos?</li>
+          <li>Cite uma tupla completa.</li>
+          <li>Que valores fariam sentido no domínio de <code>total</code>?</li>
+          <li>Qual é o grau?</li>
+          <li>Qual é a cardinalidade da instância mostrada?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="chaves-title" class="section-pad" id="chaves">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Identidade</p>
+      <h2 id="chaves-title">Por que uma linha precisa ser única?</h2>
+      <p>Uma tupla deve representar uma ocorrência distinguível. Se não conseguimos identificar exatamente qual ocorrência estamos tratando, operações simples se tornam ambíguas.</p>
+    </div>
+
+    <div class="identity-pair">
+      <article class="identity-box bad">
+        <h3>Sem identidade confiável</h3>
+        <table class="relation-table">
+          <thead><tr><th>nome</th><th>cidade</th></tr></thead>
+          <tbody><tr><td>Ana</td><td>Curitiba</td></tr><tr><td>Ana</td><td>Curitiba</td></tr></tbody>
+        </table>
+        <p>São duas clientes diferentes com os mesmos dados visíveis ou um cadastro repetido?</p>
+      </article>
+      <div class="identity-arrow" aria-hidden="true">→</div>
+      <article class="identity-box good">
+        <h3>Com identidade explícita</h3>
+        <table class="relation-table">
+          <thead><tr><th>id_cliente</th><th>nome</th><th>cidade</th></tr></thead>
+          <tbody><tr><td>101</td><td>Ana</td><td>Curitiba</td></tr><tr><td>205</td><td>Ana</td><td>Curitiba</td></tr></tbody>
+        </table>
+        <p>Agora cada ocorrência possui uma identidade própria, mesmo quando os demais dados se repetem.</p>
+      </article>
+    </div>
+
+    <div class="principle-box">
+      <strong>Ideia central:</strong>
+      <p>Uma linha precisa ser distinguível para que o banco possa <b>identificá-la, atualizá-la, removê-la e referenciá-la</b> sem ambiguidade. É esse problema que leva ao conceito de chave.</p>
+    </div>
+
+    <div class="key-grid">
+      <article class="key-card"><span>Chave primária</span><strong>A identidade escolhida</strong><p>Atributo ou conjunto de atributos escolhido para identificar cada tupla de forma única.</p><div class="key-example">CLIENTE.id_cliente</div></article>
+      <article class="key-card"><span>Chave candidata</span><strong>Outra possibilidade válida</strong><p>Um atributo ou conjunto que também poderia identificar unicamente uma tupla, conforme as regras do domínio.</p><div class="key-example">ALUNO.cpf<br/>ALUNO.email_institucional</div></article>
+      <article class="key-card"><span>Chave composta</span><strong>Identidade em conjunto</strong><p>Quando nenhum atributo isolado basta, a unicidade pode depender da combinação de dois ou mais atributos.</p><div class="key-example">ITEM_PEDIDO<br/>(pedido_id, produto_id)</div></article>
+      <article class="key-card"><span>Chave estrangeira</span><strong>Uma referência a outra relação</strong><p>Um atributo registra qual tupla de outra relação está associada àquela ocorrência.</p><div class="key-example">PEDIDO.cliente_id<br/>→ CLIENTE.id_cliente</div></article>
+    </div>
+
+    <div class="question-strip">Se duas pessoas podem ter o mesmo nome, por que <code>nome</code> normalmente não é uma boa chave para CLIENTE?</div>
+
+    <div class="inquiry light-inquiry">
+      <div class="inquiry-head"><span class="inquiry-kicker">Exercício 2 — o que realmente identifica?</span><span class="inquiry-tag">12 minutos</span></div>
+      <div class="inquiry-body">
+        <div class="mini-relation-grid">
+          <div class="mini-relation"><strong>ALUNO</strong><code>id_aluno
+cpf
+email_institucional
+nome</code></div>
+          <div class="mini-relation"><strong>ITEM_PEDIDO</strong><code>pedido_id
+produto_id
+quantidade</code></div>
+          <div class="mini-relation"><strong>VEÍCULO</strong><code>id_veiculo
+placa
+modelo
+cor</code></div>
+          <div class="mini-relation"><strong>PEDIDO</strong><code>id_pedido
+cliente_id
+data
+total</code></div>
+        </div>
+        <ol>
+          <li>Que atributo parece ser uma boa chave primária em cada caso?</li>
+          <li>Existe algum caso com outra chave candidata possível?</li>
+          <li>Em qual relação a identidade pode depender da combinação de atributos?</li>
+          <li>Qual atributo claramente parece apontar para outra relação?</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="integridade-title" class="section-pad section-soft" id="integridade">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Restrições de integridade</p>
+      <h2 id="integridade-title">Se o banco consegue armazenar um valor, significa que deveria aceitá-lo?</h2>
+      <p>Um banco consistente não aceita qualquer estado possível. Algumas regras precisam impedir registros sem identidade, valores fora do domínio ou referências que apontam para algo inexistente.</p>
+    </div>
+
+    <div class="integrity-grid">
+      <article class="integrity-card entity-card"><span>Integridade de entidade</span><strong>A ocorrência precisa ser identificável</strong><p>A chave primária não pode deixar a identidade da tupla indefinida.</p><div class="integrity-example">CLIENTE
+id_cliente = NULL
+nome = "Ana"</div></article>
+      <article class="integrity-card domain-card"><span>Integridade de domínio</span><strong>O valor precisa fazer sentido</strong><p>O atributo deve receber valores compatíveis com as regras definidas para seu domínio.</p><div class="integrity-example">PRODUTO
+preco = -350,00</div></article>
+      <article class="integrity-card reference-card"><span>Integridade referencial</span><strong>A referência precisa existir</strong><p>Uma chave estrangeira deve apontar para uma ocorrência válida na relação referenciada.</p><div class="integrity-example">PEDIDO
+cliente_id = 9999
+
+CLIENTE 9999 não existe</div></article>
+    </div>
+
+    <div class="inquiry light-inquiry">
+      <div class="inquiry-head"><span class="inquiry-kicker">Exercício 3 — aceitar, rejeitar ou depende?</span><span class="inquiry-tag">12 minutos</span></div>
+      <div class="inquiry-body">
+        <p>Para cada situação, classifiquem como <strong>ACEITAR</strong>, <strong>REJEITAR</strong> ou <strong>DEPENDE DAS REGRAS DO DOMÍNIO</strong>. Depois indiquem qual tipo de integridade está envolvido.</p>
+        <ol>
+          <li><code>CLIENTE.id_cliente = NULL</code></li>
+          <li><code>PRODUTO.preco = -10,00</code></li>
+          <li><code>PEDIDO.cliente_id = 45</code>, mas o cliente 45 não existe.</li>
+          <li><code>ALUNO.idade = 15</code></li>
+          <li>Duas linhas de CLIENTE com o mesmo <code>id_cliente</code>.</li>
+          <li>Um PEDIDO com <code>cliente_id = NULL</code>.</li>
+        </ol>
+        <p>Nos itens classificados como <strong>depende</strong>, escrevam qual regra precisaria ser conhecida antes da decisão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="anomalias-title" class="section-pad" id="anomalias">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Redundância e anomalias</p>
+      <h2 id="anomalias-title">Agora vamos fazer a primeira tabela falhar</h2>
+      <p>Voltemos à tabela PEDIDOS. O problema não é simplesmente um valor aparecer duas vezes. O problema surge quando <strong>o mesmo fato precisa ser mantido em vários lugares</strong>.</p>
+    </div>
+
+    <div class="visual-panel">
+      <div class="relation-name"><strong>PEDIDOS</strong><span>o mesmo fato repetido</span></div>
+      <table class="relation-table">
+        <thead><tr><th>pedido</th><th>cliente</th><th>telefone</th><th>produto</th><th>preço</th><th>quantidade</th></tr></thead>
+        <tbody>
+          <tr><td>101</td><td>Ana</td><td>9991-1111</td><td>Teclado</td><td>120,00</td><td>1</td></tr>
+          <tr><td>102</td><td>Bruno</td><td>9882-2222</td><td>Mouse</td><td>80,00</td><td>2</td></tr>
+          <tr><td>103</td><td>Ana</td><td>9991-1111</td><td>Mouse</td><td>80,00</td><td>1</td></tr>
+          <tr><td>104</td><td>Ana</td><td>9991-1111</td><td>Monitor</td><td>900,00</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="principle-box"><strong>Redundância problemática:</strong><p>o telefone de Ana é um fato sobre Ana. Quando esse mesmo fato precisa ser copiado para cada pedido, passa a existir mais de um lugar que precisa permanecer sincronizado.</p></div>
+
+    <div class="anomaly-grid">
+      <article class="anomaly-card update-card"><span>Anomalia de atualização</span><strong>Ana mudou de telefone</strong><p>Precisamos alterar várias linhas. Se uma delas permanecer com o valor antigo, o banco passa a guardar versões conflitantes do mesmo fato.</p><div class="anomaly-example">Ana | 9991-1111
+Ana | 9777-7777</div></article>
+      <article class="anomaly-card insert-card"><span>Anomalia de inserção</span><strong>Chegou um produto novo</strong><p>Queremos cadastrar o produto antes de qualquer venda. Mas a estrutura foi construída como se produto só pudesse existir dentro de um pedido.</p><div class="anomaly-example">produto = Webcam
+pedido = ?
+cliente = ?</div></article>
+      <article class="anomaly-card delete-card"><span>Anomalia de exclusão</span><strong>Bruno cancelou seu único pedido</strong><p>Se a linha for apagada, podemos eliminar junto o único registro que continha os dados de Bruno.</p><div class="anomaly-example">apagar pedido 102
+→ some também Bruno?</div></article>
+    </div>
+
+    <div class="inquiry light-inquiry">
+      <div class="inquiry-head"><span class="inquiry-kicker">Exercício 4 — provoque o problema</span><span class="inquiry-tag">15 minutos</span></div>
+      <div class="inquiry-body">
+        <p>Considere a relação <strong>PEDIDOS</strong> como a única estrutura disponível para armazenar as informações da loja. Analise cada uma das operações abaixo, observando os efeitos que essa estrutura pode produzir sobre a consistência e a manutenção dos dados.</p>
+        <ol>
+          <li>Atualizar o telefone de Ana.</li>
+          <li>Alterar o preço do Mouse.</li>
+          <li>Cadastrar um produto que ainda não foi vendido.</li>
+          <li>Excluir o último pedido de um cliente.</li>
+        </ol>
+        <p>Para cada operação, elabore uma análise breve indicando:</p>
+        <ul>
+          <li><strong>qual fato do domínio</strong> está sendo tratado;</li>
+          <li><strong>em quantas tuplas</strong> esse fato aparece ou precisa ser modificado;</li>
+          <li><strong>qual tipo de anomalia</strong> pode ocorrer;</li>
+          <li><strong>que inconsistência, perda de informação ou ambiguidade</strong> pode surgir em decorrência da estrutura atual.</li>
+        </ul>
+        <p>Ao final, sintetize por que a relação <strong>PEDIDOS</strong>, do modo como está organizada, dificulta a manutenção correta dos dados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="nulos-title" class="section-pad section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Valores ausentes</p>
+      <h2 id="nulos-title">Quando muitos campos vazios são uma pista</h2>
+      <p>Um valor nulo pode ter usos legítimos. Mas uma grande quantidade de campos sem valor também pode indicar que estamos tentando representar fatos diferentes em uma única estrutura.</p>
+    </div>
+
+    <div class="visual-panel">
+      <div class="relation-name"><strong>FUNCIONARIO</strong><span>estrutura suspeita</span></div>
+      <table class="relation-table">
+        <thead><tr><th>id</th><th>nome</th><th>carro_empresa</th><th>placa</th><th>notebook</th><th>ram</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Ana</td><td>Onix</td><td>ABC1D23</td><td>ThinkPad</td><td>16 GB</td></tr>
+          <tr><td>2</td><td>Bruno</td><td>—</td><td>—</td><td>Latitude</td><td>16 GB</td></tr>
+          <tr><td>3</td><td>Carla</td><td>Corolla</td><td>DEF4G56</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+      <div class="question-strip">O problema é existir um valor ausente ou a estrutura estar misturando funcionário, veículo e equipamento?</div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="reorganizar-title" class="section-pad">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Reorganização</p>
+      <h2 id="reorganizar-title">Que fatos diferentes estavam misturados?</h2>
+      <p>Na tabela inicial, uma única linha tentava representar simultaneamente cliente, produto, pedido e item do pedido. Podemos separar esses fatos e conectar as relações por meio de chaves.</p>
+    </div>
+
+    <div class="relation-map">
+      <article class="relation-card"><span>CLIENTE</span><strong>Quem compra</strong><ul><li><code>id_cliente</code> — PK</li><li><code>nome</code></li><li><code>telefone</code></li></ul></article>
+      <article class="relation-card"><span>PRODUTO</span><strong>O que pode ser vendido</strong><ul><li><code>id_produto</code> — PK</li><li><code>nome</code></li><li><code>preco</code></li></ul></article>
+      <article class="relation-card"><span>PEDIDO</span><strong>Uma compra realizada</strong><ul><li><code>id_pedido</code> — PK</li><li><code>data</code></li><li><code>cliente_id</code> — FK</li></ul></article>
+      <article class="relation-card"><span>ITEM_PEDIDO</span><strong>O produto dentro do pedido</strong><ul><li><code>pedido_id</code> — FK</li><li><code>produto_id</code> — FK</li><li><code>quantidade</code></li></ul></article>
+    </div>
+    <p class="relation-map-caption">As relações deixam de repetir todos os dados, mas continuam conectadas pelas chaves.</p>
+
+    <div class="question-strip"><strong>Teste a nova estrutura:</strong> onde alteramos o telefone de Ana? Onde cadastramos um produto ainda não vendido? Se apagarmos um pedido, o cadastro do cliente precisa desaparecer?</div>
+
+    <div class="principle-box"><strong>O objetivo não é criar o maior número possível de tabelas.</strong><p>É organizar os fatos de modo que cada relação tenha uma responsabilidade clara e que os vínculos entre elas sejam representados explicitamente.</p></div>
+  </div>
+</section>
+
+<section aria-labelledby="normalizacao-title" class="section-pad section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Motivação para normalização</p>
+      <h2 id="normalizacao-title">Até aqui reorganizamos por observação. Podemos fazer isso de maneira sistemática?</h2>
+      <p>Sim. A normalização fornece critérios para analisar relações e reduzir determinadas redundâncias e anomalias. Hoje interessa compreender <strong>por que esse processo é necessário</strong>.</p>
+    </div>
+
+    <div class="normalization-gate">
+      <div>
+        <h3>O que já conseguimos perceber</h3>
+        <ul>
+          <li>um mesmo fato pode estar repetido em várias linhas;</li>
+          <li>uma atualização pode exigir alterações em muitos lugares;</li>
+          <li>inserções e exclusões podem depender de dados que não deveriam depender uns dos outros;</li>
+          <li>uma estrutura pode misturar fatos diferentes.</li>
+        </ul>
+      </div>
+      <aside>
+        <h3>O que fica para depois</h3>
+        <p>As formas normais, dependências funcionais e critérios formais de decomposição serão estudados em uma aula específica de normalização.</p>
+        <p><strong>Hoje:</strong> reconhecer o problema e justificar por que uma reorganização é necessária.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="integrador-title" class="section-pad">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Exercício integrador</p>
+      <h2 id="integrador-title">Agora transfira o raciocínio para outro domínio</h2>
+      <p>Uma academia registra matrículas na relação abaixo.</p>
+    </div>
+
+    <div class="visual-panel">
+      <div class="relation-name"><strong>MATRICULA</strong><span>analise antes de reorganizar</span></div>
+      <table class="relation-table">
+        <thead><tr><th>aluno_id</th><th>aluno_nome</th><th>telefone</th><th>plano_id</th><th>plano_nome</th><th>valor_mensal</th><th>data_inicio</th><th>instrutor_id</th><th>instrutor_nome</th></tr></thead>
+        <tbody>
+          <tr><td>10</td><td>Ana</td><td>9991-1111</td><td>P1</td><td>Mensal</td><td>120,00</td><td>01/08</td><td>7</td><td>Paulo</td></tr>
+          <tr><td>11</td><td>Bruno</td><td>9882-2222</td><td>P2</td><td>Trimestral</td><td>300,00</td><td>03/08</td><td>7</td><td>Paulo</td></tr>
+          <tr><td>12</td><td>Carla</td><td>9773-3333</td><td>P1</td><td>Mensal</td><td>120,00</td><td>05/08</td><td>9</td><td>Marina</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="inquiry light-inquiry">
+      <div class="inquiry-head"><span class="inquiry-kicker">Exercício 5 — análise completa</span><span class="inquiry-tag">25 minutos</span></div>
+      <div class="inquiry-body">
+        <ol>
+          <li>Quais fatos diferentes estão representados nessa única relação?</li>
+          <li>Quais atributos parecem identificar ocorrências?</li>
+          <li>Existem possíveis chaves estrangeiras?</li>
+          <li>Que fatos aparecem repetidos?</li>
+          <li>O que acontece se o telefone de Ana mudar?</li>
+          <li>É possível cadastrar um novo plano antes de existir uma matrícula?</li>
+          <li>Que informação poderia desaparecer ao excluir uma matrícula?</li>
+          <li>Que regras de integridade deveriam ser verificadas?</li>
+          <li>Como vocês reorganizariam os dados em relações com responsabilidades mais claras?</li>
+          <li>Justifiquem cada relação criada e os vínculos entre elas.</li>
+        </ol>
+        <p><strong>Importante:</strong> não é necessário usar DER nem formas normais. Trabalhem apenas com o que construímos nesta aula.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="sintese-title" class="section-pad section-soft">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Fechamento</p>
+      <h2 id="sintese-title">O que você precisa sair da aula conseguindo explicar</h2>
+    </div>
+
+    <div class="checklist-grid">
+      <div class="check-item">O que são relação, atributo, tupla e domínio.</div>
+      <div class="check-item">A diferença entre grau e cardinalidade.</div>
+      <div class="check-item">Por que uma tupla precisa ser identificável de forma única.</div>
+      <div class="check-item">O papel de chaves primárias, candidatas, compostas e estrangeiras.</div>
+      <div class="check-item">O que integridade de entidade, domínio e referencial protegem.</div>
+      <div class="check-item">Por que repetir o mesmo fato pode gerar inconsistência.</div>
+      <div class="check-item">Como reconhecer anomalias de inserção, atualização e exclusão.</div>
+      <div class="check-item">Por que esses problemas motivam o estudo da normalização.</div>
+    </div>
+
+    <div class="inquiry light-inquiry">
+      <div class="inquiry-head"><span class="inquiry-kicker">Antes de sair — registro individual</span><span class="inquiry-tag">5 minutos</span></div>
+      <div class="inquiry-body">
+        <ol>
+          <li>Uma chave é importante porque...</li>
+          <li>Uma chave estrangeira não serve apenas para conectar tabelas; ela também...</li>
+          <li>Um exemplo de anomalia de atualização é...</li>
+          <li>Uma coisa que eu verificaria antes de considerar uma tabela bem organizada é...</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+<aside class="standard-toc" aria-label="Índice desta página"><div class="standard-toc-head"><span class="standard-toc-label">Nesta página</span></div><nav></nav></aside>
+</div>
+
+<footer class="site-footer"><div class="container footer-grid"><div><strong>Aula 03 — Modelo Relacional e Integridade</strong><p>Engenharia de Software · 12/08/2026</p></div><a href="#inicio">Voltar ao início ↑</a></div></footer>
+</body>
+</html>
