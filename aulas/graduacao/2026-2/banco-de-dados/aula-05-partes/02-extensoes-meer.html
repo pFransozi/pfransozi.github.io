@@ -1,0 +1,105 @@
+<section aria-labelledby='meer-title' class='section-pad section-soft' id='meer'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Parte 1 · extensões do Modelo ER</p>
+      <h2 id='meer-title'>Às vezes, entidade, atributo e relacionamento ainda não expressam tudo</h2>
+      <p>O Modelo Entidade-Relacionamento Estendido (MEER) acrescenta recursos para representar hierarquias, classificações e dependências que aparecem no domínio. Não é um novo modelo desconectado do que vimos: é uma ampliação do mesmo raciocínio.</p>
+    </div>
+
+    <div class='comparison-panel'>
+      <h3>O ER básico continua sendo o ponto de partida</h3>
+      <p>Se entidades, atributos, relacionamentos e cardinalidades representam o requisito de forma clara, não existe motivo para acrescentar estruturas mais complexas. As extensões entram quando ajudam a preservar uma regra que ficaria escondida ou repetida.</p>
+    </div>
+
+    <div class='learning-sequence'>
+      <article class='learning-block guided-block'>
+        <div class='learning-block-head'><span>G</span><div><small>Novo requisito para o cenário conhecido</small><h3>Agora precisamos distinguir tipos de usuário</h3></div></div>
+        <div class='scenario-panel embedded-scenario'>
+          <p>O sistema de reserva passa a atender <strong>alunos</strong> e <strong>professores</strong>. Todos os usuários possuem identificador, nome e e-mail. Para alunos, também precisamos registrar matrícula e curso. Para professores, precisamos registrar o registro funcional.</p>
+        </div>
+        <p>Uma solução ingênua seria repetir nome e e-mail em ALUNO e PROFESSOR. Outra seria colocar matrícula, curso e registro funcional na mesma entidade USUÁRIO e aceitar muitos campos sem sentido. A hierarquia permite representar o que é comum e o que é específico.</p>
+
+        <div aria-label='Hierarquia de supertipo e subtipos' class='hierarchy-board'>
+          <article class='hierarchy-node supertype'><small>Supertipo</small><strong>USUÁRIO</strong><span>id_usuario · nome · email</span></article>
+          <div aria-hidden='true' class='hierarchy-branch'>↓</div>
+          <div class='hierarchy-subtypes'>
+            <article class='hierarchy-node'><small>Subtipo</small><strong>ALUNO</strong><span>matrícula · curso</span></article>
+            <article class='hierarchy-node'><small>Subtipo</small><strong>PROFESSOR</strong><span>registro_funcional</span></article>
+          </div>
+        </div>
+      </article>
+
+      <article class='learning-block theory-block'>
+        <div class='learning-block-head'><span>T</span><div><small>Supertipos, subtipos e herança</small><h3>O subtipo é também uma ocorrência do supertipo</h3></div></div>
+        <div class='concept-grid'>
+          <article class='concept-card'><span>Supertipo</span><strong>Concentra o que é comum</strong><p>USUÁRIO reúne propriedades válidas para todos os tipos de usuário do domínio.</p></article>
+          <article class='concept-card'><span>Subtipo</span><strong>Acrescenta o que é específico</strong><p>ALUNO e PROFESSOR representam subconjuntos de usuários que possuem características próprias.</p></article>
+          <article class='concept-card'><span>Herança</span><strong>O subtipo recebe as características comuns</strong><p>Um ALUNO continua possuindo identificador, nome e e-mail porque também é um USUÁRIO.</p></article>
+        </div>
+        <div class='rule-panel'><h3>Leitura importante</h3><p>Não leia a hierarquia como “USUÁRIO tem ALUNO”. Leia como <strong>“ALUNO é um tipo de USUÁRIO”</strong>. Essa relação de classificação é diferente de um relacionamento comum entre duas entidades independentes.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby='especializacao-title' class='section-pad'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Especialização e generalização</p>
+      <h2 id='especializacao-title'>A mesma hierarquia pode ser descoberta em duas direções</h2>
+      <p>Especialização e generalização descrevem perspectivas diferentes para chegar a uma estrutura de supertipo e subtipos.</p>
+    </div>
+
+    <div class='mapping-rule-grid two-columns'>
+      <article class='mapping-rule-card'><span>Especialização</span><strong>Do geral para o específico</strong><p>Partimos de USUÁRIO e percebemos que alguns usuários precisam de propriedades ou regras específicas: ALUNO e PROFESSOR.</p><div class='mapping-example'>USUÁRIO → ALUNO / PROFESSOR</div></article>
+      <article class='mapping-rule-card'><span>Generalização</span><strong>Do específico para o geral</strong><p>Partimos de ALUNO e PROFESSOR e percebemos que há características comuns que podem ser reunidas em um conceito mais geral: USUÁRIO.</p><div class='mapping-example'>ALUNO + PROFESSOR → USUÁRIO</div></article>
+    </div>
+
+    <div class='section-heading compact-heading'>
+      <h3>Depois de criar a hierarquia, ainda precisamos registrar duas regras</h3>
+      <p>O domínio precisa informar se toda ocorrência do supertipo pertence a algum subtipo e se uma mesma ocorrência pode pertencer a mais de um subtipo.</p>
+    </div>
+
+    <div class='constraint-matrix'>
+      <article><span>Cobertura</span><strong>Total</strong><p>Todo USUÁRIO precisa ser classificado em pelo menos um subtipo.</p><div class='mapping-example'>Todo usuário é ALUNO ou PROFESSOR.</div></article>
+      <article><span>Cobertura</span><strong>Parcial</strong><p>Alguns usuários podem existir sem pertencer aos subtipos definidos.</p><div class='mapping-example'>VISITANTE pode ser usuário sem ser aluno ou professor.</div></article>
+      <article><span>Disjunção</span><strong>Exclusiva</strong><p>Uma ocorrência pode pertencer a apenas um dos subtipos.</p><div class='mapping-example'>Ou ALUNO, ou PROFESSOR.</div></article>
+      <article><span>Disjunção</span><strong>Sobreposta</strong><p>Uma ocorrência pode pertencer simultaneamente a mais de um subtipo.</p><div class='mapping-example'>Uma pessoa pode ser ALUNO e PROFESSOR.</div></article>
+    </div>
+
+    <div class='axis-note'><b>?</b><div><strong>Não escolha pela conveniência do desenho.</strong> Total/parcial e exclusiva/sobreposta são regras do domínio. Se o requisito não informa a resposta, a decisão precisa ser registrada como dúvida ou suposição.</div></div>
+  </div>
+</section>
+
+<section aria-labelledby='fraca-title' class='section-pad section-soft'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Dependência de identificação</p>
+      <h2 id='fraca-title'>Uma entidade fraca não consegue ser identificada sozinha</h2>
+      <p>Além das hierarquias, o MEER permite explicitar situações em que uma entidade depende de outra para existir ou para ser identificada no contexto do modelo.</p>
+    </div>
+
+    <div class='learning-sequence'>
+      <article class='learning-block guided-block'>
+        <div class='learning-block-head'><span>G</span><div><small>Extensão didática do cenário</small><h3>Faixas de agenda são identificadas dentro de uma sala</h3></div></div>
+        <div class='scenario-panel embedded-scenario'>
+          <p>Para controlar disponibilidade, cada SALA possui faixas de agenda. Dentro de uma sala, uma faixa é distinguida por <strong>data + horário inicial</strong>. A faixa não possui um identificador global próprio e não faz sentido sem a sala à qual pertence.</p>
+        </div>
+        <div class='weak-entity-board'>
+          <article class='hierarchy-node owner-node'><small>Entidade proprietária</small><strong>SALA</strong><span>id_sala</span></article>
+          <div class='weak-link'><strong>possui</strong><small>identifica no contexto</small></div>
+          <article class='hierarchy-node weak-node'><small>Entidade fraca</small><strong>FAIXA_AGENDA</strong><span>data · hora_inicio · situação</span></article>
+        </div>
+      </article>
+
+      <article class='learning-block theory-block'>
+        <div class='learning-block-head'><span>T</span><div><small>Como reconhecer</small><h3>Faça duas perguntas antes de classificar uma entidade como fraca</h3></div></div>
+        <ol class='practice-steps'>
+          <li><strong>Ela pode ser identificada apenas por seus próprios atributos?</strong> Se não, pode haver dependência de identificação.</li>
+          <li><strong>A identificação precisa incluir a chave de outra entidade?</strong> Se sim, a entidade proprietária participa da identidade da entidade fraca.</li>
+        </ol>
+        <div class='comparison-panel'><h3>Não confunda dependência com qualquer chave estrangeira</h3><p>Uma entidade pode depender de outra por uma regra de relacionamento e ainda possuir identificador próprio. Entidade fraca é uma situação mais específica: sua identificação depende da entidade proprietária.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
