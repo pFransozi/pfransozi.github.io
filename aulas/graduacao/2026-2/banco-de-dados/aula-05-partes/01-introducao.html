@@ -1,0 +1,65 @@
+<section class='lesson-hero section-pad'>
+  <div class='container lesson-hero-grid'>
+    <div>
+      <p class='eyebrow'>Aula 05</p>
+      <h1>Do DER ao esquema relacional</h1>
+      <p class='lesson-hero-lead'>Na aula anterior construímos um modelo conceitual a partir de requisitos. Agora vamos transformar as decisões do DER em relações, chaves e referências, preparando o caminho para a implementação no SGBD.</p>
+    </div>
+    <aside class='guiding-question'><span>Pergunta-guia</span><blockquote>Como transformar um modelo conceitual em tabelas, chaves e relacionamentos?</blockquote></aside>
+  </div>
+</section>
+
+<section aria-labelledby='visao-title' class='section-pad section-soft'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Visão da aula</p>
+      <h2 id='visao-title'>Hoje o desenho começa a virar estrutura</h2>
+      <p>O foco não é decorar uma lista de regras. Vamos observar o significado de cada elemento do modelo conceitual e decidir como esse significado pode ser preservado no modelo relacional.</p>
+    </div>
+    <div class='lesson-overview-grid'>
+      <article class='overview-card'>
+        <span class='overview-icon'>OBJ</span>
+        <h3>Objetivos de aprendizagem</h3>
+        <ul class='check-list'>
+          <li>Transformar entidades e atributos em relações e colunas.</li>
+          <li>Mapear relacionamentos 1:1, 1:N e N:N.</li>
+          <li>Mapear atributos multivalorados e entidades fracas.</li>
+          <li>Justificar onde aparecem chaves primárias e estrangeiras.</li>
+          <li>Validar se o esquema relacional preserva as regras representadas no DER.</li>
+        </ul>
+      </article>
+      <article class='overview-card competency-card'>
+        <span class='overview-icon'>C/H</span>
+        <h3>Competências mobilizadas</h3>
+        <div class='skill-line'><strong>C2</strong><span>H5 e H6: aplicar técnicas de modelagem e transformação no processo de construção de software.</span></div>
+        <div class='skill-line'><strong>C3</strong><span>H9: identificar estruturas adequadas aos requisitos do domínio.</span></div>
+        <div class='skill-line'><strong>C10</strong><span>H34: comunicar decisões de modelagem com linguagem técnica adequada.</span></div>
+        <div class='skill-line'><strong>C11</strong><span>H36 e H38: aplicar padrões de mapeamento e desenvolver esquemas relacionais consistentes.</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby='retomada-title' class='section-pad'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Retomada da Aula 04</p>
+      <h2 id='retomada-title'>Antes de avançar: como construímos um modelo conceitual?</h2>
+      <p>O DER é o resultado de uma sequência de decisões. Antes de transformá-lo em relações, vale recuperar rapidamente o processo usado para chegar até ele.</p>
+    </div>
+
+    <div class='conceptual-recap-grid' aria-label='Resumo do processo de construção de um modelo conceitual'>
+      <article class='conceptual-recap-card'><span>1</span><strong>Compreender o domínio</strong><p>Definir qual parte da realidade será representada e qual problema o sistema precisa atender.</p></article>
+      <article class='conceptual-recap-card'><span>2</span><strong>Organizar os requisitos</strong><p>Separar conceitos, características, conexões, regras e dúvidas encontradas no cenário.</p></article>
+      <article class='conceptual-recap-card'><span>3</span><strong>Identificar entidades</strong><p>Reconhecer os conceitos sobre os quais o sistema precisa manter informações próprias.</p></article>
+      <article class='conceptual-recap-card'><span>4</span><strong>Definir atributos e identificadores</strong><p>Distribuir as características entre as entidades e verificar como cada ocorrência pode ser distinguida.</p></article>
+      <article class='conceptual-recap-card'><span>5</span><strong>Modelar os relacionamentos</strong><p>Representar os fatos que conectam as entidades e estabelecer cardinalidades e participação.</p></article>
+      <article class='conceptual-recap-card'><span>6</span><strong>Validar o DER</strong><p>Ler o modelo contra os requisitos e verificar se entidades, atributos, relações e restrições preservam o significado do domínio.</p></article>
+    </div>
+
+    <div class='rule-panel'>
+      <h3>O modelo conceitual vem antes das tabelas</h3>
+      <p>Nesse momento ainda estamos descrevendo <strong>o que existe no domínio e quais regras conectam esses elementos</strong>. A Aula 05 começa justamente quando esse modelo já pode ser discutido e validado: agora precisamos decidir como representá-lo no modelo relacional.</p>
+    </div>
+  </div>
+</section>
