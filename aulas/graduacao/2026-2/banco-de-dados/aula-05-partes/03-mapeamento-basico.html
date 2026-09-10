@@ -1,0 +1,120 @@
+<section aria-labelledby='mapeamento-title' class='section-pad' id='mapeamento'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Parte 1 · do modelo conceitual ao modelo relacional</p>
+      <h2 id='mapeamento-title'>O DER não é o banco de dados: agora precisamos traduzi-lo</h2>
+      <p>O modelo conceitual descreve o significado do domínio. O modelo relacional reorganiza essa descrição em relações que poderão, em uma etapa posterior, ser implementadas em um SGBD.</p>
+    </div>
+
+    <div aria-label='Fluxo do projeto até o esquema relacional' class='mapping-flow'>
+      <article><span>01</span><strong>Requisitos</strong><p>Fatos, regras e necessidades do domínio.</p></article>
+      <div aria-hidden='true' class='mapping-flow-arrow'>→</div>
+      <article><span>02</span><strong>DER</strong><p>Entidades, atributos, relacionamentos e restrições.</p></article>
+      <div aria-hidden='true' class='mapping-flow-arrow'>→</div>
+      <article class='mapping-flow-focus'><span>03</span><strong>Esquema relacional</strong><p>Relações, atributos, chaves primárias e chaves estrangeiras.</p></article>
+      <div aria-hidden='true' class='mapping-flow-arrow'>→</div>
+      <article><span>Depois</span><strong>Implementação</strong><p>Tipos, constraints e comandos do SGBD.</p></article>
+    </div>
+
+    <div class='rule-panel'>
+      <h3>Hoje paramos no esquema relacional</h3>
+      <p>Ainda não é necessário escrever <code>CREATE TABLE</code>. Primeiro precisamos decidir corretamente <strong>quais relações existirão, quais atributos pertencem a cada uma e como as chaves conectam essas relações</strong>. A implementação em SQL virá depois.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby='entidade-relacao-title' class='section-pad section-soft'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Primeiro passo do mapeamento</p>
+      <h2 id='entidade-relacao-title'>Comece por uma entidade antes de tratar os relacionamentos</h2>
+      <p>Para entender a passagem do DER para o esquema relacional, vamos primeiro isolar uma entidade forte. Nesse caso, o mapeamento pode ser feito em três decisões simples: criar a relação, levar os atributos e definir a chave primária.</p>
+    </div>
+
+    <div class='mapping-rule-grid'>
+      <article class='mapping-rule-card'><span>1 · Entidade</span><strong>cria a relação</strong><p>Cada entidade forte dá origem a uma relação que representa o mesmo tipo de objeto no esquema relacional.</p><div class='mapping-example'>SALA → SALA(...)</div></article>
+      <article class='mapping-rule-card'><span>2 · Atributos</span><strong>preenchem a relação</strong><p>Os atributos simples da entidade passam a aparecer como atributos da relação correspondente.</p><div class='mapping-example'>nome · capacidade</div></article>
+      <article class='mapping-rule-card'><span>3 · Identificador</span><strong>define a chave primária</strong><p>O atributo usado no DER para distinguir cada ocorrência passa a identificar cada tupla da relação.</p><div class='mapping-example'>id_sala → PK</div></article>
+    </div>
+
+    <div class='decision-panel'>
+      <h3>Aplicando as três decisões à entidade SALA</h3>
+      <p>No DER, SALA possui o identificador <code>id_sala</code> e os atributos <code>nome</code> e <code>capacidade</code>. Agora vamos transformar apenas esse pequeno trecho do modelo e observar o resultado.</p>
+    </div>
+
+    <div class='mapping-stage'>
+      <article class='conceptual-card'>
+        <span>No DER</span>
+        <h3>SALA</h3>
+        <ul><li><u>id_sala</u></li><li>nome</li><li>capacidade</li></ul>
+      </article>
+      <div class='mapping-stage-arrow'><span>aplicar as 3 regras</span><strong>→</strong></div>
+      <article class='schema-card featured-schema'>
+        <header><span>No esquema relacional</span><h3>SALA</h3></header>
+        <div class='schema-field'><span class='key-badge pk'>PK</span><code>id_sala</code></div>
+        <div class='schema-field'><span class='key-placeholder'></span><code>nome</code></div>
+        <div class='schema-field'><span class='key-placeholder'></span><code>capacidade</code></div>
+      </article>
+    </div>
+
+    <div class='axis-note'><b>i</b><div><strong>Observe a mudança de linguagem.</strong> No DER falamos em <em>entidade</em>; no modelo relacional falamos em <em>relação</em>. Na implementação, essa relação normalmente será criada como uma tabela. Nesta aula usaremos “relação” quando estivermos descrevendo o modelo lógico.</div></div>
+  </div>
+</section>
+
+<section aria-labelledby='atributos-title' class='section-pad'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Segundo passo do mapeamento</p>
+      <h2 id='atributos-title'>Retome a classificação dos atributos antes de decidir como mapeá-los</h2>
+      <p>Na Aula 04, usamos diferentes exemplos para observar a estrutura, a quantidade de valores e a origem de um atributo. Agora vamos recuperar os mesmos exemplos e perguntar o que acontece com cada um quando passamos para o modelo relacional.</p>
+    </div>
+
+    <div class='axis-note'><b>i</b><div><strong>As classificações continuam se combinando.</strong> Um atributo pode ser, ao mesmo tempo, simples, monovalorado e armazenado. O objetivo agora não é criar novas categorias, mas usar o que já vimos para orientar o mapeamento.</div></div>
+
+    <div class='attribute-grid mapping-attribute-grid'>
+      <article class='attribute-card'><span>Estrutura · simples</span><strong>Mapeamento direto</strong><p>Como <code>capacidade</code> é tratada como uma unidade, ela pode aparecer diretamente na relação SALA.</p><div class='attribute-example'>SALA.capacidade → capacidade</div></article>
+      <article class='attribute-card'><span>Estrutura · composto</span><strong>Leve os componentes simples</strong><p>Quando um atributo foi dividido em partes significativas, são essas partes que aparecem no esquema relacional.</p><div class='attribute-example'>endereço → logradouro, número, cidade, CEP</div></article>
+      <article class='attribute-card'><span>Quantidade · monovalorado</span><strong>Um valor por ocorrência</strong><p>Se cada usuário possui uma única data de nascimento, esse valor pode ser mantido como atributo da relação.</p><div class='attribute-example'>USUÁRIO.data_nascimento → data_nascimento</div></article>
+      <article class='attribute-card'><span>Quantidade · multivalorado</span><strong>Vários valores exigem outra estrutura</strong><p>Um usuário pode possuir vários telefones. Por isso, não basta reservar uma única posição para telefone na relação USUARIO.</p><div class='attribute-example'>USUÁRIO.telefone = {41..., 41...} → relação própria</div></article>
+      <article class='attribute-card'><span>Origem · armazenado</span><strong>O valor pode ser registrado</strong><p>A data de nascimento é um fato informado pelo domínio e pode ser armazenada diretamente.</p><div class='attribute-example'>data_nascimento = 15/03/2002</div></article>
+      <article class='attribute-card'><span>Origem · derivado</span><strong>Nem todo valor precisa ser armazenado</strong><p>Se um valor pode ser obtido a partir de outros dados, precisamos avaliar se faz sentido guardá-lo ou calculá-lo quando necessário.</p><div class='attribute-example'>idade ← data_atual − data_nascimento</div></article>
+    </div>
+
+    <div class='rule-panel'>
+      <h3>O que muda quando passamos para o modelo relacional?</h3>
+      <p>Atributos simples, monovalorados e armazenados tendem a seguir diretamente para a relação. Atributos compostos são representados por seus componentes. Atributos multivalorados exigem uma relação própria. Já atributos derivados precisam ser avaliados: se podem ser calculados a partir de dados já armazenados, não precisam necessariamente ocupar um atributo persistido.</p>
+    </div>
+
+    <div class='comparison-panel'>
+      <h3>Não force vários valores dentro de uma única relação</h3>
+      <p>No caso de <code>USUÁRIO.telefone</code>, evite soluções como <code>telefone1</code>, <code>telefone2</code> e <code>telefone3</code> ou uma lista inteira dentro de um único atributo. O fato de o telefone ser multivalorado é justamente a pista de que precisaremos representá-lo de outra forma.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby='primeiro-esquema-title' class='section-pad section-soft'>
+  <div class='container'>
+    <div class='section-heading'>
+      <p class='eyebrow'>Primeiro resultado</p>
+      <h2 id='primeiro-esquema-title'>USUÁRIO e SALA já podem aparecer como relações</h2>
+      <p>Por enquanto, deixamos o atributo multivalorado telefone de lado. Ele será tratado quando chegarmos aos casos especiais.</p>
+    </div>
+
+    <div class='schema-grid two-schemas'>
+      <article class='schema-card'>
+        <header><span>Relação</span><h3>USUARIO</h3></header>
+        <div class='schema-field'><span class='key-badge pk'>PK</span><code>id_usuario</code></div>
+        <div class='schema-field'><span class='key-placeholder'></span><code>nome</code></div>
+        <div class='schema-field'><span class='key-placeholder'></span><code>email</code></div>
+      </article>
+      <article class='schema-card'>
+        <header><span>Relação</span><h3>SALA</h3></header>
+        <div class='schema-field'><span class='key-badge pk'>PK</span><code>id_sala</code></div>
+        <div class='schema-field'><span class='key-placeholder'></span><code>nome</code></div>
+        <div class='schema-field'><span class='key-placeholder'></span><code>capacidade</code></div>
+      </article>
+    </div>
+
+    <div class='decision-panel'><h3>O que ainda está faltando?</h3><p>Essas duas relações armazenam os dados próprios de usuários e salas, mas ainda não preservam o fato de que <strong>um usuário realiza reservas de uma sala</strong>. O próximo passo é transformar os relacionamentos do DER.</p></div>
+  </div>
+</section>
