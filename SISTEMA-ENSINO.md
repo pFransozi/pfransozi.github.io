@@ -17,8 +17,8 @@ Os arquivos são publicados em:
 Inclua no final do `head`:
 
 ```html
-<script src="https://pfransozi.github.io/assets/js/ensino.js?v=4"></script>
-<link rel="stylesheet" href="https://pfransozi.github.io/assets/css/ensino.css?v=4" />
+<script src="https://pfransozi.github.io/assets/js/ensino.js?v=5"></script>
+<link rel="stylesheet" href="https://pfransozi.github.io/assets/css/ensino.css?v=5" />
 ```
 
 Marque o `body` com uma das variações:
