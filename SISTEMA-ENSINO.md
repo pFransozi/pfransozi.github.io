@@ -18,16 +18,14 @@ Inclua no final do `head`:
 
 ```html
 <script src="https://pfransozi.github.io/assets/js/ensino.js?v=2"></script>
-<link rel="stylesheet" href="https://pfransozi.github.io/assets/css/ensino.css?v=2">
+<link rel="stylesheet" href="https://pfransozi.github.io/assets/css/ensino.css?v=2" />
 ```
 
 Marque o `body` com uma das variações:
 
-```html
-<body class="teaching-page teaching-portal">
-<body class="teaching-page teaching-course">
-<body class="teaching-page teaching-lesson">
-```
+- Portal: `teaching-page teaching-portal`
+- Visão geral: `teaching-page teaching-course`
+- Aula ou aprofundamento: `teaching-page teaching-lesson`
 
 ## Responsabilidades
 
@@ -53,4 +51,5 @@ Os repositórios das disciplinas mantêm somente:
 3. Publique o portal antes de atualizar referências nas disciplinas.
 4. Quando houver uma mudança incompatível, incremente o parâmetro `v` nos HTMLs.
 
-Não crie uma nova folha de estilo para corrigir o layout geral de uma única aula. Se a regra for reutilizável, ela deve entrar no sistema compartilhado; se for exclusiva do conteúdo, deve ficar na folha específica da aula.
+Não crie uma nova folha de estilo para corrigir o layout geral de uma única aula. Se a regra for reutilizável, ela deve entrar no sistema compartilhado; se for
+exclusiva do conteúdo, deve ficar na folha específica da aula.
