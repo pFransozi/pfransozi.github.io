@@ -17,8 +17,8 @@ Os arquivos são publicados em:
 Inclua no final do `head`:
 
 ```html
-<script src="https://pfransozi.github.io/assets/js/ensino.js?v=2"></script>
-<link rel="stylesheet" href="https://pfransozi.github.io/assets/css/ensino.css?v=2" />
+<script src="https://pfransozi.github.io/assets/js/ensino.js?v=3"></script>
+<link rel="stylesheet" href="https://pfransozi.github.io/assets/css/ensino.css?v=3" />
 ```
 
 Marque o `body` com uma das variações:
@@ -34,6 +34,7 @@ O sistema compartilhado controla:
 - cores, tipografia, espaçamentos e larguras;
 - tema claro e escuro, usando a chave global `theme`;
 - cabeçalho, rodapé e navegação;
+- índice lateral compacto, expansível por hover, foco ou fixação;
 - páginas de entrada, visão geral, aulas e aprofundamentos;
 - cards, avisos, tabelas, código, botões e índices;
 - comportamento para desktop, tablet e celular.

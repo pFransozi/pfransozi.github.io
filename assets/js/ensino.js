@@ -97,22 +97,58 @@
       });
       tocNav.innerHTML = items.map(({ href, label }) => `<a href="${href}">${label}</a>`).join('');
     }
-    const tocToggle = toc?.querySelector('.standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-toggle, .toc-toggle, .study-clean-toc-toggle');
+    if (toc) {
+      toc.classList.add('teaching-toc-rail');
+      document.body.classList.add('toc-rail-enabled');
+      document.body.classList.remove('toc-collapsed');
+    }
+
+    const tocHead = toc?.querySelector('.standard-toc-head, .lesson-toc-head, .aula03-toc-head, .toc-head, .study-clean-toc-head');
+    let tocToggle = toc?.querySelector('.standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-toggle, .toc-toggle, .study-clean-toc-toggle, .teaching-toc-toggle');
+    if (toc && tocHead && !tocToggle) {
+      tocToggle = document.createElement('button');
+      tocToggle.type = 'button';
+      tocToggle.className = 'teaching-toc-toggle standard-toc-toggle';
+      tocHead.appendChild(tocToggle);
+    }
     const tocLinks = [...(toc?.querySelectorAll('nav a[href^="#"]') || [])]
       .filter((link) => document.querySelector(link.getAttribute('href')));
+
+    const syncTocControl = (expanded, pinned = toc?.classList.contains('is-pinned')) => {
+      if (!tocToggle) return;
+      tocToggle.setAttribute('aria-expanded', String(Boolean(expanded)));
+      tocToggle.setAttribute('aria-pressed', String(Boolean(pinned)));
+      tocToggle.setAttribute('aria-label', pinned ? 'Liberar indice lateral' : 'Fixar indice lateral aberto');
+      tocToggle.title = pinned ? 'Liberar indice lateral' : 'Fixar indice lateral aberto';
+      tocToggle.textContent = pinned ? '×' : '◉';
+    };
+    syncTocControl(false, false);
+
+    toc?.addEventListener('mouseenter', () => syncTocControl(true));
+    toc?.addEventListener('mouseleave', () => syncTocControl(toc.classList.contains('is-pinned')));
+    toc?.addEventListener('focusin', () => syncTocControl(true));
+    toc?.addEventListener('focusout', () => window.setTimeout(() => {
+      if (!toc.contains(document.activeElement)) syncTocControl(toc.classList.contains('is-pinned'));
+    }, 0));
 
     tocToggle?.addEventListener('click', (event) => {
       event.preventDefault();
       event.stopImmediatePropagation();
-      const collapsed = document.body.classList.toggle('toc-collapsed');
-      tocToggle.setAttribute('aria-expanded', String(!collapsed));
-      tocToggle.setAttribute('aria-label', collapsed ? 'Expandir indice' : 'Recolher indice');
-      tocToggle.title = collapsed ? 'Expandir indice' : 'Recolher indice';
+      const pinned = toc.classList.toggle('is-pinned');
+      syncTocControl(pinned, pinned);
     }, true);
 
     const setActive = (id) => tocLinks.forEach((link) => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      const active = link.getAttribute('href') === `#${id}`;
+      link.classList.toggle('active', active);
+      if (active) {
+        link.setAttribute('aria-current', 'location');
+        if (toc) toc.dataset.currentSection = link.textContent.trim();
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
+    if (tocLinks.length) setActive(tocLinks[0].getAttribute('href').slice(1));
     if ('IntersectionObserver' in window && tocLinks.length) {
       const sections = tocLinks.map((link) => document.querySelector(link.getAttribute('href')));
       const observer = new IntersectionObserver((entries) => {
