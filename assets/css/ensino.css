@@ -1,3 +1,4 @@
+/*! purgecss start ignore */
 /*
  * Sistema visual compartilhado dos materiais de ensino de Philipe Fransozi.
  * Fonte de verdade: https://pfransozi.github.io/assets/css/ensino.css
@@ -768,3 +769,4 @@ body.teaching-page :is(footer, .site-footer) {
     animation-iteration-count: 1 !important;
   }
 }
+/*! purgecss end ignore */
