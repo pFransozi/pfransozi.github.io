@@ -95,7 +95,8 @@
     window.addEventListener("scroll", updateProgress, { passive: true });
 
     const toc = document.querySelector(".standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside");
-    const tocNav = toc?.querySelector("nav");
+    const tocNav = toc?.querySelector("nav, .study-toc");
+    tocNav?.classList.add("teaching-toc-nav");
     if (tocNav && !tocNav.querySelector('a[href^="#"]')) {
       const sections = [...document.querySelectorAll("main#conteudo > section, main#conteudo > div > section")];
       const items = sections.flatMap((section, index) => {
@@ -122,7 +123,7 @@
       tocToggle.className = "teaching-toc-toggle standard-toc-toggle";
       tocHead.appendChild(tocToggle);
     }
-    const tocLinks = [...(toc?.querySelectorAll('nav a[href^="#"]') || [])].filter((link) => document.querySelector(link.getAttribute("href")));
+    const tocLinks = [...(tocNav?.querySelectorAll('a[href^="#"]') || [])].filter((link) => document.querySelector(link.getAttribute("href")));
 
     const syncTocControl = (expanded, pinned = toc?.classList.contains("is-pinned")) => {
       if (!tocToggle) return;

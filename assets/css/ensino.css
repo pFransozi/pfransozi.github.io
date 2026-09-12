@@ -1058,14 +1058,14 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
     color: var(--ensino-accent);
   }
 
-  body.teaching-page .teaching-toc-rail nav {
+  body.teaching-page .teaching-toc-rail .teaching-toc-nav {
     max-height: calc(100vh - 174px);
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-width: thin;
   }
 
-  body.teaching-page .teaching-toc-rail nav a {
+  body.teaching-page .teaching-toc-rail .teaching-toc-nav a {
     min-height: 24px;
     overflow: hidden;
     border-radius: 7px;
@@ -1076,7 +1076,7 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
       background-color 150ms ease;
   }
 
-  body.teaching-page .teaching-toc-rail nav a::before {
+  body.teaching-page .teaching-toc-rail .teaching-toc-nav a::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -1092,28 +1092,28 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
       background-color 150ms ease;
   }
 
-  body.teaching-page .teaching-toc-rail nav a:is(:hover, .active) {
+  body.teaching-page .teaching-toc-rail .teaching-toc-nav a:is(:hover, .active) {
     background: var(--ensino-accent-soft);
     color: var(--ensino-accent);
   }
 
-  body.teaching-page .teaching-toc-rail nav a.active::before {
+  body.teaching-page .teaching-toc-rail .teaching-toc-nav a.active::before {
     width: 7px;
     height: 7px;
     background: var(--ensino-accent);
   }
 
-  body.teaching-page .teaching-toc-rail:is(:hover, :focus-within, .is-pinned) nav a {
+  body.teaching-page .teaching-toc-rail:is(:hover, :focus-within, .is-pinned) .teaching-toc-nav a {
     padding: 7px 10px 7px 28px;
     font-size: 0.84rem;
   }
 
-  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) nav {
+  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) .teaching-toc-nav {
     gap: 0;
     overflow: hidden;
   }
 
-  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) nav a {
+  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) .teaching-toc-nav a {
     width: 28px;
     height: 19px;
     min-height: 19px;
@@ -1122,7 +1122,7 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
     font-size: 0;
   }
 
-  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) nav a::before {
+  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) .teaching-toc-nav a::before {
     left: 50%;
     transform: translate(-50%, -50%);
   }
