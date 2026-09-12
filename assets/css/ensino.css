@@ -983,7 +983,11 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
 
 /* Indice em trilho: compacto em repouso e aberto sobre o conteudo no hover. */
 @media (min-width: 1051px) {
-  body.teaching-page.toc-rail-enabled :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
+  body.teaching-page.toc-rail-enabled .standard-page-grid,
+  body.teaching-page.toc-rail-enabled .lesson-page-grid,
+  body.teaching-page.toc-rail-enabled .aula03-page-grid,
+  body.teaching-page.toc-rail-enabled .page-grid,
+  body.teaching-page.toc-rail-enabled .study-clean-layout {
     grid-template-columns: minmax(0, 1fr) 44px;
     gap: 28px;
   }
