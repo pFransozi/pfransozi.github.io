@@ -84,3 +84,31 @@ lessons:
     status: published
     url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-05.html
     action_label: Acessar aula
+
+  - number: 6
+    title: Representação do conhecimento e inferência
+    description: >-
+      Representar conhecimento explicitamente por fatos, relações e regras,
+      distinguindo busca de inferência e acompanhando a produção de novas
+      conclusões a partir de uma base de conhecimento.
+    content: >-
+      Fatos, relações e regras; base de conhecimento; mecanismo de inferência;
+      encadeamento para frente e para trás; conflitos, lacunas e limitações de
+      sistemas determinísticos baseados em regras.
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-06.html
+    action_label: Acessar aula
+
+  - number: 7
+    title: Raciocínio sob incerteza
+    description: >-
+      Raciocinar quando as evidências não determinam uma conclusão com certeza,
+      atualizando a confiança em hipóteses à medida que novas informações são
+      observadas.
+    content: >-
+      Incerteza em IA; probabilidade condicional; probabilidade a priori e
+      posterior; Teorema de Bayes; evidências; atualização de crenças;
+      independência e independência condicional; limites da inferência probabilística.
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-07.html
+    action_label: Acessar aula
