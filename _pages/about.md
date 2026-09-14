@@ -52,6 +52,21 @@ Também desenvolvo materiais e projetos de programação para a **Educação Bá
 
 Os materiais utilizados nas disciplinas, atividades e projetos estão organizados na seção **[Aulas]({{ '/aulas/' | relative_url }})**.
 
+## Projeto em destaque
+
+<a href="{{ '/projects/desafio-digital-8ano/' | relative_url }}" style="text-decoration: none; color: inherit;">
+  <div class="card mt-3 mb-4 shadow-sm" style="border-radius: 1rem; overflow: hidden; transition: transform .2s ease, box-shadow .2s ease;">
+    <div class="card-body p-4">
+      <div style="font-size: 2rem; margin-bottom: .5rem;">🚀</div>
+      <h3 class="card-title" style="margin-top: 0;">Maratona Tech 2026 — Desafio Digital (8º ano)</h3>
+      <p class="card-text" style="margin-bottom: .75rem;">
+        Guia visual e simplificado para os estudantes: escolha do problema digital, análise dos riscos, propostas de solução e preparação do Guia de Convivência Responsável na Rede.
+      </p>
+      <strong>Abrir projeto →</strong>
+    </div>
+  </div>
+</a>
+
 ## Trajetória
 
 Minha formação e atuação combinam **Computação, Cibersegurança, Inteligência Artificial e ensino**.
