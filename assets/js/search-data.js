@@ -63,6 +63,11 @@ ninja.data = [{
           description: "Projeto de iniciação científica e tecnológica com estudantes, investigando dados meteorológicos da escola e construindo, passo a passo, pequenas regras e modelos de previsão de chuva.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/clube-ciencias-tec/";
+            },},{id: "projects-maratona-tech-2026-desafio-digital-8º-ano",
+          title: 'Maratona Tech 2026 — Desafio Digital (8º ano)',
+          description: "Guia visual e simplificado para estudantes do 8º ano: escolha de um problema digital, análise dos riscos, propostas de solução e preparação do Guia de Convivência Responsável na Rede.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/maratona-tech-2026/";
             },},{id: "teaching-acessibilidade-na-web-construindo-experiências-inclusivas",
           title: 'Acessibilidade na Web: construindo experiências inclusivas',
           description: "Projeto didático sobre acessibilidade digital, design inclusivo e cidadania digital na Web.",
