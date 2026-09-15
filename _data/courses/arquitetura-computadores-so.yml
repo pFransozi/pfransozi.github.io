@@ -108,3 +108,16 @@ lessons:
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-06.html
     action_label: Acessar aula
+
+  - number: 7
+    title: Como o computador representa números
+    description: >-
+      Compreender como sequências de bits representam valores numéricos e como
+      diferentes bases permitem escrever a mesma informação de formas distintas.
+    content: >-
+      Sistemas posicionais; bit, byte e palavra; capacidade de n bits; conversões
+      entre decimal e binário; notação hexadecimal; relação direta entre grupos
+      de 4 bits e dígitos hexadecimais.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-07.html
+    action_label: Acessar aula
