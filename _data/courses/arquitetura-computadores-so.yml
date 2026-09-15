@@ -90,6 +90,9 @@ lessons:
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-05.html
     action_label: Acessar aula
+    resources:
+      - label: Aprofundamento teórico
+        url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-05-aprofundamento.html
 
   - number: 6
     title: O custo de acessar e movimentar dados
