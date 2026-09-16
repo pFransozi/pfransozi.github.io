@@ -23,7 +23,7 @@
   --ensino-shell: 1440px;
   --ensino-reading: 790px;
   --ensino-toc: 205px;
-  --ensino-page-space: clamp(36px, 4vw, 64px);
+  --ensino-page-space: 40px;
   --ensino-section-gap: clamp(46px, 5vw, 72px);
   --ensino-component-gap: clamp(16px, 2vw, 24px);
   --ensino-card-space: clamp(18px, 2vw, 24px);
@@ -201,8 +201,8 @@ body.teaching-page.aula03-clean.toc-collapsed .aula03-page-grid {
  */
 body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
 body.teaching-page.teaching-lesson .site-header > :is(.container, .shell) {
-  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
-  margin-inline: auto;
+  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell)) !important;
+  margin-inline: auto !important;
 }
 
 body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell) > main > section > .container {
@@ -1295,8 +1295,8 @@ body.teaching-page.teaching-lesson .site-footer {
 }
 
 body.teaching-page.teaching-lesson .site-footer > :is(.container, .shell) {
-  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
-  margin-inline: auto;
+  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell)) !important;
+  margin-inline: auto !important;
 }
 
 body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
@@ -1360,7 +1360,7 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
   body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
   body.teaching-page.teaching-lesson .site-header > :is(.container, .shell),
   body.teaching-page.teaching-lesson .site-footer > :is(.container, .shell) {
-    width: min(calc(100% - 28px), var(--ensino-shell));
+    width: min(calc(100% - 28px), var(--ensino-shell)) !important;
   }
   body.teaching-page :is(.nav-wrap, .nav) {
     min-height: 58px;
