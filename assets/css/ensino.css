@@ -170,6 +170,26 @@ body.teaching-page :is(.standard-shell, .lesson-shell, .aula03-shell) {
   margin-inline: auto;
 }
 
+/*
+ * As aulas de Arquitetura/SO ainda mantêm uma variável local mais antiga.
+ * Alinhamos somente a largura estrutural ao sistema compartilhado, preservando
+ * as cores, a tipografia e os componentes próprios dessas páginas.
+ */
+body.teaching-page.aula03-clean {
+  --clean-shell: var(--ensino-shell);
+}
+
+body.teaching-page.aula03-clean .aula03-shell,
+body.teaching-page.aula03-clean .site-header .container {
+  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
+}
+
+body.teaching-page.aula03-clean .aula03-page-grid,
+body.teaching-page.aula03-clean.toc-collapsed .aula03-page-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
 body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -1204,6 +1224,10 @@ body.teaching-page :is(footer, .site-footer) {
 
 @media (max-width: 760px) {
   body.teaching-page :is(.container, .shell, .portal-shell, .standard-shell, .lesson-shell, .aula03-shell) {
+    width: min(calc(100% - 28px), var(--ensino-shell));
+  }
+  body.teaching-page.aula03-clean .aula03-shell,
+  body.teaching-page.aula03-clean .site-header .container {
     width: min(calc(100% - 28px), var(--ensino-shell));
   }
   body.teaching-page :is(.nav-wrap, .nav) {
