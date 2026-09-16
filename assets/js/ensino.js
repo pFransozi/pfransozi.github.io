@@ -71,6 +71,38 @@
 
     const navToggle = document.querySelector(".nav-toggle");
     const mainNav = document.querySelector(".main-nav");
+
+    /* Mantem a navegacao global igual mesmo nas aulas mais antigas. */
+    if (document.body.classList.contains("teaching-lesson") && mainNav) {
+      const links = [...mainNav.querySelectorAll("a[href]")];
+      const hasDestination = (file) =>
+        links.some((link) => {
+          const href = link.getAttribute("href")?.split(/[?#]/)[0] || "";
+          return href === file || href.endsWith(`/${file}`);
+        });
+      const firstItem = mainNav.firstElementChild;
+      const createGlobalLink = (href, label) => {
+        const link = document.createElement("a");
+        link.href = href;
+        link.textContent = label;
+        link.dataset.teachingGlobalNav = "true";
+        return link;
+      };
+
+      if (!hasDestination("curso.html")) {
+        mainNav.insertBefore(createGlobalLink("curso.html", "Visão geral"), firstItem);
+      }
+      if (!hasDestination("index.html")) {
+        mainNav.insertBefore(createGlobalLink("index.html", "Página principal"), mainNav.firstElementChild);
+      }
+
+      const brandContext = document.querySelector(".brand small");
+      const lessonMatch = document.querySelector(".eyebrow")?.textContent.match(/Aula\s+\d+/i);
+      if (brandContext && lessonMatch && !/^Aula\s+\d+/i.test(brandContext.textContent.trim())) {
+        brandContext.textContent = lessonMatch[0].replace(/^aula/i, "Aula");
+      }
+    }
+
     if (navToggle && mainNav) {
       navToggle.addEventListener("click", () => {
         const open = mainNav.classList.toggle("is-open");

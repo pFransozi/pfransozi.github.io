@@ -23,7 +23,11 @@
   --ensino-shell: 1440px;
   --ensino-reading: 790px;
   --ensino-toc: 205px;
-  --ensino-page-space: clamp(36px, 6vw, 112px);
+  --ensino-page-space: clamp(36px, 4vw, 64px);
+  --ensino-section-gap: clamp(46px, 5vw, 72px);
+  --ensino-component-gap: clamp(16px, 2vw, 24px);
+  --ensino-card-space: clamp(18px, 2vw, 24px);
+  --ensino-intro-width: 960px;
   --ensino-radius: 10px;
   --ensino-radius-sm: 8px;
   --ensino-shadow: none;
@@ -188,6 +192,28 @@ body.teaching-page.aula03-clean .aula03-page-grid,
 body.teaching-page.aula03-clean.toc-collapsed .aula03-page-grid {
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
+}
+
+/*
+ * Contrato estrutural das aulas.
+ * A especificidade adicional impede que folhas antigas de cada disciplina
+ * recriem larguras e margens diferentes sem interferir na identidade visual.
+ */
+body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
+body.teaching-page.teaching-lesson .site-header > :is(.container, .shell) {
+  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
+  margin-inline: auto;
+}
+
+body.teaching-page.teaching-lesson
+  :is(.standard-shell, .lesson-shell, .aula03-shell)
+  > main
+  > section
+  > .container {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: 0;
 }
 
 body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
@@ -727,9 +753,12 @@ body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero)::after 
 }
 body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(260px, 0.65fr);
-  gap: 46px;
-  align-items: end;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: clamp(32px, 4vw, 56px);
+  align-items: center;
+}
+body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) > * {
+  min-width: 0;
 }
 body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero) h1 {
   max-width: 18ch;
@@ -742,6 +771,7 @@ body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero) h1 {
 }
 body.teaching-page.teaching-lesson :is(.hero-lead, .lesson-hero-lead, .study-lead) {
   max-width: 760px;
+  margin: 20px 0 0;
   color: var(--ensino-muted);
   font-size: 1.08rem;
 }
@@ -751,7 +781,7 @@ body.teaching-page.teaching-lesson .study-clean-content > section,
 body.teaching-page.teaching-course .page-grid > main > section {
   position: relative;
   width: 100%;
-  padding: clamp(46px, 5vw, 72px) 0;
+  padding: var(--ensino-section-gap) 0;
   background: transparent;
   scroll-margin-top: 82px;
 }
@@ -782,6 +812,27 @@ body.teaching-page :is(.section-heading, .study-heading) h2 {
 body.teaching-page :is(.section-heading, .study-heading) > p:last-child {
   max-width: 780px;
   color: var(--ensino-muted);
+}
+
+body.teaching-page.teaching-lesson
+  :is(.section-heading, .study-heading):not(.split-heading) {
+  width: min(100%, var(--ensino-intro-width));
+  max-width: var(--ensino-intro-width);
+  margin: 0 auto clamp(28px, 3vw, 38px);
+  text-align: center;
+}
+
+body.teaching-page.teaching-lesson
+  :is(.section-heading, .study-heading):not(.split-heading)
+  > p:last-child {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+body.teaching-page.teaching-lesson .split-heading {
+  width: 100%;
+  max-width: none;
+  text-align: left;
 }
 
 /* Componentes editoriais */
@@ -852,6 +903,10 @@ body.teaching-page
 }
 
 body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) {
+  width: min(100%, 440px);
+  max-width: 440px;
+  justify-self: end;
+  align-self: center;
   padding: 2px 0 2px 18px;
   border: 0;
   border-left: 3px solid var(--ensino-accent);
@@ -860,6 +915,63 @@ body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-
 }
 body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) :is(strong, .label) {
   color: var(--ensino-accent);
+}
+body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question) > span {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--ensino-accent);
+  font-size: 0.76rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question) blockquote {
+  margin: 0;
+  color: var(--ensino-text);
+  font-size: clamp(1.05rem, 1.7vw, 1.28rem);
+  font-weight: 500;
+  line-height: 1.42;
+  overflow-wrap: anywhere;
+}
+
+body.teaching-page.teaching-lesson
+  :is(
+    .overview-grid,
+    .lesson-overview-grid,
+    .concept-grid,
+    .feature-grid,
+    .problem-grid,
+    .function-grid,
+    .comparison-grid,
+    .practice-grid,
+    .exercise-grid,
+    .normalization-grid,
+    .bridge-grid
+  ) {
+  gap: var(--ensino-component-gap);
+}
+
+body.teaching-page.teaching-lesson
+  main
+  :is(
+    article.card,
+    article.overview-card,
+    article.concept-card,
+    article.feature-card,
+    article.problem-card,
+    article.function-card,
+    article.search-mode-card,
+    article.hierarchy-card,
+    article.ram-card,
+    article.conversion-card,
+    article.range-card,
+    article.bridge-card,
+    article.normalization-card,
+    article.exercise-card,
+    article.mapping-card,
+    article.practice-card
+  ) {
+  padding: var(--ensino-card-space);
 }
 body.teaching-page :is(.study-meta, .hero-meta) {
   display: flex;
@@ -1184,6 +1296,23 @@ body.teaching-page :is(footer, .site-footer) {
   box-shadow: none;
 }
 
+body.teaching-page.teaching-lesson .site-footer {
+  margin-top: 0;
+  padding: 32px 0;
+}
+
+body.teaching-page.teaching-lesson .site-footer > :is(.container, .shell) {
+  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
+  margin-inline: auto;
+}
+
+body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
 @media (max-width: 1180px) {
   body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout),
   body.teaching-page.toc-collapsed :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
@@ -1202,6 +1331,11 @@ body.teaching-page :is(footer, .site-footer) {
   body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
+  }
+  body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) {
+    width: 100%;
+    max-width: none;
+    justify-self: stretch;
   }
 
   body.teaching-page
@@ -1230,6 +1364,11 @@ body.teaching-page :is(footer, .site-footer) {
   body.teaching-page.aula03-clean .site-header .container {
     width: min(calc(100% - 28px), var(--ensino-shell));
   }
+  body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
+  body.teaching-page.teaching-lesson .site-header > :is(.container, .shell),
+  body.teaching-page.teaching-lesson .site-footer > :is(.container, .shell) {
+    width: min(calc(100% - 28px), var(--ensino-shell));
+  }
   body.teaching-page :is(.nav-wrap, .nav) {
     min-height: 58px;
   }
@@ -1246,6 +1385,11 @@ body.teaching-page :is(footer, .site-footer) {
   body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+  body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
   }
   body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero) h1,
   body.teaching-page.teaching-portal :is(.hero, .portal-hero) h1 {
