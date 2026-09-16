@@ -976,6 +976,14 @@ body.teaching-page :is(.study-meta, .hero-meta) {
 body.teaching-page .study-toc-shell {
   display: none;
 }
+
+/* Aulas novas criadas pela web podem chegar com um sumario horizontal local. */
+body.teaching-page .teaching-toc-rail .dml-toc {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: minmax(0, 1fr);
+}
 body.teaching-page .eyebrow::before {
   display: none;
 }
