@@ -51,6 +51,23 @@
   const ready = () => {
     applyTheme();
 
+    const alignStructuralShells = () => {
+      if (!document.body.classList.contains("teaching-lesson")) return;
+      const pageSpace = root.clientWidth <= 760 ? 28 : 40;
+      const width = Math.max(0, Math.min(root.clientWidth - pageSpace, 1440));
+      document
+        .querySelectorAll(
+          ".standard-shell, .lesson-shell, .aula03-shell, .site-header > .container, .site-header > .shell, .site-footer > .container, .site-footer > .shell"
+        )
+        .forEach((element) => {
+          element.style.setProperty("width", `${width}px`, "important");
+          element.style.setProperty("max-width", "1440px", "important");
+          element.style.setProperty("margin-inline", "auto", "important");
+        });
+    };
+    alignStructuralShells();
+    window.addEventListener("resize", alignStructuralShells, { passive: true });
+
     document.querySelectorAll(".theme-toggle").forEach((toggle) => {
       toggle.addEventListener(
         "click",
