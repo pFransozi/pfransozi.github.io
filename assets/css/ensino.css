@@ -201,8 +201,7 @@ body.teaching-page.aula03-clean.toc-collapsed .aula03-page-grid {
  */
 body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
 body.teaching-page.teaching-lesson .site-header > :is(.container, .shell) {
-  width: calc(100% - var(--ensino-page-space)) !important;
-  max-width: var(--ensino-shell) !important;
+  width: min(calc(var(--ensino-viewport-width, 100vw) - var(--ensino-page-space)), var(--ensino-shell)) !important;
   margin-inline: auto !important;
 }
 
@@ -1296,8 +1295,7 @@ body.teaching-page.teaching-lesson .site-footer {
 }
 
 body.teaching-page.teaching-lesson .site-footer > :is(.container, .shell) {
-  width: calc(100% - var(--ensino-page-space)) !important;
-  max-width: var(--ensino-shell) !important;
+  width: min(calc(var(--ensino-viewport-width, 100vw) - var(--ensino-page-space)), var(--ensino-shell)) !important;
   margin-inline: auto !important;
 }
 
@@ -1362,8 +1360,7 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
   body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
   body.teaching-page.teaching-lesson .site-header > :is(.container, .shell),
   body.teaching-page.teaching-lesson .site-footer > :is(.container, .shell) {
-    width: calc(100% - 28px) !important;
-    max-width: var(--ensino-shell) !important;
+    width: min(calc(var(--ensino-viewport-width, 100vw) - 28px), var(--ensino-shell)) !important;
   }
   body.teaching-page :is(.nav-wrap, .nav) {
     min-height: 58px;

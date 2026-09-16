@@ -3,6 +3,10 @@
   const root = document.documentElement;
   const media = window.matchMedia?.("(prefers-color-scheme: dark)");
 
+  const syncViewportWidth = () => root.style.setProperty("--ensino-viewport-width", `${root.clientWidth}px`);
+  syncViewportWidth();
+  window.addEventListener("resize", syncViewportWidth, { passive: true });
+
   const readSetting = () => {
     try {
       const saved = localStorage.getItem("theme");
