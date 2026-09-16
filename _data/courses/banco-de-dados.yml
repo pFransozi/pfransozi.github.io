@@ -108,3 +108,17 @@ lessons:
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-06.html
     action_label: Acessar aula
+
+  - number: 7
+    title: Manipulação de dados e integridade
+    description: >-
+      Prática de manipulação de dados sobre o esquema já construído, preparando
+      o ambiente SQLite em notebook e executando operações de inserção, consulta,
+      atualização e exclusão com atenção às regras de integridade.
+    content: >-
+      SQLite em notebook; conexão e preparação do banco; INSERT; SELECT e WHERE
+      como verificação; UPDATE; DELETE; integridade de entidade, domínio e
+      referencial; PRIMARY KEY, FOREIGN KEY, NOT NULL, CHECK, UNIQUE e DEFAULT.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/aula-07.html
+    action_label: Acessar aula
