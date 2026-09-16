@@ -199,7 +199,8 @@ body.teaching-page.aula03-clean.toc-collapsed .aula03-page-grid {
  * A especificidade adicional impede que folhas antigas de cada disciplina
  * recriem larguras e margens diferentes sem interferir na identidade visual.
  */
-body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
+body.teaching-page.teaching-lesson
+  :is(.standard-shell, .lesson-shell, .aula03-shell),
 body.teaching-page.teaching-lesson .site-header > :is(.container, .shell) {
   width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
   margin-inline: auto;
@@ -216,19 +217,41 @@ body.teaching-page.teaching-lesson
   padding-inline: 0;
 }
 
-body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
+body.teaching-page
+  :is(
+    .standard-page-grid,
+    .lesson-page-grid,
+    .aula03-page-grid,
+    .page-grid,
+    .study-clean-layout
+  ) {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
   align-items: start;
 }
 
-body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) > main,
+body.teaching-page
+  :is(
+    .standard-page-grid,
+    .lesson-page-grid,
+    .aula03-page-grid,
+    .page-grid,
+    .study-clean-layout
+  )
+  > main,
 body.teaching-page .study-clean-content {
   min-width: 0;
 }
 
-body.teaching-page.toc-collapsed :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
+body.teaching-page.toc-collapsed
+  :is(
+    .standard-page-grid,
+    .lesson-page-grid,
+    .aula03-page-grid,
+    .page-grid,
+    .study-clean-layout
+  ) {
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
 }
@@ -341,7 +364,11 @@ body.teaching-page .theme-toggle {
   cursor: pointer;
 }
 body.teaching-page .theme-toggle:hover {
-  border-color: color-mix(in srgb, var(--ensino-accent) 45%, var(--ensino-line));
+  border-color: color-mix(
+    in srgb,
+    var(--ensino-accent) 45%,
+    var(--ensino-line)
+  );
   color: var(--ensino-accent);
 }
 body.teaching-page .theme-toggle .theme-text {
@@ -748,16 +775,20 @@ body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero) {
   padding: 64px 0 54px;
   background: transparent;
 }
-body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero)::after {
+body.teaching-page.teaching-lesson
+  :is(.hero, .lesson-hero, .study-hero)::after {
   display: none;
 }
-body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
+body.teaching-page.teaching-lesson
+  :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
   display: grid;
   grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
   gap: clamp(32px, 4vw, 56px);
   align-items: center;
 }
-body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) > * {
+body.teaching-page.teaching-lesson
+  :is(.hero-grid, .lesson-hero-grid, .study-hero-grid)
+  > * {
   min-width: 0;
 }
 body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero) h1 {
@@ -769,14 +800,18 @@ body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero) h1 {
   line-height: 1.08;
   letter-spacing: -0.045em;
 }
-body.teaching-page.teaching-lesson :is(.hero-lead, .lesson-hero-lead, .study-lead) {
+body.teaching-page.teaching-lesson
+  :is(.hero-lead, .lesson-hero-lead, .study-lead) {
   max-width: 760px;
   margin: 20px 0 0;
   color: var(--ensino-muted);
   font-size: 1.08rem;
 }
 
-body.teaching-page.teaching-lesson :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid) > main > section,
+body.teaching-page.teaching-lesson
+  :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid)
+  > main
+  > section,
 body.teaching-page.teaching-lesson .study-clean-content > section,
 body.teaching-page.teaching-course .page-grid > main > section {
   position: relative;
@@ -785,9 +820,17 @@ body.teaching-page.teaching-course .page-grid > main > section {
   background: transparent;
   scroll-margin-top: 82px;
 }
-body.teaching-page.teaching-lesson :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid) > main > section:not(:first-child)::before,
-body.teaching-page.teaching-lesson .study-clean-content > section:not(:first-child)::before,
-body.teaching-page.teaching-course .page-grid > main > section:not(:first-child)::before {
+body.teaching-page.teaching-lesson
+  :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid)
+  > main
+  > section:not(:first-child)::before,
+body.teaching-page.teaching-lesson
+  .study-clean-content
+  > section:not(:first-child)::before,
+body.teaching-page.teaching-course
+  .page-grid
+  > main
+  > section:not(:first-child)::before {
   content: "";
   display: block;
   width: 58px;
@@ -796,7 +839,10 @@ body.teaching-page.teaching-course .page-grid > main > section:not(:first-child)
   border-radius: 999px;
   background: var(--ensino-accent);
 }
-body.teaching-page.teaching-lesson :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid) main .container,
+body.teaching-page.teaching-lesson
+  :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid)
+  main
+  .container,
 body.teaching-page.teaching-course .page-grid main .container {
   width: 100%;
   max-width: none;
@@ -874,7 +920,8 @@ body.teaching-page
   box-shadow: none;
 }
 
-body.teaching-page :is(.section-soft, .section-dark, .study-section.alt, .lesson-dark) {
+body.teaching-page
+  :is(.section-soft, .section-dark, .study-section.alt, .lesson-dark) {
   background: var(--ensino-surface);
   color: var(--ensino-text);
 }
@@ -902,7 +949,8 @@ body.teaching-page
   box-shadow: none;
 }
 
-body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) {
+body.teaching-page.teaching-lesson
+  :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) {
   width: min(100%, 440px);
   max-width: 440px;
   justify-self: end;
@@ -913,10 +961,14 @@ body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-
   border-radius: 0;
   background: transparent;
 }
-body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) :is(strong, .label) {
+body.teaching-page.teaching-lesson
+  :is(.guiding-card, .guiding-question, .study-card, .study-intro-card)
+  :is(strong, .label) {
   color: var(--ensino-accent);
 }
-body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question) > span {
+body.teaching-page.teaching-lesson
+  :is(.guiding-card, .guiding-question)
+  > span {
   display: block;
   margin-bottom: 0.65rem;
   color: var(--ensino-accent);
@@ -925,7 +977,9 @@ body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question) > span 
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question) blockquote {
+body.teaching-page.teaching-lesson
+  :is(.guiding-card, .guiding-question)
+  blockquote {
   margin: 0;
   color: var(--ensino-text);
   font-size: clamp(1.05rem, 1.7vw, 1.28rem);
@@ -1015,7 +1069,14 @@ body.teaching-page .button-secondary {
   color: var(--ensino-text);
 }
 
-body.teaching-page :is(.table-wrap, .study-table-wrap, .comparison-table-wrap, .trace-table-wrap, .mini-table-wrap) {
+body.teaching-page
+  :is(
+    .table-wrap,
+    .study-table-wrap,
+    .comparison-table-wrap,
+    .trace-table-wrap,
+    .mini-table-wrap
+  ) {
   overflow-x: auto;
   border: 1px solid var(--ensino-line);
   border-radius: var(--ensino-radius);
@@ -1053,18 +1114,33 @@ body.teaching-page :not(pre) > code {
 }
 
 /* Indices laterais: nomes antigos continuam aceitos durante a migracao. */
-body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) {
+body.teaching-page
+  :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) {
   display: none;
   min-width: 0;
 }
-body.teaching-page :is(.standard-toc-head, .lesson-toc-head, .aula03-toc-head, .toc-head, .study-clean-toc-head) {
+body.teaching-page
+  :is(
+    .standard-toc-head,
+    .lesson-toc-head,
+    .aula03-toc-head,
+    .toc-head,
+    .study-clean-toc-head
+  ) {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 8px;
 }
-body.teaching-page :is(.standard-toc-label, .lesson-toc-label, .aula03-toc-label, .toc-label, .study-clean-toc-label) {
+body.teaching-page
+  :is(
+    .standard-toc-label,
+    .lesson-toc-label,
+    .aula03-toc-label,
+    .toc-label,
+    .study-clean-toc-label
+  ) {
   color: var(--ensino-muted);
   font-size: 0.72rem;
   font-weight: 500;
@@ -1072,7 +1148,14 @@ body.teaching-page :is(.standard-toc-label, .lesson-toc-label, .aula03-toc-label
   text-transform: uppercase;
   white-space: nowrap;
 }
-body.teaching-page :is(.standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-toggle, .toc-toggle, .study-clean-toc-toggle) {
+body.teaching-page
+  :is(
+    .standard-toc-toggle,
+    .lesson-toc-toggle,
+    .aula03-toc-toggle,
+    .toc-toggle,
+    .study-clean-toc-toggle
+  ) {
   display: grid;
   place-items: center;
   width: 28px;
@@ -1084,11 +1167,16 @@ body.teaching-page :is(.standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-tog
   color: var(--ensino-muted);
   cursor: pointer;
 }
-body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) nav {
+body.teaching-page
+  :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside)
+  nav {
   display: grid;
   gap: 2px;
 }
-body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) nav a {
+body.teaching-page
+  :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside)
+  nav
+  a {
   position: relative;
   display: block;
   padding: 6px 0;
@@ -1097,15 +1185,37 @@ body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-cle
   line-height: 1.35;
   text-decoration: none;
 }
-body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) nav a:hover,
-body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) nav a.active {
+body.teaching-page
+  :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside)
+  nav
+  a:hover,
+body.teaching-page
+  :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside)
+  nav
+  a.active {
   color: var(--ensino-accent);
 }
-body.teaching-page.toc-collapsed :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) nav,
-body.teaching-page.toc-collapsed :is(.standard-toc-label, .lesson-toc-label, .aula03-toc-label, .toc-label, .study-clean-toc-label) {
+body.teaching-page.toc-collapsed
+  :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside)
+  nav,
+body.teaching-page.toc-collapsed
+  :is(
+    .standard-toc-label,
+    .lesson-toc-label,
+    .aula03-toc-label,
+    .toc-label,
+    .study-clean-toc-label
+  ) {
   display: none;
 }
-body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-toggle, .toc-toggle, .study-clean-toc-toggle) {
+body.teaching-page.toc-collapsed
+  :is(
+    .standard-toc-toggle,
+    .lesson-toc-toggle,
+    .aula03-toc-toggle,
+    .toc-toggle,
+    .study-clean-toc-toggle
+  ) {
   transform: rotate(180deg);
 }
 
@@ -1152,27 +1262,54 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
     box-shadow: 0 18px 54px rgba(0, 0, 0, 0.16);
   }
 
-  body.teaching-page .teaching-toc-rail :is(.standard-toc-head, .lesson-toc-head, .aula03-toc-head, .toc-head, .study-clean-toc-head) {
+  body.teaching-page
+    .teaching-toc-rail
+    :is(
+      .standard-toc-head,
+      .lesson-toc-head,
+      .aula03-toc-head,
+      .toc-head,
+      .study-clean-toc-head
+    ) {
     min-height: 28px;
     margin: 0 0 8px;
   }
 
   body.teaching-page
     .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned)
-    :is(.standard-toc-head, .lesson-toc-head, .aula03-toc-head, .toc-head, .study-clean-toc-head) {
+    :is(
+      .standard-toc-head,
+      .lesson-toc-head,
+      .aula03-toc-head,
+      .toc-head,
+      .study-clean-toc-head
+    ) {
     justify-content: center;
     margin-bottom: 5px;
   }
 
   body.teaching-page
     .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned)
-    :is(.standard-toc-label, .lesson-toc-label, .aula03-toc-label, .toc-label, .study-clean-toc-label) {
+    :is(
+      .standard-toc-label,
+      .lesson-toc-label,
+      .aula03-toc-label,
+      .toc-label,
+      .study-clean-toc-label
+    ) {
     display: none;
   }
 
   body.teaching-page
     .teaching-toc-rail
-    :is(.standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-toggle, .toc-toggle, .study-clean-toc-toggle, .teaching-toc-toggle) {
+    :is(
+      .standard-toc-toggle,
+      .lesson-toc-toggle,
+      .aula03-toc-toggle,
+      .toc-toggle,
+      .study-clean-toc-toggle,
+      .teaching-toc-toggle
+    ) {
     flex: 0 0 28px;
     transition:
       color 160ms ease,
@@ -1182,7 +1319,14 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
 
   body.teaching-page
     .teaching-toc-rail
-    :is(.standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-toggle, .toc-toggle, .study-clean-toc-toggle, .teaching-toc-toggle):hover {
+    :is(
+      .standard-toc-toggle,
+      .lesson-toc-toggle,
+      .aula03-toc-toggle,
+      .toc-toggle,
+      .study-clean-toc-toggle,
+      .teaching-toc-toggle
+    ):hover {
     border-color: var(--ensino-accent);
     color: var(--ensino-accent);
   }
@@ -1221,7 +1365,10 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
       background-color 150ms ease;
   }
 
-  body.teaching-page .teaching-toc-rail .teaching-toc-nav a:is(:hover, .active) {
+  body.teaching-page
+    .teaching-toc-rail
+    .teaching-toc-nav
+    a:is(:hover, .active) {
     background: var(--ensino-accent-soft);
     color: var(--ensino-accent);
   }
@@ -1232,17 +1379,25 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
     background: var(--ensino-accent);
   }
 
-  body.teaching-page .teaching-toc-rail:is(:hover, :focus-within, .is-pinned) .teaching-toc-nav a {
+  body.teaching-page
+    .teaching-toc-rail:is(:hover, :focus-within, .is-pinned)
+    .teaching-toc-nav
+    a {
     padding: 7px 10px 7px 28px;
     font-size: 0.84rem;
   }
 
-  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) .teaching-toc-nav {
+  body.teaching-page
+    .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned)
+    .teaching-toc-nav {
     gap: 0;
     overflow: hidden;
   }
 
-  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) .teaching-toc-nav a {
+  body.teaching-page
+    .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned)
+    .teaching-toc-nav
+    a {
     width: 28px;
     height: 19px;
     min-height: 19px;
@@ -1251,7 +1406,10 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
     font-size: 0;
   }
 
-  body.teaching-page .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned) .teaching-toc-nav a::before {
+  body.teaching-page
+    .teaching-toc-rail:not(:hover):not(:focus-within):not(.is-pinned)
+    .teaching-toc-nav
+    a::before {
     left: 50%;
     transform: translate(-50%, -50%);
   }
@@ -1265,25 +1423,50 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
     background: transparent;
   }
 
-  body.teaching-page .teaching-toc-rail > :is(.lesson-toc-current, .aula03-toc-current, .toc-current-dot) {
+  body.teaching-page
+    .teaching-toc-rail
+    > :is(.lesson-toc-current, .aula03-toc-current, .toc-current-dot) {
     display: none !important;
   }
 }
 
-body.teaching-page :is(.standard-mobile-toc, .lesson-mobile-toc, .aula03-mobile-toc, .mobile-toc, .study-mobile-toc) {
+body.teaching-page
+  :is(
+    .standard-mobile-toc,
+    .lesson-mobile-toc,
+    .aula03-mobile-toc,
+    .mobile-toc,
+    .study-mobile-toc
+  ) {
   display: none;
   margin-top: 28px;
   border: 1px solid var(--ensino-line);
   border-radius: var(--ensino-radius-sm);
   background: var(--ensino-surface);
 }
-body.teaching-page :is(.standard-mobile-toc, .lesson-mobile-toc, .aula03-mobile-toc, .mobile-toc, .study-mobile-toc) summary {
+body.teaching-page
+  :is(
+    .standard-mobile-toc,
+    .lesson-mobile-toc,
+    .aula03-mobile-toc,
+    .mobile-toc,
+    .study-mobile-toc
+  )
+  summary {
   padding: 12px 14px;
   color: var(--ensino-text);
   font-weight: 500;
   cursor: pointer;
 }
-body.teaching-page :is(.standard-mobile-toc, .lesson-mobile-toc, .aula03-mobile-toc, .mobile-toc, .study-mobile-toc) nav {
+body.teaching-page
+  :is(
+    .standard-mobile-toc,
+    .lesson-mobile-toc,
+    .aula03-mobile-toc,
+    .mobile-toc,
+    .study-mobile-toc
+  )
+  nav {
   display: grid;
   gap: 7px;
   padding: 0 14px 14px;
@@ -1314,25 +1497,49 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
 }
 
 @media (max-width: 1180px) {
-  body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout),
-  body.teaching-page.toc-collapsed :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
+  body.teaching-page
+    :is(
+      .standard-page-grid,
+      .lesson-page-grid,
+      .aula03-page-grid,
+      .page-grid,
+      .study-clean-layout
+    ),
+  body.teaching-page.toc-collapsed
+    :is(
+      .standard-page-grid,
+      .lesson-page-grid,
+      .aula03-page-grid,
+      .page-grid,
+      .study-clean-layout
+    ) {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
   }
-  body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) {
+  body.teaching-page
+    :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) {
     display: none;
   }
-  body.teaching-page :is(.standard-mobile-toc, .lesson-mobile-toc, .aula03-mobile-toc, .mobile-toc, .study-mobile-toc) {
+  body.teaching-page
+    :is(
+      .standard-mobile-toc,
+      .lesson-mobile-toc,
+      .aula03-mobile-toc,
+      .mobile-toc,
+      .study-mobile-toc
+    ) {
     display: block;
   }
 }
 
 @media (max-width: 900px) {
-  body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
+  body.teaching-page.teaching-lesson
+    :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
   }
-  body.teaching-page.teaching-lesson :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) {
+  body.teaching-page.teaching-lesson
+    :is(.guiding-card, .guiding-question, .study-card, .study-intro-card) {
     width: 100%;
     max-width: none;
     justify-self: stretch;
@@ -1357,14 +1564,23 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
 }
 
 @media (max-width: 760px) {
-  body.teaching-page :is(.container, .shell, .portal-shell, .standard-shell, .lesson-shell, .aula03-shell) {
+  body.teaching-page
+    :is(
+      .container,
+      .shell,
+      .portal-shell,
+      .standard-shell,
+      .lesson-shell,
+      .aula03-shell
+    ) {
     width: min(calc(100% - 28px), var(--ensino-shell));
   }
   body.teaching-page.aula03-clean .aula03-shell,
   body.teaching-page.aula03-clean .site-header .container {
     width: min(calc(100% - 28px), var(--ensino-shell));
   }
-  body.teaching-page.teaching-lesson :is(.standard-shell, .lesson-shell, .aula03-shell),
+  body.teaching-page.teaching-lesson
+    :is(.standard-shell, .lesson-shell, .aula03-shell),
   body.teaching-page.teaching-lesson .site-header > :is(.container, .shell),
   body.teaching-page.teaching-lesson .site-footer > :is(.container, .shell) {
     width: min(calc(100% - 28px), var(--ensino-shell));
@@ -1382,7 +1598,8 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
   body.teaching-page.teaching-lesson :is(.hero, .lesson-hero, .study-hero) {
     padding: 46px 0 38px;
   }
-  body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
+  body.teaching-page.teaching-lesson
+    :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -1439,8 +1656,8 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
       .prompt-list,
       .four-columns
     ) {
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
+  }
   body.teaching-page .portal-intro {
     gap: 28px;
   }
@@ -1465,7 +1682,15 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
     align-items: flex-start;
     flex-direction: column;
   }
-  body.teaching-page :is(.table-wrap, .study-table-wrap, .comparison-table-wrap, .trace-table-wrap, .mini-table-wrap) table {
+  body.teaching-page
+    :is(
+      .table-wrap,
+      .study-table-wrap,
+      .comparison-table-wrap,
+      .trace-table-wrap,
+      .mini-table-wrap
+    )
+    table {
     min-width: 620px;
   }
 }
