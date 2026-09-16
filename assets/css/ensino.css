@@ -20,9 +20,10 @@
   --ensino-on-accent: #ffffff;
   --ensino-code-bg: rgba(181, 9, 172, 0.05);
   --ensino-code-text: #252525;
-  --ensino-shell: 1180px;
+  --ensino-shell: 1440px;
   --ensino-reading: 790px;
   --ensino-toc: 205px;
+  --ensino-page-space: clamp(36px, 6vw, 112px);
   --ensino-radius: 10px;
   --ensino-radius-sm: 8px;
   --ensino-shadow: none;
@@ -160,19 +161,19 @@ body.teaching-page :focus-visible {
 
 /* Estrutura comum */
 body.teaching-page :is(.container, .shell, .portal-shell) {
-  width: min(calc(100% - 36px), var(--ensino-shell));
+  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
   margin-inline: auto;
 }
 
 body.teaching-page :is(.standard-shell, .lesson-shell, .aula03-shell) {
-  width: min(calc(100% - 36px), var(--ensino-shell));
+  width: min(calc(100% - var(--ensino-page-space)), var(--ensino-shell));
   margin-inline: auto;
 }
 
 body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) var(--ensino-toc);
-  gap: 68px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   align-items: start;
 }
 
@@ -182,8 +183,8 @@ body.teaching-page .study-clean-content {
 }
 
 body.teaching-page.toc-collapsed :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
-  grid-template-columns: minmax(0, 1fr) 34px;
-  gap: 28px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
 }
 
 body.teaching-page :is(.skip-link, .sr-only) {
@@ -730,7 +731,7 @@ body.teaching-page.teaching-lesson .study-clean-content > section,
 body.teaching-page.teaching-course .page-grid > main > section {
   position: relative;
   width: 100%;
-  padding: 54px 0 48px;
+  padding: clamp(46px, 5vw, 72px) 0;
   background: transparent;
   scroll-margin-top: 82px;
 }
@@ -921,13 +922,8 @@ body.teaching-page :not(pre) > code {
 
 /* Indices laterais: nomes antigos continuam aceitos durante a migracao. */
 body.teaching-page :is(.standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside) {
-  position: sticky;
-  top: 92px;
-  align-self: start;
+  display: none;
   min-width: 0;
-  margin-top: 58px;
-  padding-left: 18px;
-  border-left: 1px solid var(--ensino-line);
 }
 body.teaching-page :is(.standard-toc-head, .lesson-toc-head, .aula03-toc-head, .toc-head, .study-clean-toc-head) {
   display: flex;
@@ -981,27 +977,28 @@ body.teaching-page.toc-collapsed :is(.standard-toc-toggle, .lesson-toc-toggle, .
   transform: rotate(180deg);
 }
 
-/* Indice em trilho: compacto em repouso e aberto sobre o conteudo no hover. */
-@media (min-width: 1051px) {
+/* Indice em trilho: flutua sobre a margem e nao reduz a area do conteudo. */
+@media (min-width: 1181px) {
   body.teaching-page.toc-rail-enabled .standard-page-grid,
   body.teaching-page.toc-rail-enabled .lesson-page-grid,
   body.teaching-page.toc-rail-enabled .aula03-page-grid,
   body.teaching-page.toc-rail-enabled .page-grid,
   body.teaching-page.toc-rail-enabled .study-clean-layout {
-    grid-template-columns: minmax(0, 1fr) 44px;
-    gap: 28px;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
   }
 
   body.teaching-page .teaching-toc-rail {
     --ensino-toc-rail: 44px;
-    --ensino-toc-open: 286px;
-    position: sticky;
+    --ensino-toc-open: min(300px, calc(100vw - 32px));
+    display: block;
+    position: fixed;
     top: 82px;
+    right: clamp(12px, 2vw, 32px);
     z-index: 40;
-    justify-self: end;
     width: var(--ensino-toc-rail);
     max-height: calc(100vh - 104px);
-    margin-top: 48px;
+    margin: 0;
     padding: 9px 7px;
     overflow: hidden;
     border: 1px solid var(--ensino-line);
@@ -1167,7 +1164,7 @@ body.teaching-page :is(footer, .site-footer) {
   box-shadow: none;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1180px) {
   body.teaching-page :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout),
   body.teaching-page.toc-collapsed :is(.standard-page-grid, .lesson-page-grid, .aula03-page-grid, .page-grid, .study-clean-layout) {
     grid-template-columns: minmax(0, 1fr);
@@ -1178,6 +1175,30 @@ body.teaching-page :is(footer, .site-footer) {
   }
   body.teaching-page :is(.standard-mobile-toc, .lesson-mobile-toc, .aula03-mobile-toc, .mobile-toc, .study-mobile-toc) {
     display: block;
+  }
+}
+
+@media (max-width: 900px) {
+  body.teaching-page.teaching-lesson :is(.hero-grid, .lesson-hero-grid, .study-hero-grid) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  body.teaching-page
+    :is(
+      .feature-grid,
+      .protocol-grid,
+      .content-map-grid,
+      .applications,
+      .comparison-grid,
+      .history-track,
+      .problem-grid,
+      .risk-grid,
+      .worksheet-grid,
+      .prompt-list,
+      .four-columns
+    ) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -1238,10 +1259,20 @@ body.teaching-page :is(footer, .site-footer) {
       .concept-grid,
       .function-grid,
       .application-grid,
-      .risk-grid
+      .risk-grid,
+      .feature-grid,
+      .protocol-grid,
+      .content-map-grid,
+      .applications,
+      .comparison-grid,
+      .history-track,
+      .problem-grid,
+      .worksheet-grid,
+      .prompt-list,
+      .four-columns
     ) {
-    grid-template-columns: 1fr;
-  }
+      grid-template-columns: 1fr;
+    }
   body.teaching-page .portal-intro {
     gap: 28px;
   }
