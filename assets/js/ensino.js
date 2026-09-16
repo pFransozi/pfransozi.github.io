@@ -87,6 +87,15 @@
 
       const legacyToc = main.querySelector(".dml-toc-shell");
       legacyToc?.classList.add("standard-toc");
+
+      const hasToc = document.querySelector(".standard-toc, .lesson-toc, .aula03-toc, .toc, .study-clean-aside");
+      if (!hasToc) {
+        const toc = document.createElement("aside");
+        toc.className = "standard-toc";
+        toc.setAttribute("aria-label", "Índice da aula");
+        toc.innerHTML = '<div class="standard-toc-head"><span class="standard-toc-label">Nesta página</span></div><nav></nav>';
+        main.parentElement.appendChild(toc);
+      }
     };
     normalizeLessonStructure();
 
