@@ -51,6 +51,45 @@
   const ready = () => {
     applyTheme();
 
+    const normalizeLessonStructure = () => {
+      if (!document.body.classList.contains("teaching-lesson")) return;
+
+      const main = document.querySelector("main#conteudo");
+      if (!main) return;
+
+      if (!main.closest(".standard-shell, .lesson-shell, .aula03-shell")) {
+        const shell = document.createElement("div");
+        shell.className = "standard-shell standard-page-grid";
+        main.parentNode.insertBefore(shell, main);
+        shell.appendChild(main);
+      }
+
+      const directSections = [...main.children].filter((element) => element.matches("section"));
+      const hero = directSections.find((section) => section.querySelector("h1")) || directSections[0];
+      if (hero) {
+        hero.classList.add("lesson-hero");
+        const heroContainer = hero.querySelector(":scope > .container, :scope > .shell") || hero.firstElementChild;
+        if (heroContainer?.querySelector("h1")) heroContainer.classList.add("lesson-hero-grid");
+        hero.querySelector(".dml-kicker, .kicker, .course-kicker")?.classList.add("eyebrow");
+        (hero.querySelector(".dml-lead, .lead") || hero.querySelector("h1 + p"))?.classList.add("lesson-hero-lead");
+        hero.querySelector("aside:has(blockquote)")?.classList.add("guiding-question");
+      }
+
+      directSections.forEach((section) => {
+        section.classList.add("section-pad");
+        if (section.classList.contains("alt")) section.classList.add("section-soft");
+      });
+      main.querySelectorAll(".dml-heading").forEach((heading) => heading.classList.add("section-heading"));
+      main.querySelectorAll(".overview-grid").forEach((grid) => {
+        grid.classList.add("lesson-overview-grid");
+        grid.querySelectorAll(":scope > article").forEach((card) => card.classList.add("overview-card"));
+      });
+
+      const legacyToc = main.querySelector(".dml-toc-shell");
+      legacyToc?.classList.add("standard-toc");
+    };
+    normalizeLessonStructure();
+
     const alignStructuralShells = () => {
       if (!document.body.classList.contains("teaching-lesson")) return;
       const pageSpace = root.clientWidth <= 760 ? 28 : 40;
@@ -96,6 +135,8 @@
     /* Mantem a navegacao global igual mesmo nas aulas mais antigas. */
     if (document.body.classList.contains("teaching-lesson") && mainNav) {
       const links = [...mainNav.querySelectorAll("a[href]")];
+      const brandHref = document.querySelector(".brand[href]")?.getAttribute("href") || "index.html";
+      const rootPrefix = brandHref.replace(/index\.html(?:[?#].*)?$/, "");
       const hasDestination = (file) =>
         links.some((link) => {
           const href = link.getAttribute("href")?.split(/[?#]/)[0] || "";
@@ -111,14 +152,14 @@
       };
 
       if (!hasDestination("curso.html")) {
-        mainNav.insertBefore(createGlobalLink("curso.html", "Visão geral"), firstItem);
+        mainNav.insertBefore(createGlobalLink(`${rootPrefix}curso.html`, "Visão geral"), firstItem);
       }
       if (!hasDestination("index.html")) {
-        mainNav.insertBefore(createGlobalLink("index.html", "Página principal"), mainNav.firstElementChild);
+        mainNav.insertBefore(createGlobalLink(`${rootPrefix}index.html`, "Página principal"), mainNav.firstElementChild);
       }
 
       const brandContext = document.querySelector(".brand small");
-      const lessonMatch = document.querySelector(".eyebrow")?.textContent.match(/Aula\s+\d+/i);
+      const lessonMatch = document.querySelector(".eyebrow, .dml-kicker")?.textContent.match(/Aula\s+\d+/i);
       if (brandContext && lessonMatch && !/^Aula\s+\d+/i.test(brandContext.textContent.trim())) {
         brandContext.textContent = lessonMatch[0].replace(/^aula/i, "Aula");
       }
@@ -166,7 +207,13 @@
       document.body.classList.remove("toc-collapsed");
     }
 
-    const tocHead = toc?.querySelector(".standard-toc-head, .lesson-toc-head, .aula03-toc-head, .toc-head, .study-clean-toc-head");
+    let tocHead = toc?.querySelector(".standard-toc-head, .lesson-toc-head, .aula03-toc-head, .toc-head, .study-clean-toc-head");
+    if (toc && !tocHead) {
+      tocHead = document.createElement("div");
+      tocHead.className = "standard-toc-head";
+      tocHead.innerHTML = '<span class="standard-toc-label">Nesta página</span>';
+      toc.prepend(tocHead);
+    }
     let tocToggle = toc?.querySelector(
       ".standard-toc-toggle, .lesson-toc-toggle, .aula03-toc-toggle, .toc-toggle, .study-clean-toc-toggle, .teaching-toc-toggle"
     );
