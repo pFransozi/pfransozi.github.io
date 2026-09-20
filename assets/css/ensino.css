@@ -475,14 +475,14 @@ body.teaching-page .course-row small {
 }
 
 body.teaching-page.teaching-course .page-grid {
-  width: min(calc(100% - 96px), 1120px);
+  width: min(calc(100% - 64px), 1220px);
   margin-inline: auto;
   padding: 58px 0 74px;
 }
 
 body.teaching-page.teaching-course .site-header > .shell,
 body.teaching-page.teaching-course footer > .shell {
-  width: min(calc(100% - 96px), 1120px);
+  width: min(calc(100% - 64px), 1220px);
   margin-inline: auto;
 }
 body.teaching-page .facts {
@@ -1369,7 +1369,7 @@ body.teaching-page.teaching-lesson :is(.footer-grid, .footer-row) {
   body.teaching-page.teaching-course .page-grid,
   body.teaching-page.teaching-course .site-header > .shell,
   body.teaching-page.teaching-course footer > .shell {
-    width: min(calc(100% - 28px), 1120px);
+    width: min(calc(100% - 28px), 1220px);
   }
 
   body.teaching-page :is(.container, .shell, .portal-shell, .standard-shell, .lesson-shell, .aula03-shell) {
