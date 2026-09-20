@@ -23,7 +23,7 @@
   --ensino-shell: 1440px;
   --ensino-reading: 790px;
   --ensino-toc: 205px;
-  --ensino-page-space: 40px;
+  --ensino-page-space: clamp(40px, 5vw, 72px);
   --ensino-section-gap: clamp(46px, 5vw, 72px);
   --ensino-component-gap: clamp(16px, 2vw, 24px);
   --ensino-card-space: clamp(18px, 2vw, 24px);
