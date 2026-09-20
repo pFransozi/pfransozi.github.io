@@ -108,6 +108,9 @@ lessons:
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-06.html
     action_label: Acessar aula
+    resources:
+      - label: Aprofundamento teórico
+        url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-06-aprofundamento.html
 
   - number: 7
     title: Como o computador representa números
