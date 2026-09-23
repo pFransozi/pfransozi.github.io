@@ -128,3 +128,6 @@ lessons:
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-07.html
     action_label: Acessar aula
+    resources:
+      - label: Material de aprofundamento
+        url: https://pfransozi.github.io/bd-2026-02/aula-07-aprofundamento.html
