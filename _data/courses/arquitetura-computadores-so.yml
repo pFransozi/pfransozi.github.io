@@ -124,3 +124,17 @@ lessons:
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-07.html
     action_label: Acessar aula
+
+  - number: 8
+    title: Introdução aos Sistemas Operacionais
+    description: >-
+      Compreender o papel do sistema operacional na mediação entre aplicações e
+      hardware, relacionando abstrações, gerenciamento de recursos, proteção e
+      serviços oferecidos ao software.
+    content: >-
+      Papel do sistema operacional; organização em camadas; abstrações;
+      gerenciamento de CPU, memória, armazenamento e E/S; conveniência e
+      eficiência; modo usuário e modo núcleo; chamadas de sistema.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-08.html
+    action_label: Acessar aula
