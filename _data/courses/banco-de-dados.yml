@@ -131,3 +131,20 @@ lessons:
     resources:
       - label: Material de aprofundamento
         url: https://pfransozi.github.io/bd-2026-02/aula-07-aprofundamento.html
+
+
+  - number: 8
+    title: Consultas SQL e álgebra relacional
+    description: >-
+      Construção progressiva de consultas sobre o sistema de reserva de salas,
+      selecionando colunas e registros, aplicando filtros e ordenações e
+      combinando dados distribuídos entre relações.
+    content: >-
+      SELECT e FROM; aliases; DISTINCT; WHERE; operadores relacionais e lógicos;
+      IN, BETWEEN e LIKE; IS NULL e IS NOT NULL; ORDER BY; produto cartesiano;
+      INNER JOIN e LEFT JOIN; junções com múltiplas tabelas; UNION e EXCEPT;
+      seleção, projeção, produto cartesiano, junção, união e diferença na
+      álgebra relacional.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/aula-08.html
+    action_label: Acessar aula
