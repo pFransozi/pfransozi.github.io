@@ -131,6 +131,6 @@ lessons:
       Algoritmos genéticos; codificação dos indivíduos; função de aptidão;
       seleção por roleta; cruzamento; mutação; elitismo; implementação
       e avaliação de soluções de escalonamento.
-    status: draft
-    url: https://pfransozi.github.io/ia-aplicada-2026-02/rascunho/aula-08-otimizacao.html
-    action_label: Acessar aula (rascunho)
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-08.html
+    action_label: Acessar aula
