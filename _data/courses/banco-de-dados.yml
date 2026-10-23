@@ -148,3 +148,17 @@ lessons:
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-08.html
     action_label: Acessar aula
+
+  - number: 9
+    title: Agregação, agrupamento e subconsultas em SQL
+    description: >-
+      Retomada da anatomia das consultas SQL e introdução a funções de
+      agregação, agrupamentos e subconsultas, com exemplos e tabelas de
+      resultados no sistema de reserva de salas.
+    content: >-
+      Revisão de SELECT, FROM, JOIN, WHERE e ORDER BY; COUNT, SUM, AVG,
+      MIN, MAX e COUNT(DISTINCT); GROUP BY e HAVING; agregação com JOIN;
+      subconsultas escalares, IN, EXISTS e NOT EXISTS.
+    status: published
+    url: https://pfransozi.github.io/bd-2026-02/aula-09.html
+    action_label: Acessar aula
