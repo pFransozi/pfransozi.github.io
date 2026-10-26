@@ -134,3 +134,16 @@ lessons:
     status: published
     url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-08.html
     action_label: Acessar aula
+
+  - number: 9
+    title: Fundamentos da aprendizagem de máquina
+    description: >-
+      Compreender como modelos aprendem a partir de dados e relacionar
+      representação, ajuste de parâmetros e generalização em novos exemplos.
+    content: >-
+      Da programação à aprendizagem; relações entre IA, ML e DL; paradigmas
+      de aprendizagem; modelos como funções; parâmetros; erro e otimização;
+      subajuste e sobreajuste; treino, validação e teste; fluxo de um projeto de ML.
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-09.html
+    action_label: Acessar aula
