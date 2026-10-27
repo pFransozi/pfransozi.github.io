@@ -138,3 +138,15 @@ lessons:
     status: published
     url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-08.html
     action_label: Acessar aula
+
+  - number: 9
+    title: Processos e threads
+    description: >-
+      Compreender como o sistema operacional organiza programas em execução,
+      seus recursos e diferentes fluxos de trabalho.
+    content: >-
+      Programa e processo; estados e transições; PCB; troca de contexto;
+      threads; compartilhamento de recursos; concorrência e paralelismo.
+    status: published
+    url: https://pfransozi.github.io/arq-comp-so-2026-02/aula-09.html
+    action_label: Acessar aula
