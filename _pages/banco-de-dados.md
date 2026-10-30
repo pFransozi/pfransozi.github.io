@@ -85,4 +85,9 @@ _styles: >-
   {% endfor %}
 </div>
 
+<div class="course-note">
+  <strong>Guia de laboratório — PostgreSQL no Windows</strong>
+  <p>Passo a passo para preparar o PostgreSQL com Docker Desktop, conectar pelo pgAdmin 4 e executar o primeiro teste SQL. <a href="https://pfransozi.github.io/bd-2026-02/guia-postgresql-windows.html" target="_blank" rel="noopener noreferrer">Acessar o tutorial →</a></p>
+</div>
+
 <p class="mt-4"><a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">← Voltar para 2026/2</a></p>
