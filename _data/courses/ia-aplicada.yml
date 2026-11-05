@@ -147,3 +147,17 @@ lessons:
     status: published
     url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-09.html
     action_label: Acessar aula
+  - number: 10
+    title: "Algoritmos de ML: seleção de modelos e pipeline de treinamento"
+    description: >-
+      Relacionar características dos dados à escolha de famílias de algoritmos,
+      comparar modelos candidatos e compreender um pipeline de treinamento e
+      avaliação reproduzível.
+    content: >-
+      Regressão linear e logística; k-NN; árvores de decisão; Random Forest;
+      SVM; K-Means e MLP; critérios de seleção de modelos; preparação dos dados;
+      prevenção de vazamento; treino, validação cruzada, teste final e persistência
+      de pipelines com scikit-learn.
+    status: published
+    url: https://pfransozi.github.io/ia-aplicada-2026-02/aula-10.html
+    action_label: Acessar aula
