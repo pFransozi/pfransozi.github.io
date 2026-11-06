@@ -164,7 +164,7 @@ lessons:
     action_label: Acessar aula
 
   - number: 10
-    title: O SGBD por dentro: funcionamento e usos do PostgreSQL
+    title: "O SGBD por dentro: funcionamento e usos do PostgreSQL"
     description: >-
       Análise do SGBD como componente da arquitetura de software: acesso
       cliente-servidor, execução de consultas SQL e mecanismos para organizar,
