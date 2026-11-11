@@ -104,7 +104,7 @@ _styles: >-
 
 <div class="course-note" id="materiais-mysql" style="margin-top:1rem">
   <strong>Materiais de laboratório — MySQL</strong>
-  <p>Os guias preparam o ambiente no Windows e testam a conexão pelo DBeaver. Na prática, você cria um sistema de reserva de salas e conecta uma aplicação Python ao MySQL.</p>
+  <p>Os guias preparam o MySQL no Windows e mostram como testar a conexão pelo MySQL Workbench. Na prática, você cria um sistema de reserva de salas e conecta uma aplicação Python ao MySQL.</p>
   <ul class="mt-2 mb-0">
     <li><a href="https://pfransozi.github.io/bd-2026-02/guia-mysql-windows-nativo.html" target="_blank" rel="noopener noreferrer">MySQL no Windows com instalação nativa →</a></li>
     <li><a href="https://pfransozi.github.io/bd-2026-02/guia-mysql-windows.html" target="_blank" rel="noopener noreferrer">MySQL no Windows com Docker Desktop →</a></li>
