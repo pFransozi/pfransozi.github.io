@@ -87,7 +87,9 @@ _styles: >-
         {% endif %}
       </div>
     </article>
-  {% endfor %}
+
+{% endfor %}
+
 </div>
 
 <div class="course-note">

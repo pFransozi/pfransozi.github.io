@@ -132,7 +132,6 @@ lessons:
       - label: Material de aprofundamento
         url: https://pfransozi.github.io/bd-2026-02/aula-07-aprofundamento.html
 
-
   - number: 8
     title: Consultas SQL e álgebra relacional
     description: >-
