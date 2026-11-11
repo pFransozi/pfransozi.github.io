@@ -14,7 +14,7 @@ _styles: >-
   .course-meta span { border: 1px solid var(--global-divider-color); border-radius: 999px; padding: .3rem .7rem; font-size: .85rem; color: var(--global-text-color-light); }
   .lesson-list { margin-top: 1.5rem; }
   .lesson-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(220px, 330px); gap: 1rem; align-items: start; padding: 1.3rem 0; border-top: 1px solid var(--global-divider-color); }
-  .lesson-item[id] { scroll-margin-top: 4.5rem; }
+  .lesson-item[id], .course-note[id] { scroll-margin-top: 4.5rem; }
   .lesson-number { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: var(--global-code-bg-color); font-weight: 700; color: var(--global-theme-color); }
   .lesson-copy h3 { font-size: 1.15rem; margin: 0 0 .25rem; }
   .lesson-copy p { margin: 0; color: var(--global-text-color-light); }
@@ -105,6 +105,16 @@ _styles: >-
 <div class="course-note" style="margin-top:1rem">
   <strong>Prática guiada — PostgreSQL: do SGBD à aplicação</strong>
   <p>Roteiro passo a passo para criar um sistema de reserva de salas no pgAdmin, investigar integridade, transações e concorrência e conectar uma aplicação Python ao PostgreSQL. Inclui scripts SQL e Python. <a href="https://pfransozi.github.io/bd-2026-02/pratica-10-postgresql-salas.html" target="_blank" rel="noopener noreferrer">Acessar a prática guiada →</a></p>
+</div>
+
+<div class="course-note" id="materiais-mysql" style="margin-top:1rem">
+  <strong>Materiais de laboratório — MySQL</strong>
+  <p>Os guias preparam o ambiente no Windows e testam a conexão pelo DBeaver. Na prática, você cria um sistema de reserva de salas e conecta uma aplicação Python ao MySQL.</p>
+  <ul class="mt-2 mb-0">
+    <li><a href="https://pfransozi.github.io/bd-2026-02/rascunho/guia-mysql-windows-nativo.html" target="_blank" rel="noopener noreferrer">MySQL no Windows com instalação nativa →</a></li>
+    <li><a href="https://pfransozi.github.io/bd-2026-02/rascunho/guia-mysql-windows.html" target="_blank" rel="noopener noreferrer">MySQL no Windows com Docker Desktop →</a></li>
+    <li><a href="https://pfransozi.github.io/bd-2026-02/rascunho/pratica-10-mysql-salas.html" target="_blank" rel="noopener noreferrer">Prática guiada de reserva de salas →</a></li>
+  </ul>
 </div>
 
 <p class="mt-4"><a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">← Voltar para 2026/2</a></p>
