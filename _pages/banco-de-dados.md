@@ -92,19 +92,14 @@ _styles: >-
 
 </div>
 
-<div class="course-note">
-  <strong>Guia de laboratório — PostgreSQL no Windows</strong>
-  <p>Passo a passo para preparar o PostgreSQL com Docker Desktop, conectar pelo pgAdmin 4 e executar o primeiro teste SQL. <a href="https://pfransozi.github.io/bd-2026-02/guia-postgresql-windows.html" target="_blank" rel="noopener noreferrer">Acessar o tutorial →</a></p>
-</div>
-
-<div class="course-note" style="margin-top:1rem">
-  <strong>Guia de laboratório — PostgreSQL no Windows (sem Docker)</strong>
-  <p>Alternativa com instalação nativa do PostgreSQL 18 como serviço do Windows, configuração do pgAdmin 4, criação do usuário e do banco de laboratório e primeiro teste SQL. <a href="https://pfransozi.github.io/bd-2026-02/guia-postgresql-windows-nativo.html" target="_blank" rel="noopener noreferrer">Acessar o tutorial sem Docker →</a></p>
-</div>
-
-<div class="course-note" style="margin-top:1rem">
-  <strong>Prática guiada — PostgreSQL: do SGBD à aplicação</strong>
-  <p>Roteiro passo a passo para criar um sistema de reserva de salas no pgAdmin, investigar integridade, transações e concorrência e conectar uma aplicação Python ao PostgreSQL. Inclui scripts SQL e Python. <a href="https://pfransozi.github.io/bd-2026-02/pratica-10-postgresql-salas.html" target="_blank" rel="noopener noreferrer">Acessar a prática guiada →</a></p>
+<div class="course-note" id="materiais-postgresql">
+  <strong>Materiais de laboratório — PostgreSQL</strong>
+  <p>Os guias orientam a instalação no Windows e o primeiro teste SQL pelo pgAdmin 4. Na prática, você cria um sistema de reserva de salas e conecta uma aplicação Python ao PostgreSQL.</p>
+  <ul class="mt-2 mb-0">
+    <li><a href="https://pfransozi.github.io/bd-2026-02/guia-postgresql-windows-nativo.html" target="_blank" rel="noopener noreferrer">PostgreSQL no Windows com instalação nativa →</a></li>
+    <li><a href="https://pfransozi.github.io/bd-2026-02/guia-postgresql-windows.html" target="_blank" rel="noopener noreferrer">PostgreSQL no Windows com Docker Desktop →</a></li>
+    <li><a href="https://pfransozi.github.io/bd-2026-02/pratica-10-postgresql-salas.html" target="_blank" rel="noopener noreferrer">Prática guiada de reserva de salas →</a></li>
+  </ul>
 </div>
 
 <div class="course-note" id="materiais-mysql" style="margin-top:1rem">
