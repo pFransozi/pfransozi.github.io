@@ -14,6 +14,7 @@ _styles: >-
   .course-meta span { border: 1px solid var(--global-divider-color); border-radius: 999px; padding: .3rem .7rem; font-size: .85rem; color: var(--global-text-color-light); }
   .lesson-list { margin-top: 1.5rem; }
   .lesson-item { display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(220px, 330px); gap: 1rem; align-items: start; padding: 1.3rem 0; border-top: 1px solid var(--global-divider-color); }
+  .lesson-item[id] { scroll-margin-top: 4.5rem; }
   .lesson-number { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: var(--global-code-bg-color); font-weight: 700; color: var(--global-theme-color); }
   .lesson-copy h3 { font-size: 1.15rem; margin: 0 0 .25rem; }
   .lesson-copy p { margin: 0; color: var(--global-text-color-light); }
@@ -49,7 +50,7 @@ _styles: >-
 
 <div class="lesson-list">
   {% for lesson in course.lessons %}
-    <article class="lesson-item">
+    <article class="lesson-item" id="aula-{{ lesson.number }}">
       <div class="lesson-number">{{ lesson.number | prepend: '0' | slice: -2, 2 }}</div>
       <div class="lesson-copy">
         <h3>{{ lesson.title }}</h3>
@@ -59,7 +60,11 @@ _styles: >-
         {% endif %}
       </div>
       <div class="lesson-action">
-        {% if lesson.url %}
+        {% if lesson.versions %}
+          {% for version in lesson.versions %}
+            <a href="{{ version.url }}" target="_blank" rel="noopener noreferrer">{{ version.label }} →</a>
+          {% endfor %}
+        {% elsif lesson.url %}
           {% if lesson.url contains '://' %}
             <a href="{{ lesson.url }}" target="_blank" rel="noopener noreferrer">{{ lesson.action_label | default: 'Acessar aula' }} →</a>
           {% else %}
@@ -88,6 +93,16 @@ _styles: >-
 <div class="course-note">
   <strong>Guia de laboratório — PostgreSQL no Windows</strong>
   <p>Passo a passo para preparar o PostgreSQL com Docker Desktop, conectar pelo pgAdmin 4 e executar o primeiro teste SQL. <a href="https://pfransozi.github.io/bd-2026-02/guia-postgresql-windows.html" target="_blank" rel="noopener noreferrer">Acessar o tutorial →</a></p>
+</div>
+
+<div class="course-note" style="margin-top:1rem">
+  <strong>Guia de laboratório — PostgreSQL no Windows (sem Docker)</strong>
+  <p>Alternativa com instalação nativa do PostgreSQL 18 como serviço do Windows, configuração do pgAdmin 4, criação do usuário e do banco de laboratório e primeiro teste SQL. <a href="https://pfransozi.github.io/bd-2026-02/guia-postgresql-windows-nativo.html" target="_blank" rel="noopener noreferrer">Acessar o tutorial sem Docker →</a></p>
+</div>
+
+<div class="course-note" style="margin-top:1rem">
+  <strong>Prática guiada — PostgreSQL: do SGBD à aplicação</strong>
+  <p>Roteiro passo a passo para criar um sistema de reserva de salas no pgAdmin, investigar integridade, transações e concorrência e conectar uma aplicação Python ao PostgreSQL. Inclui scripts SQL e Python. <a href="https://pfransozi.github.io/bd-2026-02/pratica-10-postgresql-salas.html" target="_blank" rel="noopener noreferrer">Acessar a prática guiada →</a></p>
 </div>
 
 <p class="mt-4"><a href="{{ '/aulas/graduacao/2026-2/' | relative_url }}">← Voltar para 2026/2</a></p>

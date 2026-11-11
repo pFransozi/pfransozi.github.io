@@ -164,16 +164,21 @@ lessons:
     action_label: Acessar aula
 
   - number: 10
-    title: "O SGBD por dentro: funcionamento e usos do PostgreSQL"
+    title: O SGBD por dentro
     description: >-
-      Análise do SGBD como componente da arquitetura de software: acesso
-      cliente-servidor, execução de consultas SQL e mecanismos para organizar,
-      proteger e recuperar dados em um sistema de reserva de salas.
+      Arquitetura cliente-servidor, execução de consultas e mecanismos que
+      organizam, protegem e recuperam os dados de um sistema de reserva de salas.
+      Escolha a versão correspondente ao SGBD da sua turma.
     content: >-
       Banco de dados, cliente, driver e SQL; arquitetura e percurso de um SELECT;
-      integração com Python e psycopg; armazenamento físico e lógico; integridade;
-      transações ACID; MVCC e concorrência; índices e EXPLAIN; segurança,
-      recuperação, replicação, disponibilidade e escalabilidade.
+      integração com aplicações em Python; armazenamento físico e lógico;
+      integridade; transações ACID; MVCC e concorrência; índices e EXPLAIN;
+      segurança, recuperação, replicação, disponibilidade e escalabilidade.
     status: published
     url: https://pfransozi.github.io/bd-2026-02/aula-10.html
     action_label: Acessar aula
+    versions:
+      - label: Aula em PostgreSQL
+        url: https://pfransozi.github.io/bd-2026-02/aula-10.html
+      - label: Aula em MySQL
+        url: https://pfransozi.github.io/bd-2026-02/aula-10-mysql.html
